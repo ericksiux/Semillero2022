@@ -21,6 +21,11 @@ namespace Fletero.Administracion.Services.DomainObject
 
                 demoList = DAO.ObtenerDemoList();
 
+                foreach(var item in demoList)
+                {
+                    Console.Write(string.Format("Campo1 : {0}", item.CampoID));
+                }
+
             }
             catch (Exception ex)
             {
