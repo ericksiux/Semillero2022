@@ -2,6 +2,12 @@ use Fleteros2022;
 IF EXISTS (Select 1 from sysobjects where name = 'sp_DisTienda' and type = 'P')
 	drop procedure sp_DisTienda
 GO
+/****************************************************************************
+* Nombre:		sp_DisTienda												                            *
+* Autor:		Edna Lecea																			    *
+* Fecha:		02/03/2022																			    *
+* Descripción:	Procedimiento Almacenado para registrar la lista de las tiendas que se asocia un fletero*
+****************************************************************************/
 
 create procedure sp_DisTienda(
 	@opc int,

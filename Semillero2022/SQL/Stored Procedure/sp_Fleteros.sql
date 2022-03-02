@@ -3,6 +3,13 @@ IF EXISTS (Select 1 from sysobjects where name = 'sp_Fleteros' and type = 'P')
 	drop procedure sp_Fleteros;
 GO
 
+/****************************************************************************
+* Nombre:		sp_ConsultasFletero												                *
+* Autor:		Edna Lecea																		*
+* Fecha:		02/03/2022																		*
+* Descripción:	Procedimiento Almacenado para ingresar o modificar informacion en tabla fleteros*
+****************************************************************************/
+
 create procedure sp_Fleteros(
 	@opc int,
 	@idFletero int,
