@@ -1,0 +1,43 @@
+﻿@model Fletero2022.Areas.Administracion.Models.DemoABCModel
+
+@{
+    ViewBag.Title = "View";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>View</h2>
+
+<div>
+    <h4>DemoABCModel</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+           @Html.DisplayNameFor(model => model.Campo1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Campo1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Campo2)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Campo2)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Campo4)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Campo4)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
