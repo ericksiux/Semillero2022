@@ -25,5 +25,6 @@ BEGIN
 		SET @id = (select max(idFletero) from Fletero)
 
 		insert into DistTienda(tienda, distrito, fletero)values(@idTienda, @idDistrito, @id)
+		select @@IDENTITY ultimoIdDistTienda
 	END
 END

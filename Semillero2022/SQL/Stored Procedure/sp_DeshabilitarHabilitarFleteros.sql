@@ -1,6 +1,6 @@
 use Fleteros2022;
-IF EXISTS (Select 1 from sysobjects where name = 'sp_AdminFleteros' and type = 'P')
-	drop procedure sp_AdminFleteros;
+IF EXISTS (Select 1 from sysobjects where name = 'sp_DeshabilitarHabilitarFleteros' and type = 'P')
+	drop procedure sp_DeshabilitarHabilitarFleteros;
 GO
 /****************************************************************************
 * Nombre:		sp_AdminFleteros											    *
@@ -8,7 +8,7 @@ GO
 * Fecha:		02/03/2022													    *
 * Descripción:	Procedimiento Almacenado para habilitar y deshabilitar fleteros *
 ****************************************************************************/
-create procedure sp_AdminFleteros(
+create procedure sp_DeshabilitarHabilitarFleteros(
 	@opc int, --Habilitar o deshabilitar
 	@idFletero int,
 	@motivo int,
@@ -29,6 +29,9 @@ BEGIN
 		set estado = 1, --id del estado habilitar
 		motivo = @idmot
 		where idFletero = @idFletero
+
+		return @idmot
+
 	END
 
 	IF @opc = 2 --Deshabilitar
@@ -42,5 +45,7 @@ BEGIN
 		set estado = 2, --id del estado deshabilitar
 		motivo = @idmotd
 		where idFletero = @idFletero
+
+		return @idmotd
 	END
 END
