@@ -1,6 +1,17 @@
+IF EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[Unidad_Agregar]') AND type in (N'P', N'PC'))
+   DROP PROCEDURE Unidad_Agregar
+GO
+
+/***************************************************************************
+* Nombre:		Unidad_Agregar											   *
+* Autor:		Armando Carrizoza										   *
+* Fecha:		03/03/2022												   *
+* Descripción:	Procedimiento Almacenado de ejemplo para agregar datos     *
+****************************************************************************/
+GO
+
 CREATE PROC Unidad_Agregar
 (
-	@idUnidad int,
 	@fletero int,
 	@permiso int,
 	@tipoUnidad int,
@@ -21,10 +32,11 @@ CREATE PROC Unidad_Agregar
 AS
 BEGIN
 
-INSERT INTO UnidadCarga(idUnidad,fletero,permiso,tipoUnidad,numero_eco,tipoCarroceria,marca,
+INSERT INTO UnidadCarga(fletero,permiso,tipoUnidad,numero_eco,tipoCarroceria,marca,
 modelo,largo,ancho,alto,peso,polizaSeguro,tarjetaCirculacion,placas,caract_especial,GPS)
-VALUES (@idUnidad,@fletero,@permiso,@tipoUnidad,@numero_eco,@tipoCarroceria,@marca,@modelo,
+VALUES (@fletero,@permiso,@tipoUnidad,@numero_eco,@tipoCarroceria,@marca,@modelo,
 @largo,@ancho,@alto,@peso,@polizaSeguro,@tarjetaCirculacion,@placas,@caract_especial,@GPS);
-select * from UnidadCarga where idUnidad = @idUnidad;
+
+select @@IDENTITY idUnidad;
 
 END

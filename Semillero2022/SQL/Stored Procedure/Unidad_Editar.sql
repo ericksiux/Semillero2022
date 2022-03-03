@@ -1,3 +1,15 @@
+IF EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[Unidad_Editar]') AND type in (N'P', N'PC'))
+   DROP PROCEDURE Unidad_Editar
+GO
+
+/***************************************************************************
+* Nombre:		Unidad_Editar											   *
+* Autor:		Armando Carrizoza										   *
+* Fecha:		03/03/2022												   *
+* Descripción:	Procedimiento Almacenado de ejemplo para editar datos      *
+****************************************************************************/
+GO
+
 CREATE PROC Unidad_Editar
 (
 	@idUnidad int,
