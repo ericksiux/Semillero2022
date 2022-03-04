@@ -47,7 +47,7 @@ BEGIN
 	IF @opc = 2
 	BEGIN
 	update Fletero
-		set nombreFletero = @nombreFletero, RFC = @RFC, dirFCalle = @dirFCalle, dirFNum = @dirFNum, dirFCol = @dirFCol, dirFMunicipio = @dirFMunicipio, dirFCP = @dirFCP, dirBCalle = @dirBCalle , dirBNum = @dirBNum, dirBCol = @dirBCol, 	dirBMunicipio = @dirBMunicipio, dirBCP = @dirBCP, nombreRepresentante = @nombreRepresentante, nombreCont = @nombreCont, telCelCont = @telCelCont, telOficinaCont = @telOficinaCont, telNextelCont = @telNextelCont, correoPrincipal = @correoPrincipal, fechaAlta = @fechaAlta, indicadorCertif = @indicadorCertif, estado = @estado, motivo = @motivo
+		set nombreFletero = @nombreFletero, RFC = @RFC, dirFCalle = @dirFCalle, dirFNum = @dirFNum, dirFCol = @dirFCol, dirFMunicipio = @dirFMunicipio, dirFCP = @dirFCP, dirBCalle = @dirBCalle , dirBNum = @dirBNum, dirBCol = @dirBCol, 	dirBMunicipio = @dirBMunicipio, dirBCP = @dirBCP, nombreRepresentante = @nombreRepresentante, nombreCont = @nombreCont, telCelCont = @telCelCont, telOficinaCont = @telOficinaCont, telNextelCont = @telNextelCont, correoPrincipal = @correoPrincipal, fechaAlta = @fechaAlta, indicadorCertif = @indicadorCertif, estado = @estado
 		where idFletero = @idFletero
 	select @@IDENTITY ultimoFletero
 	END

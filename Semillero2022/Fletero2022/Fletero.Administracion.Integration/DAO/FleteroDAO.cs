@@ -13,7 +13,7 @@ namespace Fletero.Administracion.Integration.DAO
 {
     public class FleteroDAO
     {
-        public int RegistrarFletero(FleteroDTO fleterodao)
+        public int RegistrarFletero(FleteroDTO fleterodao) //Bien
         {
             int ID = 0;
             try
@@ -38,11 +38,11 @@ namespace Fletero.Administracion.Integration.DAO
                 parameters.Add(new SqlParameter { ParameterName = "@telCelCont", Value = fleterodao.telCelCont });
                 parameters.Add(new SqlParameter { ParameterName = "@telOficinaCont", Value = fleterodao.telOficinaCont });
                 parameters.Add(new SqlParameter { ParameterName = "@telNextelCont", Value = fleterodao.telNextelCont });
-                parameters.Add(new SqlParameter { ParameterName = "@correoPrincipal", Value = fleterodao.@correoPrincipal });
+                parameters.Add(new SqlParameter { ParameterName = "@correoPrincipal", Value = fleterodao.correoPrincipal });
                 parameters.Add(new SqlParameter { ParameterName = "@fechaAlta", Value = fleterodao.fechaAlta });
                 parameters.Add(new SqlParameter { ParameterName = "@indicadorCertif", Value = fleterodao.indicadorCertif });
                 parameters.Add(new SqlParameter { ParameterName = "@estado", Value = fleterodao.estado });
-                parameters.Add(new SqlParameter { ParameterName = "@motivo", Value = fleterodao.motivo });
+                parameters.Add(new SqlParameter { ParameterName = "@motivo", Value = DBNull.Value });
 
                 var ds = DALHelper.Retrive("sp_Fleteros", parameters);
                 ID = FleteroMapper.FleteroDStoDemoID_RegistrarModificarFletero(ds);
@@ -54,7 +54,7 @@ namespace Fletero.Administracion.Integration.DAO
             }
             return ID;
         }
-        public int ModificarFletero(FleteroDTO fleterodao)
+        public int ModificarFletero(FleteroDTO fleterodao)//Bien
         {
             int ID = 0;
             try
