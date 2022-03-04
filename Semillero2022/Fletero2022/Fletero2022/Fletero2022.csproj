@@ -182,6 +182,10 @@
     <Content Include="Scripts\jquery-3.3.1.min.map" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Fletero.Administracion.Integration\Fletero.Administracion.Integration.csproj">
+      <Project>{79EA2BAC-83EA-4B41-8B75-B70D07D7FDED}</Project>
+      <Name>Fletero.Administracion.Integration</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Fletero.Administracion.Services.Contracs\Fletero.Administracion.Services.Contracs.csproj">
       <Project>{06455C9A-A25F-414C-B647-EF8569BEEA4C}</Project>
       <Name>Fletero.Administracion.Services.Contracs</Name>
