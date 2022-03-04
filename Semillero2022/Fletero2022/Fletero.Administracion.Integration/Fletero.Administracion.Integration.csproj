@@ -48,6 +48,8 @@
     <Compile Include="DAO\FleteroDAO.cs" />
     <Compile Include="DAO\Helper\DALHelper.cs" />
     <Compile Include="DAO\Mapper\DemoMapper.cs" />
+    <Compile Include="DAO\Mapper\OperadorMapper.cs" />
+    <Compile Include="DAO\operadorDAO.cs" />
     <Compile Include="DAO\Mapper\FleteroMapper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
