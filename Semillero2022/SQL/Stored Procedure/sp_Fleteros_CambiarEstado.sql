@@ -1,14 +1,14 @@
 use Fleteros2022;
-IF EXISTS (Select 1 from sysobjects where name = 'sp_DeshabilitarHabilitarFleteros' and type = 'P')
-	drop procedure sp_DeshabilitarHabilitarFleteros;
+IF EXISTS (Select 1 from sysobjects where name = 'sp_Fleteros_CambiarEstado' and type = 'P')
+	drop procedure sp_Fleteros_CambiarEstado;
 GO
 /****************************************************************************
-* Nombre:		sp_AdminFleteros											    *
+* Nombre:		sp_Fleteros_CambiarEstado											    *
 * Autor:		Edna Lecea												        *
 * Fecha:		02/03/2022													    *
 * Descripción:	Procedimiento Almacenado para habilitar y deshabilitar fleteros *
 ****************************************************************************/
-create procedure sp_DeshabilitarHabilitarFleteros(
+create procedure sp_Fleteros_CambiarEstado(
 	@opc int, --Habilitar o deshabilitar
 	@idFletero int,
 	@motivo int,
@@ -23,14 +23,14 @@ BEGIN
 		insert into Motivo(motivo, descripcion, fecha)values(@motivo, @descripcion, @fechaMotivo)
 
 		DECLARE @idmot int
-		SET @idmot = (select max(idMotivo) from Motivo)
+		SET @idmot =(select @@IDENTITY)
 
 		update Fletero
 		set estado = 1, --id del estado habilitar
 		motivo = @idmot
 		where idFletero = @idFletero
 
-		return @idmot
+		select @idmot idmot
 
 	END
 
@@ -39,13 +39,13 @@ BEGIN
 		insert into Motivo(motivo, descripcion, fecha)values(@motivo, @descripcion, @fechaMotivo)
 
 		DECLARE @idmotd int
-		SET @idmotd = (select max(idMotivo) from Motivo)
+		SET @idmotd = (select @@IDENTITY)
 
 		update Fletero
 		set estado = 2, --id del estado deshabilitar
 		motivo = @idmotd
 		where idFletero = @idFletero
 
-		return @idmotd
+		select @idmotd idmotd
 	END
 END
