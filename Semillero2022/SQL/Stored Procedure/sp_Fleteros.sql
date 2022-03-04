@@ -41,6 +41,7 @@ BEGIN
 	IF @opc = 1
 	BEGIN
 		insert into Fletero(nombreFletero, RFC, dirFCalle, dirFNum, dirFCol, dirFMunicipio, dirFCP, dirBCalle, dirBNum, dirBCol, dirBMunicipio, dirBCP, nombreRepresentante, nombreCont, telCelCont, telOficinaCont, telNextelCont, correoPrincipal, fechaAlta, indicadorCertif, estado, motivo)values (@nombreFletero, @RFC, @dirFCalle, @dirFNum, @dirFCol, @dirFMunicipio, @dirFCP, @dirBCalle, @dirBNum, @dirBCol, @dirBMunicipio, @dirBCP, @nombreRepresentante, @nombreCont, @telCelCont, @telOficinaCont, @telNextelCont, @correoPrincipal, @fechaAlta, @indicadorCertif, @estado, @motivo);
+		select @@IDENTITY ultimoFletero
 	END
 
 	IF @opc = 2
@@ -48,6 +49,6 @@ BEGIN
 	update Fletero
 		set nombreFletero = @nombreFletero, RFC = @RFC, dirFCalle = @dirFCalle, dirFNum = @dirFNum, dirFCol = @dirFCol, dirFMunicipio = @dirFMunicipio, dirFCP = @dirFCP, dirBCalle = @dirBCalle , dirBNum = @dirBNum, dirBCol = @dirBCol, 	dirBMunicipio = @dirBMunicipio, dirBCP = @dirBCP, nombreRepresentante = @nombreRepresentante, nombreCont = @nombreCont, telCelCont = @telCelCont, telOficinaCont = @telOficinaCont, telNextelCont = @telNextelCont, correoPrincipal = @correoPrincipal, fechaAlta = @fechaAlta, indicadorCertif = @indicadorCertif, estado = @estado, motivo = @motivo
 		where idFletero = @idFletero
-	
+	select @@IDENTITY ultimoFletero
 	END
 END
