@@ -44,6 +44,7 @@
   <ItemGroup>
     <Compile Include="DomainObject\IDemoDomainObject.cs" />
     <Compile Include="DTO\CatalogoDTO.cs" />
+    <Compile Include="DTO\UnidadCargaDTO.cs" />
     <Compile Include="DTO\DemoDTO.cs" />
     <Compile Include="DTO\OperadorDTO.cs" />
     <Compile Include="DTO\DistTiendaDTO.cs" />
