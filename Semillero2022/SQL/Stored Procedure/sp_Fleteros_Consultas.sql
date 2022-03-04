@@ -34,7 +34,7 @@ BEGIN
 
 	IF @opc = 2 --Informacion detallada Fletero
 	BEGIN
-		select DISTRICTNAME, STORENAME, f.nombreFletero, f.RFC, f.dirFCalle, f.dirFNum, f.dirFCol, ce.NOMBRE as 'Estado', cm.NOMBRE as 'Municipio', f.dirFCP, f.nombreRepresentante, f.nombreCont, f.telCelCont, f.telOficinaCont, f.telNextelCont, f.correoPrincipal, f.fechaAlta
+		select DISTRICTNAME, STORENAME, f.nombreFletero, f.RFC, f.dirFCalle, f.dirFNum, f.dirFCol, ce.NOMBRE EstadoF, cm.NOMBRE MunicipioF, f.dirFCP, f.nombreRepresentante, f.nombreCont, f.telCelCont, f.telOficinaCont, f.telNextelCont, f.correoPrincipal, f.fechaAlta
   		from DistTienda dt
 			inner join Catalogo_Tienda ct
 				inner join Catalogo_Distrito cd
