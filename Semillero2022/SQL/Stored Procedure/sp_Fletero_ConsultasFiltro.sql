@@ -9,10 +9,10 @@ GO
 ****************************************************************************/
 
 create procedure sp_Fletero_ConsultasFiltro(
-	@idDistrito int, --filtro nombre distrito
-	@idTienda int, --filtro nombre tienda
-	@fletero int, --filtro nombre fletero
-	@estado int --filtro estado del fletero
+	@idDistrito int = null, --filtro nombre distrito
+	@idTienda int = null, --filtro nombre tienda
+	@fletero int = null, --filtro nombre fletero
+	@estado int = null --filtro estado del fletero
 )
 AS
 BEGIN
