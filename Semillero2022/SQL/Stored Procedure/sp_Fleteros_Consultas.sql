@@ -1,3 +1,4 @@
+use Fleteros2022;
 IF EXISTS (Select 1 from sysobjects where name = 'sp_Fletero_Consultas' and type = 'P')
 	drop procedure sp_Fletero_Consultas
 GO
@@ -16,7 +17,7 @@ AS
 BEGIN
 	IF @opc = 1 --Información general Fletero sin filtro
 	BEGIN
-		 select DISTRICTNAME, STORENAME, nombreFletero, nombreCont, telCelCont, telOficinaCont, telNextelCont, correoPrincipal, e.estado, tm.motivo
+		 select DISTRICTNAME, STORENAME, nombreFletero, nombreCont, telCelCont, telOficinaCont, telNextelCont, correoPrincipal, e.estado TipoEstado, tm.motivo TituloMotivo
   		  from DistTienda dt
 			inner join Catalogo_Tienda ct
 				inner join Catalogo_Distrito cd
