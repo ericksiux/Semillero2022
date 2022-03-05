@@ -18,24 +18,13 @@ GO
 -- Create date: 2/3/2022
 -- Description:	stored obtener datos 
 -- =============================================
-CREATE PROCEDURE sp_SelectContratos 
+CREATE PROCEDURE Contratos_Obtener 
 	-- Add the parameters for the stored procedure here
-	@pIdContrato int, 
-	@pLugarFirmaContrato VARCHAR,
-	@pFechaFirmaContrato datetime,
-	@pQuienFirmaHomeDepot varchar,
-	@pQuienFirmaFletero varchar,
-	@pQuienRealizoFirma varchar,
-	@pFechaInicioContrato datetime,
-	@pFechaTerminacionContrato datetime,
-	@pRenovacionAutomatica bit,
+	@pIdContrato int,
 	@pRegion varchar,
 	@pDistrito varchar,
 	@pTienda varchar,
-	@pFletero varchar,
-	@pStatusContrato int,
-	@pTarifa int,
-	@pArchivo int
+	@pFletero varchar
 AS
 BEGIN
 	-- SET NOCOUNT ON added to prevent extra result sets from
@@ -43,43 +32,16 @@ BEGIN
 	SET NOCOUNT ON;
 
     -- Insert statements for procedure here
-	SELECT c.idContrato, 
-	c.lugarFirmaContrato, 
-	c.fechaFirmaContrato,
-	c.quienFirmaHomeDepot,
-	c.quienFirmaFletero,
-	c.quienRealizoFirma,
-	c.fechaInicioContrato,
-	c.fechaTerminacionContrato,
-	c.renovacionAutomatica,
+	SELECT c.idContrato,
 	c.region,
 	c.distrito,
 	c.tienda,
 	c.fletero,
-	c.statusContrato,
-	c.tarifa,
-	c.archivo
 
 	FROM Contratos c
 
 	WHERE c.idContrato = @pIdContrato 
 	AND 
-	c.lugarFirmaContrato = @pLugarFirmaContrato 
-	AND 
-	c.fechaFirmaContrato = @pFechaFirmaContrato
-	AND 
-	c.quienFirmaHomeDepot = @pQuienFirmaHomeDepot
-	AND
-	c.quienFirmaFletero = @pQuienFirmaFletero
-	AND 
-	c.quienRealizoFirma = @pQuienRealizoFirma
-	AND
-	c.fechaInicioContrato = @pFechaInicioContrato
-	AND
-	c.fechaTerminacionContrato = @pFechaTerminacionContrato
-	AND
-	c.renovacionAutomatica = @pRenovacionAutomatica
-	AND
 	c.region = c.region
 	AND
 	c.distrito = @pDistrito
@@ -87,11 +49,5 @@ BEGIN
 	c.tienda = @pTienda
 	AND
 	c.fletero = @pFletero
-	AND
-	c.statusContrato = @pStatusContrato
-	AND
-	c.tarifa = @pTarifa
-	AND
-	c.archivo = @pArchivo
 END
 GO
