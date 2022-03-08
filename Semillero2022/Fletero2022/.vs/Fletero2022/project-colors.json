@@ -1,25 +1,30 @@
 {
   "Version": 1,
   "ProjectMap": {
+    "79ea2bac-83ea-4b41-8b75-b70d07d7fded": {
+      "ProjectGuid": "79ea2bac-83ea-4b41-8b75-b70d07d7fded",
+      "DisplayName": "Fletero.Administracion.Integration",
+      "ColorIndex": 0
+    },
     "1635061a-16c7-4988-8b45-33ac7321058f": {
       "ProjectGuid": "1635061a-16c7-4988-8b45-33ac7321058f",
       "DisplayName": "Fletero2022",
-      "ColorIndex": 0
+      "ColorIndex": 1
     },
     "06455c9a-a25f-414c-b647-ef8569beea4c": {
       "ProjectGuid": "06455c9a-a25f-414c-b647-ef8569beea4c",
       "DisplayName": "Fletero.Administracion.Services.Contracs",
-      "ColorIndex": 1
-    },
-    "79ea2bac-83ea-4b41-8b75-b70d07d7fded": {
-      "ProjectGuid": "79ea2bac-83ea-4b41-8b75-b70d07d7fded",
-      "DisplayName": "Fletero.Administracion.Integration",
       "ColorIndex": 2
     },
     "cbea2d86-7d58-4c52-96fc-28a4134c7a48": {
       "ProjectGuid": "cbea2d86-7d58-4c52-96fc-28a4134c7a48",
       "DisplayName": "Fletero.Administracion.Services",
       "ColorIndex": 3
+    },
+    "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3": {
+      "ProjectGuid": "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3",
+      "DisplayName": "Miscellaneous Files",
+      "ColorIndex": -1
     }
   },
   "NextColorIndex": 4
