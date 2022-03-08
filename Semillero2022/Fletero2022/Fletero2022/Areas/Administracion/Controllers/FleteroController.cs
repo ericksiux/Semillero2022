@@ -13,5 +13,13 @@ namespace Fletero2022.Areas.Administracion.Controllers
         {
             return View();
         }
+        public ActionResult Agregar()
+        {
+            return View();
+        }
+        public ActionResult Editar()
+        {
+            return View();
+        }
     }
 }
