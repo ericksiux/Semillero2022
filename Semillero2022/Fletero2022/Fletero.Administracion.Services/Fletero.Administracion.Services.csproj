@@ -44,8 +44,10 @@
   <ItemGroup>
     <Compile Include="DomainObject\DemoDomainObject.cs" />
     <Compile Include="DomainObject\FleteroDomainObject.cs" />
+    <Compile Include="DomainObject\UnidadDomainObject.cs" />
     <Compile Include="Manager\DemoManager.cs" />
     <Compile Include="Manager\FleteroManager.cs" />
+    <Compile Include="Manager\UnidadManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
