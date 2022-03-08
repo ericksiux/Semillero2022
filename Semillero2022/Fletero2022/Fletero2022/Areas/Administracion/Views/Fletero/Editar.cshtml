@@ -1,0 +1,299 @@
+﻿
+@{
+    ViewBag.Title = "Editar fletero";
+}
+
+<h2>@ViewBag.Title</h2>
+<br />
+<div class="container">
+    <div class="col-lg-6">
+        <form>
+            <div class="" style="display: flex; align-items:center">
+                <div class="col-sm-2 ">
+                    <label class="control-label" for="DistritoSelect">Distrito:</label>
+                </div>
+                <div class="col-sm-6">
+                    <select class="form-control" aria-label="Default select example" id="DistritoSelect" disabled>
+                        <option selected>Open this select menu</option>
+                        <option value="1">One</option>
+                        <option value="2">Two</option>
+                        <option value="3">Three</option>
+                    </select>
+                </div>
+            </div>
+            <br />
+            <div class="" style="display: flex; align-items:center">
+                <div class="col-sm-2 ">
+                    <label class="control-label" for="TiendaSelect">Tienda:</label>
+                </div>
+                <div class="col-sm-6">
+                    <select class="form-control" aria-label="Default select example" id="TiendaSelect" disabled>
+                        <option selected>Open this select menu</option>
+                        <option value="1">One</option>
+                        <option value="2">Two</option>
+                        <option value="3">Three</option>
+                    </select>
+                </div>
+            </div>
+            <br />
+            <div class="" style="display: flex; align-items:center">
+                <div class="col-sm-2 ">
+                    <label class="control-label" for="Fletero">Fletero(*):</label>
+                </div>
+                <div class="col-sm-6">
+                    <input id="Fletero" class="form-control" type="text" readonly/>
+                </div>
+            </div>
+            <br />
+            <div class="" style="display: flex; align-items:center">
+                <div class="col-sm-2 ">
+                    <label class="control-label" for="RFC">RFC(*):</label>
+                </div>
+                <div class="col-sm-6">
+                    <input id="RFC" class="form-control" type="text" readonly />
+                </div>
+            </div>
+            <br />
+
+            <h4 class="text-info">Direccion Fiscal</h4>
+            <div class="" style="display: flex; align-items:center">
+                <div class="col-sm-2 ">
+                    <label class="control-label" for="dirFCalle">Calle(*):</label>
+                </div>
+                <div class="col-sm-6">
+                    <input id="dirFCalle" class="form-control" type="text" />
+                </div>
+            </div>
+            <br />
+            <div class="" style="display: flex; align-items:center">
+                <div class="col-sm-2 ">
+                    <label class="control-label" for="dirFNum">Número(*):</label>
+                </div>
+                <div class="col-sm-6">
+                    <input id="dirFNum" class="form-control" type="text" />
+                </div>
+            </div>
+            <br />
+            <div class="" style="display: flex; align-items:center">
+                <div class="col-sm-2 ">
+                    <label class="control-label" for="dirFCol">Colonia(*):</label>
+                </div>
+                <div class="col-sm-6">
+                    <input id="dirFCol" class="form-control" type="text" />
+                </div>
+            </div>
+            <br />
+            <div class="" style="display: flex; align-items:center">
+                <div class="col-sm-2 ">
+                    <label class="control-label" for="MunicipioFSelect">Municipio(*):</label>
+                </div>
+                <div class="col-sm-6">
+                    <select class="form-control" aria-label="Default select example" id="MunicipioFSelect">
+                        <option selected>Open this select menu</option>
+                        <option value="1">One</option>
+                        <option value="2">Two</option>
+                        <option value="3">Three</option>
+                    </select>
+                </div>
+            </div>
+            <br />
+            <div class="" style="display: flex; align-items:center">
+                <div class="col-sm-2 ">
+                    <label class="control-label" for="EstadoFSelect">Estado(*):</label>
+                </div>
+                <div class="col-sm-6">
+                    <select class="form-control" aria-label="Default select example" id="EstadoFSelect">
+                        <option selected>Open this select menu</option>
+                        <option value="1">One</option>
+                        <option value="2">Two</option>
+                        <option value="3">Three</option>
+                    </select>
+                </div>
+            </div>
+            <br />
+            <div class="" style="display: flex; align-items:center">
+                <div class="col-sm-2 ">
+                    <label class="control-label" for="dirFCP">CP(*):</label>
+                </div>
+                <div class="col-sm-6">
+                    <input id="dirFCP" class="form-control" type="text" />
+                </div>
+            </div>
+            <br />
+            <h4 class="text-info">Direccion Base</h4>
+            <div class="" style="display: flex; align-items:center">
+                <div class="col-sm-2 ">
+                    <label class="control-label" for="dirBCalle">Calle(*):</label>
+                </div>
+                <div class="col-sm-6">
+                    <input id="dirBCalle" class="form-control" type="text" />
+                </div>
+            </div>
+            <br />
+            <div class="" style="display: flex; align-items:center">
+                <div class="col-sm-2 ">
+                    <label class="control-label" for="dirBNum">Número(*):</label>
+                </div>
+                <div class="col-sm-6">
+                    <input id="dirBNum" class="form-control" type="text" />
+                </div>
+            </div>
+            <br />
+            <div class="" style="display: flex; align-items:center">
+                <div class="col-sm-2 ">
+                    <label class="control-label" for="dirBCol">Colonia(*):</label>
+                </div>
+                <div class="col-sm-6">
+                    <input id="dirBCol" class="form-control" type="text" />
+                </div>
+            </div>
+            <br />
+            <div class="" style="display: flex; align-items:center">
+                <div class="col-sm-2 ">
+                    <label class="control-label" for="MunicipioBSelect">Municipio(*):</label>
+                </div>
+                <div class="col-sm-6">
+                    <select class="form-control" aria-label="Default select example" id="MunicipioBSelect">
+                        <option selected>Open this select menu</option>
+                        <option value="1">One</option>
+                        <option value="2">Two</option>
+                        <option value="3">Three</option>
+                    </select>
+                </div>
+            </div>
+            <br />
+            <div class="" style="display: flex; align-items:center">
+                <div class="col-sm-2 ">
+                    <label class="control-label" for="EstadoBSelect">Estado(*):</label>
+                </div>
+                <div class="col-sm-6">
+                    <select class="form-control" aria-label="Default select example" id="EstadoBSelect">
+                        <option selected>Open this select menu</option>
+                        <option value="1">One</option>
+                        <option value="2">Two</option>
+                        <option value="3">Three</option>
+                    </select>
+                </div>
+            </div>
+            <br />
+            <div class="" style="display: flex; align-items:center">
+                <div class="col-sm-2 ">
+                    <label class="control-label" for="dirBCP">CP(*):</label>
+                </div>
+                <div class="col-sm-6">
+                    <input id="dirBCP" class="form-control" type="text" />
+                </div>
+            </div>
+            <br />
+
+            <h4 class="text-info">Información adicional</h4>
+            <div class="" style="display: flex; align-items:center">
+                <div class="col-sm-3 ">
+                    <label class="control-label" for="NombreRepresentante">Nombre representate(*):</label>
+                </div>
+                <div class="col-sm-6">
+                    <input id="NombreRepresentante" class="form-control" type="text" />
+                </div>
+            </div>
+            <br />
+            <div class="" style="display: flex; align-items:center">
+                <div class="col-sm-3 ">
+                    <label class="control-label" for="contPrincipal">Contacto principal(*):</label>
+                </div>
+                <div class="col-sm-6">
+                    <input id="contPrincipal" class="form-control" type="text" />
+                </div>
+            </div>
+            <br />
+            <div class="" style="display: flex; align-items:center">
+                <div class="col-sm-3 ">
+                    <label class="control-label" for="telCel">Teléfono celular(*):</label>
+                </div>
+                <div class="col-sm-6">
+                    <input id="telCel" class="form-control" type="text" />
+                </div>
+            </div>
+            <br />
+            <div class="" style="display: flex; align-items:center">
+                <div class="col-sm-3 ">
+                    <label class="control-label" for="telOfic">Teléfono de Oficina(*):</label>
+                </div>
+                <div class="col-sm-6">
+                    <input id="telOfic" class="form-control" type="text" />
+                </div>
+            </div>
+            <br />
+            <div class="" style="display: flex; align-items:center">
+                <div class="col-sm-3 ">
+                    <label class="control-label" for="telNext">Teléfono Nextel(*):</label>
+                </div>
+                <div class="col-sm-6">
+                    <input id="telNext" class="form-control" type="text" />
+                </div>
+            </div>
+            <br />
+            <div class="" style="display: flex; align-items:center">
+                <div class="col-sm-3 ">
+                    <label class="control-label" for="correo">Correo(*):</label>
+                </div>
+                <div class="col-sm-6">
+                    <input id="correo" class="form-control" type="text" />
+                </div>
+            </div>
+            <br />
+            <div class="" style="display: flex; align-items:center">
+                <div class="col-sm-3 ">
+                    <label class="control-label" for="fechaAlta">Fecha alta(*):</label>
+                </div>
+                <div class="col-sm-6">
+                    <input id="fechaAlta" class="form-control" type="datetime" value="@Convert.ToDateTime(DateTime.Now).ToString("dd-MM-yyyy")" readonly />
+                </div>
+            </div>
+            <div class="" style="display: flex; align-items:center">
+                <div class="col-sm-3 ">
+                    <label class="control-label" for="indicador">Indicador Certificación(*):</label>
+                </div>
+                <div class="col-sm-6">
+                    <input id="indicador" class="form-control" type="text" readonly value="N/A" />
+                </div>
+            </div>
+
+            <br />
+            <br />
+
+            <div class="col-lg-12">
+                <input type="submit" class="btn btn-success" style="margin-right:3px;" onclick="document.location.href = '@Url.Content("~/User/Add")'" value="Guardar" />
+                <input type="button" class="btn btn-danger" data-toggle="modal" data-target="#ModalCenter" value="Cancelar" />
+            </div>
+        </form>
+    </div>
+
+</div>
+
+<div class="modal fade" id="ModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title" id="exampleModalLongTitle">Confirmar deshacer</h3>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                </button>
+            </div>
+            <div class="modal-body">
+                La información se perderá. ¿Desea continuar?
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-success" onclick="jsBack()">Aceptar</button>
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+
+    function jsBack() {
+        url = '@Url.Content("~/Administracion/Fletero/Index")';
+        document.location.href = url;
+    }
+</script>

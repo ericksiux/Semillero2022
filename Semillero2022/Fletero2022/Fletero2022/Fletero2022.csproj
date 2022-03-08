@@ -117,6 +117,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\Administracion\AdministracionAreaRegistration.cs" />
     <Compile Include="Areas\Administracion\Controllers\DemoABCController.cs" />
+    <Compile Include="Areas\Administracion\Controllers\FleteroController.cs" />
     <Compile Include="Areas\Administracion\Controllers\OperadorController.cs" />
     <Compile Include="Areas\Administracion\Models\DemoABCModel.cs" />
     <Compile Include="Areas\Administracion\Models\OperadorModel.cs" />
@@ -139,6 +140,11 @@
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Areas\Administracion\Views\web.config" />
     <Content Include="Areas\Administracion\Views\DemoABC\Index.cshtml" />
+    <Content Include="Areas\Administracion\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\Administracion\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\Administracion\Views\Fletero\Index.cshtml" />
+    <Content Include="Areas\Administracion\Views\Fletero\Agregar.cshtml" />
+    <Content Include="Areas\Administracion\Views\Fletero\Editar.cshtml" />
     <Content Include="Areas\Administracion\Views\_ViewStart.cshtml" />
     <Content Include="Areas\Administracion\Views\Shared\_Layout.cshtml" />
     <Content Include="Areas\Administracion\Views\Operador\index.cshtml" />

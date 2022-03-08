@@ -18,7 +18,7 @@ GO
 -- Create date: 2/3/2022
 -- Description:	Stored insertar datos
 -- =============================================
-CREATE PROCEDURE sp_InsertarCamposTarifas
+CREATE PROCEDURE CamposTarifas_Insertar
 	-- Add the parameters for the stored procedure here
 	@pIdCampoTarifa int,
 	@pMetodoPagoLocal bit,

@@ -13,7 +13,7 @@ namespace Fletero.Administracion.Integration.DAO
 {
     public class FleteroDAO
     {
-        public int RegistrarFletero(FleteroDTO fleterodao)
+        public int RegistrarFletero(FleteroDTO fleterodto) //Bien
         {
             int ID = 0;
             try
@@ -21,28 +21,28 @@ namespace Fletero.Administracion.Integration.DAO
                 IList<IDbDataParameter> parameters = new List<IDbDataParameter>();
                 parameters.Add(new SqlParameter { ParameterName = "@opc", Value = 1 });
                 parameters.Add(new SqlParameter { ParameterName = "@idFletero", Value = DBNull.Value});
-                parameters.Add(new SqlParameter { ParameterName = "@nombreFletero", Value = fleterodao.nombreFletero });
-                parameters.Add(new SqlParameter { ParameterName = "@RFC", Value = fleterodao.RFC });
-                parameters.Add(new SqlParameter { ParameterName = "@dirFCalle", Value = fleterodao.dirFCalle });
-                parameters.Add(new SqlParameter { ParameterName = "@dirFNum", Value = fleterodao.dirFNum });
-                parameters.Add(new SqlParameter { ParameterName = "@dirFCol", Value = fleterodao.dirFCol });
-                parameters.Add(new SqlParameter { ParameterName = "@dirFMunicipio", Value = fleterodao.dirFMunicipio });
-                parameters.Add(new SqlParameter { ParameterName = "@dirFCP", Value = fleterodao.dirFCP });
-                parameters.Add(new SqlParameter { ParameterName = "@dirBCalle", Value = fleterodao.dirBCalle });
-                parameters.Add(new SqlParameter { ParameterName = "@dirBNum", Value = fleterodao.dirBNum });
-                parameters.Add(new SqlParameter { ParameterName = "@dirBCol", Value = fleterodao.dirBCol });
-                parameters.Add(new SqlParameter { ParameterName = "@dirBMunicipio", Value = fleterodao.dirBMunicipio });
-                parameters.Add(new SqlParameter { ParameterName = "@dirBCP", Value = fleterodao.dirBCP });
-                parameters.Add(new SqlParameter { ParameterName = "@nombreRepresentante", Value = fleterodao.nombreRepresentante });
-                parameters.Add(new SqlParameter { ParameterName = "@nombreCont", Value = fleterodao.nombreCont });
-                parameters.Add(new SqlParameter { ParameterName = "@telCelCont", Value = fleterodao.telCelCont });
-                parameters.Add(new SqlParameter { ParameterName = "@telOficinaCont", Value = fleterodao.telOficinaCont });
-                parameters.Add(new SqlParameter { ParameterName = "@telNextelCont", Value = fleterodao.telNextelCont });
-                parameters.Add(new SqlParameter { ParameterName = "@correoPrincipal", Value = fleterodao.@correoPrincipal });
-                parameters.Add(new SqlParameter { ParameterName = "@fechaAlta", Value = fleterodao.fechaAlta });
-                parameters.Add(new SqlParameter { ParameterName = "@indicadorCertif", Value = fleterodao.indicadorCertif });
-                parameters.Add(new SqlParameter { ParameterName = "@estado", Value = fleterodao.estado });
-                parameters.Add(new SqlParameter { ParameterName = "@motivo", Value = fleterodao.motivo });
+                parameters.Add(new SqlParameter { ParameterName = "@nombreFletero", Value = fleterodto.nombreFletero });
+                parameters.Add(new SqlParameter { ParameterName = "@RFC", Value = fleterodto.RFC });
+                parameters.Add(new SqlParameter { ParameterName = "@dirFCalle", Value = fleterodto.dirFCalle });
+                parameters.Add(new SqlParameter { ParameterName = "@dirFNum", Value = fleterodto.dirFNum });
+                parameters.Add(new SqlParameter { ParameterName = "@dirFCol", Value = fleterodto.dirFCol });
+                parameters.Add(new SqlParameter { ParameterName = "@dirFMunicipio", Value = fleterodto.dirFMunicipio });
+                parameters.Add(new SqlParameter { ParameterName = "@dirFCP", Value = fleterodto.dirFCP });
+                parameters.Add(new SqlParameter { ParameterName = "@dirBCalle", Value = fleterodto.dirBCalle });
+                parameters.Add(new SqlParameter { ParameterName = "@dirBNum", Value = fleterodto.dirBNum });
+                parameters.Add(new SqlParameter { ParameterName = "@dirBCol", Value = fleterodto.dirBCol });
+                parameters.Add(new SqlParameter { ParameterName = "@dirBMunicipio", Value = fleterodto.dirBMunicipio });
+                parameters.Add(new SqlParameter { ParameterName = "@dirBCP", Value = fleterodto.dirBCP });
+                parameters.Add(new SqlParameter { ParameterName = "@nombreRepresentante", Value = fleterodto.nombreRepresentante });
+                parameters.Add(new SqlParameter { ParameterName = "@nombreCont", Value = fleterodto.nombreCont });
+                parameters.Add(new SqlParameter { ParameterName = "@telCelCont", Value = fleterodto.telCelCont });
+                parameters.Add(new SqlParameter { ParameterName = "@telOficinaCont", Value = fleterodto.telOficinaCont });
+                parameters.Add(new SqlParameter { ParameterName = "@telNextelCont", Value = fleterodto.telNextelCont });
+                parameters.Add(new SqlParameter { ParameterName = "@correoPrincipal", Value = fleterodto.correoPrincipal });
+                parameters.Add(new SqlParameter { ParameterName = "@fechaAlta", Value = fleterodto.fechaAlta });
+                parameters.Add(new SqlParameter { ParameterName = "@indicadorCertif", Value = fleterodto.indicadorCertif });
+                parameters.Add(new SqlParameter { ParameterName = "@estado", Value = fleterodto.estado });
+                parameters.Add(new SqlParameter { ParameterName = "@motivo", Value = DBNull.Value });
 
                 var ds = DALHelper.Retrive("sp_Fleteros", parameters);
                 ID = FleteroMapper.FleteroDStoDemoID_RegistrarModificarFletero(ds);
@@ -54,36 +54,36 @@ namespace Fletero.Administracion.Integration.DAO
             }
             return ID;
         }
-        public int ModificarFletero(FleteroDTO fleterodao)
+        public int ModificarFletero(FleteroDTO fleterodto)//Bien
         {
             int ID = 0;
             try
             {
                 IList<IDbDataParameter> parameters = new List<IDbDataParameter>();
                 parameters.Add(new SqlParameter { ParameterName = "@opc", Value = 2 });
-                parameters.Add(new SqlParameter { ParameterName = "@idFletero", Value = fleterodao.idFletero });
-                parameters.Add(new SqlParameter { ParameterName = "@nombreFletero", Value = fleterodao.nombreFletero });
-                parameters.Add(new SqlParameter { ParameterName = "@RFC", Value = fleterodao.RFC });
-                parameters.Add(new SqlParameter { ParameterName = "@dirFCalle", Value = fleterodao.dirFCalle });
-                parameters.Add(new SqlParameter { ParameterName = "@dirFNum", Value = fleterodao.dirFNum });
-                parameters.Add(new SqlParameter { ParameterName = "@dirFCol", Value = fleterodao.dirFCol });
-                parameters.Add(new SqlParameter { ParameterName = "@dirFMunicipio", Value = fleterodao.dirFMunicipio });
-                parameters.Add(new SqlParameter { ParameterName = "@dirFCP", Value = fleterodao.dirFCP });
-                parameters.Add(new SqlParameter { ParameterName = "@dirBCalle", Value = fleterodao.dirBCalle });
-                parameters.Add(new SqlParameter { ParameterName = "@dirBNum", Value = fleterodao.dirBNum });
-                parameters.Add(new SqlParameter { ParameterName = "@dirBCol", Value = fleterodao.dirBCol });
-                parameters.Add(new SqlParameter { ParameterName = "@dirBMunicipio", Value = fleterodao.dirBMunicipio });
-                parameters.Add(new SqlParameter { ParameterName = "@dirBCP", Value = fleterodao.dirBCP });
-                parameters.Add(new SqlParameter { ParameterName = "@nombreRepresentante", Value = fleterodao.nombreRepresentante });
-                parameters.Add(new SqlParameter { ParameterName = "@nombreCont", Value = fleterodao.nombreCont });
-                parameters.Add(new SqlParameter { ParameterName = "@telCelCont", Value = fleterodao.telCelCont });
-                parameters.Add(new SqlParameter { ParameterName = "@telOficinaCont", Value = fleterodao.telOficinaCont });
-                parameters.Add(new SqlParameter { ParameterName = "@telNextelCont", Value = fleterodao.telNextelCont });
-                parameters.Add(new SqlParameter { ParameterName = "@correoPrincipal", Value = fleterodao.@correoPrincipal });
-                parameters.Add(new SqlParameter { ParameterName = "@fechaAlta", Value = fleterodao.fechaAlta });
-                parameters.Add(new SqlParameter { ParameterName = "@indicadorCertif", Value = fleterodao.indicadorCertif });
-                parameters.Add(new SqlParameter { ParameterName = "@estado", Value = fleterodao.estado });
-                parameters.Add(new SqlParameter { ParameterName = "@motivo", Value = fleterodao.motivo });
+                parameters.Add(new SqlParameter { ParameterName = "@idFletero", Value = fleterodto.idFletero });
+                parameters.Add(new SqlParameter { ParameterName = "@nombreFletero", Value = fleterodto.nombreFletero });
+                parameters.Add(new SqlParameter { ParameterName = "@RFC", Value = fleterodto.RFC });
+                parameters.Add(new SqlParameter { ParameterName = "@dirFCalle", Value = fleterodto.dirFCalle });
+                parameters.Add(new SqlParameter { ParameterName = "@dirFNum", Value = fleterodto.dirFNum });
+                parameters.Add(new SqlParameter { ParameterName = "@dirFCol", Value = fleterodto.dirFCol });
+                parameters.Add(new SqlParameter { ParameterName = "@dirFMunicipio", Value = fleterodto.dirFMunicipio });
+                parameters.Add(new SqlParameter { ParameterName = "@dirFCP", Value = fleterodto.dirFCP });
+                parameters.Add(new SqlParameter { ParameterName = "@dirBCalle", Value = fleterodto.dirBCalle });
+                parameters.Add(new SqlParameter { ParameterName = "@dirBNum", Value = fleterodto.dirBNum });
+                parameters.Add(new SqlParameter { ParameterName = "@dirBCol", Value = fleterodto.dirBCol });
+                parameters.Add(new SqlParameter { ParameterName = "@dirBMunicipio", Value = fleterodto.dirBMunicipio });
+                parameters.Add(new SqlParameter { ParameterName = "@dirBCP", Value = fleterodto.dirBCP });
+                parameters.Add(new SqlParameter { ParameterName = "@nombreRepresentante", Value = fleterodto.nombreRepresentante });
+                parameters.Add(new SqlParameter { ParameterName = "@nombreCont", Value = fleterodto.nombreCont });
+                parameters.Add(new SqlParameter { ParameterName = "@telCelCont", Value = fleterodto.telCelCont });
+                parameters.Add(new SqlParameter { ParameterName = "@telOficinaCont", Value = fleterodto.telOficinaCont });
+                parameters.Add(new SqlParameter { ParameterName = "@telNextelCont", Value = fleterodto.telNextelCont });
+                parameters.Add(new SqlParameter { ParameterName = "@correoPrincipal", Value = fleterodto.@correoPrincipal });
+                parameters.Add(new SqlParameter { ParameterName = "@fechaAlta", Value = fleterodto.fechaAlta });
+                parameters.Add(new SqlParameter { ParameterName = "@indicadorCertif", Value = fleterodto.indicadorCertif });
+                parameters.Add(new SqlParameter { ParameterName = "@estado", Value = fleterodto.estado });
+                parameters.Add(new SqlParameter { ParameterName = "@motivo", Value = fleterodto.motivo });
             
                 var ds = DALHelper.Retrive("sp_Fleteros", parameters);
                 ID = FleteroMapper.FleteroDStoDemoID_RegistrarModificarFletero(ds);
@@ -147,7 +147,7 @@ namespace Fletero.Administracion.Integration.DAO
                 IList<IDbDataParameter> parameters = new List<IDbDataParameter>();
                 parameters.Add(new SqlParameter { ParameterName = "@opc", Value = 1 }); 
                 parameters.Add(new SqlParameter { ParameterName = "@idFletero", Value = idFletero });
-                parameters.Add(new SqlParameter { ParameterName = "@motivo", Value = idTienda }); 
+                parameters.Add(new SqlParameter { ParameterName = "@@idTienda", Value = idTienda }); 
 
                 var ds = DALHelper.Retrive("sp_Fletero_DisTienda", parameters);
                 ID = FleteroMapper.FleteroDStoDemoID_AgregarTiendasFletero(ds);
