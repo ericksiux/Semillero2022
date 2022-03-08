@@ -44,10 +44,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DAO\CampoTarifasDAO.cs" />
+    <Compile Include="DAO\ContratoDAO.cs" />
     <Compile Include="DAO\DemoDAO.cs" />
     <Compile Include="DAO\Helper\UnidadCargaDAO.cs" />
     <Compile Include="DAO\FleteroDAO.cs" />
     <Compile Include="DAO\Helper\DALHelper.cs" />
+    <Compile Include="DAO\Mapper\CamposTarifasDTO.cs" />
+    <Compile Include="DAO\Mapper\CampoTarifasMapper.cs" />
+    <Compile Include="DAO\Mapper\ContratoMapper.cs" />
     <Compile Include="DAO\Mapper\DemoMapper.cs" />
     <Compile Include="DAO\Mapper\UnidadMapper.cs" />
     <Compile Include="DAO\Mapper\OperadorMapper.cs" />

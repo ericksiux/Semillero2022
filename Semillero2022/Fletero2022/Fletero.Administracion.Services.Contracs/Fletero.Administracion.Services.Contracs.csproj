@@ -42,14 +42,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DomainObject\ICampoTarifasDomainObject.cs" />
     <Compile Include="DomainObject\IDemoDomainObject.cs" />
+    <Compile Include="DTO\CamposTarifas.cs" />
     <Compile Include="DTO\CatalogoDTO.cs" />
+    <Compile Include="DTO\ContratoDTO.cs" />
+    <Compile Include="DTO\EstatusContrato.cs" />
+    <Compile Include="DTO\infoArchivo.cs" />
+    <Compile Include="DTO\MotivoContrato.cs" />
+    <Compile Include="DTO\TituloMotivoContrato.cs" />
     <Compile Include="DTO\UnidadCargaDTO.cs" />
     <Compile Include="DTO\DemoDTO.cs" />
     <Compile Include="DTO\OperadorDTO.cs" />
     <Compile Include="DTO\DistTiendaDTO.cs" />
     <Compile Include="DTO\FleteroDTO.cs" />
     <Compile Include="DTO\MotivoDTO.cs" />
+    <Compile Include="Manager\ICampoTarifasManager.cs" />
+    <Compile Include="Manager\IContratoManager.cs" />
     <Compile Include="Manager\IDemoManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

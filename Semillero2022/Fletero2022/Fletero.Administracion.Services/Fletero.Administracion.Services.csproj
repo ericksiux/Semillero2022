@@ -42,7 +42,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DomainObject\ContratoDomainObject.cs" />
     <Compile Include="DomainObject\DemoDomainObject.cs" />
+    <Compile Include="Manager\ContratoManager.cs" />
     <Compile Include="Manager\DemoManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
