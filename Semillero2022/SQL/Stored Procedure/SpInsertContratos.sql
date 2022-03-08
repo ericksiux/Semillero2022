@@ -18,7 +18,7 @@ GO
 -- Create date: 2/3/2022
 -- Description:	Stored insertar datos
 -- =============================================
-CREATE PROCEDURE sp_InsertarContrato
+CREATE PROCEDURE Contratos_Insertar
 	-- Add the parameters for the stored procedure here
 	@pIdContrato int, 
 	@pLugarFirmaContrato VARCHAR,

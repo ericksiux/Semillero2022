@@ -18,7 +18,7 @@ GO
 -- Create date: 2/3/2022
 -- Description:	Stored de habilitar y deshabilitar contratos
 -- =============================================
-CREATE PROCEDURE sp_DeshabilitarHabilitarContratos 
+CREATE PROCEDURE Contratos_CambiarEstatus 
 	-- Add the parameters for the stored procedure here
 	@opc int, --Habilitar o deshabilitar
 	@idContrato int,
