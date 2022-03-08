@@ -44,9 +44,12 @@
   <ItemGroup>
     <Compile Include="DomainObject\ICampoTarifasDomainObject.cs" />
     <Compile Include="DomainObject\IDemoDomainObject.cs" />
+<<<<<<< HEAD
     <Compile Include="DTO\CamposTarifas.cs" />
+=======
     <Compile Include="DomainObject\IFleteroDomainObject.cs" />
     <Compile Include="DomainObject\IUnidadDomainObject.cs" />
+>>>>>>> main
     <Compile Include="DTO\CatalogoDTO.cs" />
     <Compile Include="DTO\ContratoDTO.cs" />
     <Compile Include="DTO\EstatusContrato.cs" />
