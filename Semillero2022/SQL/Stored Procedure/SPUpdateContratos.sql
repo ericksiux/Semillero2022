@@ -18,7 +18,7 @@ GO
 -- Create date: 3/2/2022
 -- Description: SP for update 
 -- =============================================
-CREATE PROCEDURE sp_Update_Contratos(
+CREATE PROCEDURE Contratos_Editar(
 	-- Add the parameters for the stored procedure here
 	@pIdContrato int, 
 	@pLugarFirmaContrato VARCHAR,
