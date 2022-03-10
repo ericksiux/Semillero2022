@@ -45,7 +45,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DAO\DemoDAO.cs" />
-    <Compile Include="DAO\Helper\UnidadCargaDAO.cs" />
+    <Compile Include="DAO\UnidadCargaDAO.cs" />
     <Compile Include="DAO\FleteroDAO.cs" />
     <Compile Include="DAO\Helper\DALHelper.cs" />
     <Compile Include="DAO\Mapper\DemoMapper.cs" />
