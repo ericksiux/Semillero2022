@@ -13,6 +13,10 @@ namespace Fletero2022.Areas.Administracion.Controllers
         // GET: Administracion/Unidad
         public ActionResult Index()
         {
+            return View();
+        }
+        public ActionResult AgregarUnidad()
+        {
             IUnidadManager manager = new UnidadManager();
 
             var datosLista = manager.ObtenerUnidadList();
