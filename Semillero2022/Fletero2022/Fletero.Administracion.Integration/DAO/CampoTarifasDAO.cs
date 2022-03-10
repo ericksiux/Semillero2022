@@ -15,7 +15,6 @@ namespace Fletero.Administracion.Integration.DAO
     {
         public int Guardar(CamposTarifasDTO CamposTarifasDTO, int idCampoTarifa)
         {
-            int idCampoTarifa = 0;
             try
             {
                 IList<IDbDataParameter> parameters = new List<IDbDataParameter>();

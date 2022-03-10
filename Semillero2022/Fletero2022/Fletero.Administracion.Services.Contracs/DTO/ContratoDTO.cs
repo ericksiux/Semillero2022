@@ -9,7 +9,7 @@ namespace Fletero.Administracion.Services.Contracs.DTO
     public class ContratoDTO
     {
         public int idContrato { get; set; }
-        public string lugarFirmaContrato { get; set; }
+        public string lugarFirmaContrato { get; set; } 
         public DateTime fechaFirmaContrato { get; set; }
         public string quienFirmaHomeDepot { get; set; }
         public string quienFirmaFletero { get; set; }

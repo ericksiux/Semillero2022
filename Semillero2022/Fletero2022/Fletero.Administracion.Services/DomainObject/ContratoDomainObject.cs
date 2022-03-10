@@ -8,28 +8,19 @@ namespace Fletero.Administracion.Services.DomainObject
 {
     public class ContratoDomainObject : IContratoDomainObject
     {
-        public List<ContratoDTO> ObtenerContrato()
+        public IEnumerable<ContratoDTO> ObtenerContrato(int contrato)
         {
-            List<ContratoDTO> ContratoList = new List<ContratoDTO>();
-
+            IEnumerable<ContratoDTO> listacontrato = null;
             try
             {
-                ContratoDAO DAO = new ContratoDAO();
-
-                ContratoList = DAO.ObtenerContrato();
-
-                foreach (var item in ContratoList)
-                {
-                    Console.Write(string.Format("idContrato : {0}", item.idContrato));
-                }
-
+                ContratoDAO dao = new ContratoDAO();
+                listacontrato = dao.ObtenerContrato(contrato);
             }
             catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
             }
-
-            return ContratoList;
+            return listacontrato;
         }
 
         public int Guardar(ContratoDTO ContratoDTO)
@@ -71,16 +62,6 @@ namespace Fletero.Administracion.Services.DomainObject
         }
 
         public List<ContratoDTO> ObtenerContrato()
-        {
-            throw new NotImplementedException();
-        }
-
-        public int Guardar(ContratoDTO ContratoDTO)
-        {
-            throw new NotImplementedException();
-        }
-
-        public ContratoDTO Editar(ContratoDTO ContratoDTO)
         {
             throw new NotImplementedException();
         }

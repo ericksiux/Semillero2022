@@ -43,6 +43,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DomainObject\ICampoTarifasDomainObject.cs" />
+    <Compile Include="DomainObject\IContratoDomainObject.cs" />
     <Compile Include="DomainObject\IDemoDomainObject.cs" />
     <Compile Include="DTO\CamposTarifas.cs" />
     <Compile Include="DomainObject\IFleteroDomainObject.cs" />

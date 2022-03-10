@@ -62,6 +62,5 @@
       <Name>Fletero.Administracion.Services.Contracs</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

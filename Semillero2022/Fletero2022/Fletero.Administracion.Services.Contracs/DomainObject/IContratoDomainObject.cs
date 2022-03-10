@@ -9,10 +9,8 @@ namespace Fletero.Administracion.Services.Contracs.DomainObject
 {
     public interface IContratoDomainObject
     {
-        List<ContratoDTO> ObtenerContrato();
-        int Guardar(ContratoDTO ContratoDTO);
-
         ContratoDTO Editar(ContratoDTO ContratoDTO);
         int Guardar(ContratoDTO ContratoDTO);
+        IEnumerable<ContratoDTO> ObtenerContrato(int contrato);
     }
 }

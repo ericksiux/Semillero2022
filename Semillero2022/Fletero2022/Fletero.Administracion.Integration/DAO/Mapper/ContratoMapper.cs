@@ -10,9 +10,9 @@ namespace Fletero.Administracion.Integration.DAO.Mapper
 {
     public static class ContratoMapper
     {
-        public static List<ContratoDTO> ContratoDStoList(DataSet ds)
+        public static IEnumerable<ContratoDTO> ContratoDStoList(DataSet ds)
         {
-            List<ContratoDTO> contratos = new List<ContratoDTO>();
+           var contratos = new List<ContratoDTO>();
 
             foreach (DataRow row in ds.Tables[0].Rows)
             {
@@ -41,6 +41,24 @@ namespace Fletero.Administracion.Integration.DAO.Mapper
             return contratos;
         }
 
+        public static int ContratoDStoidContrato_HabilitarContrato(DataSet ds)
+        {
+            if (ds.Tables != null && ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
+            {
+                return Convert.ToInt32(ds.Tables[0].Rows[0]["idmot"]);
+            }
+
+            return 0;
+        }
+        public static int ContratoDStoidContrato_DeshabilitarContrato(DataSet ds)
+        {
+            if (ds.Tables != null && ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
+            {
+                return Convert.ToInt32(ds.Tables[0].Rows[0]["idmot"]);
+            }
+
+            return 0;
+        }
 
         public static ContratoDTO ContratostoDTO(DataSet ds)
         {

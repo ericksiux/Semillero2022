@@ -72,15 +72,5 @@ namespace Fletero.Administracion.Services.Manager
         {
             throw new NotImplementedException();
         }
-
-        public int Guardar(ContratoDTO ContratoDTO)
-        {
-            throw new NotImplementedException();
-        }
-
-        public ContratoDTO Editar(ContratoDTO ContratoDTO)
-        {
-            throw new NotImplementedException();
-        }
     }
 }
