@@ -14,7 +14,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Fletero2022</RootNamespace>
     <AssemblyName>Fletero2022</AssemblyName>
-    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <MvcBuildViews>false</MvcBuildViews>
     <UseIISExpress>true</UseIISExpress>
     <Use64BitIISExpress />
@@ -25,6 +25,7 @@
     <UseGlobalApplicationHostFile />
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -45,6 +46,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -53,11 +57,7 @@
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
-    <Reference Include="System.Core" />
-    <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Web" />
-    <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Web.Abstractions" />
     <Reference Include="System.Web.Routing" />
     <Reference Include="System.Xml" />
@@ -112,17 +112,17 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
-      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
-    </Reference>
-  </ItemGroup>
-  <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\Administracion\AdministracionAreaRegistration.cs" />
     <Compile Include="Areas\Administracion\Controllers\DemoABCController.cs" />
+    <Compile Include="Areas\Administracion\Controllers\FleteroController.cs" />
+    <Compile Include="Areas\Administracion\Controllers\UnidadController.cs" />
+    <Compile Include="Areas\Administracion\Controllers\OperadorController.cs" />
     <Compile Include="Areas\Administracion\Models\DemoABCModel.cs" />
+    <Compile Include="Areas\Administracion\Models\UnidadModel.cs" />
+    <Compile Include="Areas\Administracion\Models\OperadorModel.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -142,6 +142,15 @@
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Areas\Administracion\Views\web.config" />
     <Content Include="Areas\Administracion\Views\DemoABC\Index.cshtml" />
+    <Content Include="Areas\Administracion\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\Administracion\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\Administracion\Views\Fletero\Index.cshtml" />
+    <Content Include="Areas\Administracion\Views\Fletero\Agregar.cshtml" />
+    <Content Include="Areas\Administracion\Views\Fletero\Editar.cshtml" />
+
+    <Content Include="Areas\Administracion\Views\Unidad\Index.cshtml" />
+    <Content Include="Areas\Administracion\Views\Operador\index.cshtml" />
+    <Content Include="Areas\Administracion\Views\Operador\Create.cshtml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
@@ -170,7 +179,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Areas\Administracion\Views\Shared\" />
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
@@ -187,6 +195,10 @@
     <Content Include="Scripts\jquery-3.3.1.min.map" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Fletero.Administracion.Integration\Fletero.Administracion.Integration.csproj">
+      <Project>{79EA2BAC-83EA-4B41-8B75-B70D07D7FDED}</Project>
+      <Name>Fletero.Administracion.Integration</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Fletero.Administracion.Services.Contracs\Fletero.Administracion.Services.Contracs.csproj">
       <Project>{06455C9A-A25F-414C-B647-EF8569BEEA4C}</Project>
       <Name>Fletero.Administracion.Services.Contracs</Name>
