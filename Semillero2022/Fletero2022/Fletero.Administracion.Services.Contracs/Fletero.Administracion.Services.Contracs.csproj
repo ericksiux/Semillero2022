@@ -44,6 +44,8 @@
   <ItemGroup>
     <Compile Include="DomainObject\IDemoDomainObject.cs" />
     <Compile Include="DomainObject\IFleteroDomainObject.cs" />
+    <Compile Include="DomainObject\IUnidadDomainObject.cs" />
+    <Compile Include="DomainObject\IOperadorDomainObjetc.cs" />
     <Compile Include="DTO\CatalogoDTO.cs" />
     <Compile Include="DTO\UnidadCargaDTO.cs" />
     <Compile Include="DTO\DemoDTO.cs" />
@@ -53,6 +55,8 @@
     <Compile Include="DTO\MotivoDTO.cs" />
     <Compile Include="Manager\IDemoManager.cs" />
     <Compile Include="Manager\IFleteroManager.cs" />
+    <Compile Include="Manager\IUnidadManager.cs" />
+    <Compile Include="Manager\IOperadorManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />
