@@ -19,7 +19,7 @@ namespace Fletero.Administracion.Integration.DAO
 
             try
             {
-                var ds = DALHelper.Retrive("sp_buscarOperador");
+                var ds = DALHelper.Retrive("Operador_buscar");
                 operadorList = OperadorMapper.OperadorDStoList(ds);
 
             }
@@ -68,7 +68,7 @@ namespace Fletero.Administracion.Integration.DAO
                 parameters.Add(new SqlParameter { ParameterName = "@placas", Value = operadorDTO.placas });
                 parameters.Add(new SqlParameter { ParameterName = "@tipoUnidad", Value = operadorDTO.tipoUnidad });
 
-                var ds = DALHelper.Retrive("sp_insertarOperador", parameters);
+                var ds = DALHelper.Retrive("Operador_insertar", parameters);
 
                 idOperador = OperadorMapper.OperadorDStoOperadorID(ds);
             }
@@ -111,7 +111,7 @@ namespace Fletero.Administracion.Integration.DAO
                 parameters.Add(new SqlParameter { ParameterName = "@placas", Value = operadorDTO.placas });
                 parameters.Add(new SqlParameter { ParameterName = "@tipoUnidad", Value = operadorDTO.tipoUnidad });
 
-                var ds = DALHelper.Retrive("sp_editarOperador",parameters);
+                var ds = DALHelper.Retrive("Operador_editar", parameters);
 
                 dto = OperadorMapper.OperadorDStoDTO(ds);
             }

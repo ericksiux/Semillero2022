@@ -49,6 +49,8 @@ namespace Fletero.Administracion.Integration.DAO.Mapper
                 operador.placas = Convert.ToString(row["placas"]);
                 operador.tipoUnidad = Convert.ToString(row["tipoUnidad"]);
 
+                operadores.Add(operador); 
+
             }
             return operadores;
         }

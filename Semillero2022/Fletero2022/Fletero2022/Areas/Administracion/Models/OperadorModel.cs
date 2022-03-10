@@ -1,15 +1,19 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Web;
 
-namespace Fletero.Administracion.Services.Contracs.DTO
+namespace Fletero2022.Areas.Administracion.Models
 {
-    public class OperadorDTO
+    public class OperadorModel
     {
+
+        public OperadorModel()
+        {
+
+        }
         public int idOperador { get; set; }
-        public int distrito{ get; set; }
+        public int distrito { get; set; }
         public int fletero { get; set; }
         public int unidad { get; set; }
         public String nombre { get; set; }
@@ -17,7 +21,7 @@ namespace Fletero.Administracion.Services.Contracs.DTO
         public String apellidoMAt { get; set; }
         public String calle { get; set; }
         public int numero { get; set; }
-        public String colonia{ get; set; }
+        public String colonia { get; set; }
         public String municipio { get; set; }
         public String estado { get; set; }
         public int cp { get; set; }
@@ -39,8 +43,5 @@ namespace Fletero.Administracion.Services.Contracs.DTO
         public String fotografia { get; set; }
         public String placas { get; set; }
         public String tipoUnidad { get; set; }
-
-
-
     }
 }
