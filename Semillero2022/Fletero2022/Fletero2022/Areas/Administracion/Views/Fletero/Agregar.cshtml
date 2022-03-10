@@ -269,7 +269,10 @@
     </div>
 
 </div>
+<!--
 
+https://stackoverflow.com/questions/15738608/converting-dd-mm-yyyy-formatted-string-to-datetime
+DateTime dt=DateTime.ParseExact("24/01/2013", "dd/MM/yyyy", CultureInfo.InvariantCulture); de string a date-->
 <div class="modal fade" id="ModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
@@ -291,7 +294,7 @@
 </div>
 
 <script>
-   
+
     function jsBack() {
         url = '@Url.Content("~/Administracion/Fletero/Index")';
         document.location.href = url;
