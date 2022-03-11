@@ -43,10 +43,18 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DomainObject\IDemoDomainObject.cs" />
+    <Compile Include="DomainObject\IDistritoDomainObject.cs" />
+    <Compile Include="DomainObject\IEstadoDomainObject.cs" />
     <Compile Include="DomainObject\IFleteroDomainObject.cs" />
+    <Compile Include="DomainObject\IMunicipioDomainObject.cs" />
+    <Compile Include="DomainObject\ITiendaDomainObject.cs" />
     <Compile Include="DomainObject\IUnidadDomainObject.cs" />
     <Compile Include="DomainObject\IOperadorDomainObjetc.cs" />
     <Compile Include="DTO\CatalogoDTO.cs" />
+    <Compile Include="DTO\DistritoDTO.cs" />
+    <Compile Include="DTO\EstadoDTO.cs" />
+    <Compile Include="DTO\MunicipioDTO.cs" />
+    <Compile Include="DTO\TiendaDTO.cs" />
     <Compile Include="DTO\UnidadCargaDTO.cs" />
     <Compile Include="DTO\DemoDTO.cs" />
     <Compile Include="DTO\OperadorDTO.cs" />
@@ -54,7 +62,11 @@
     <Compile Include="DTO\FleteroDTO.cs" />
     <Compile Include="DTO\MotivoDTO.cs" />
     <Compile Include="Manager\IDemoManager.cs" />
+    <Compile Include="Manager\IDistritoManager.cs" />
+    <Compile Include="Manager\IEstadoManager.cs" />
     <Compile Include="Manager\IFleteroManager.cs" />
+    <Compile Include="Manager\IMunicipioManager.cs" />
+    <Compile Include="Manager\ITiendaManager.cs" />
     <Compile Include="Manager\IUnidadManager.cs" />
     <Compile Include="Manager\IOperadorManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -121,6 +121,7 @@
     <Compile Include="Areas\Administracion\Controllers\UnidadController.cs" />
     <Compile Include="Areas\Administracion\Controllers\OperadorController.cs" />
     <Compile Include="Areas\Administracion\Models\DemoABCModel.cs" />
+    <Compile Include="Areas\Administracion\Models\FleteroModel.cs" />
     <Compile Include="Areas\Administracion\Models\UnidadModel.cs" />
     <Compile Include="Areas\Administracion\Models\OperadorModel.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -147,7 +148,6 @@
     <Content Include="Areas\Administracion\Views\Fletero\Index.cshtml" />
     <Content Include="Areas\Administracion\Views\Fletero\Agregar.cshtml" />
     <Content Include="Areas\Administracion\Views\Fletero\Editar.cshtml" />
-
     <Content Include="Areas\Administracion\Views\Unidad\Index.cshtml" />
     <Content Include="Areas\Administracion\Views\Operador\index.cshtml" />
     <Content Include="Areas\Administracion\Views\Operador\Create.cshtml" />
