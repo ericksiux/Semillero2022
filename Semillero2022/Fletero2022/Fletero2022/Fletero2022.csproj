@@ -121,6 +121,7 @@
     <Compile Include="Areas\Administracion\Controllers\UnidadController.cs" />
     <Compile Include="Areas\Administracion\Controllers\OperadorController.cs" />
     <Compile Include="Areas\Administracion\Models\DemoABCModel.cs" />
+    <Compile Include="Areas\Administracion\Models\FleteroModel.cs" />
     <Compile Include="Areas\Administracion\Models\UnidadModel.cs" />
     <Compile Include="Areas\Administracion\Models\OperadorModel.cs" />
     <Compile Include="Controllers\HomeController.cs" />
