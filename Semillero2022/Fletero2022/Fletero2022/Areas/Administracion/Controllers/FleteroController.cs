@@ -1,4 +1,7 @@
-﻿using System;
+﻿using Fletero.Administracion.Services.Contracs.Manager;
+using Fletero.Administracion.Services.Manager;
+using Fletero2022.Areas.Administracion.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -11,7 +14,17 @@ namespace Fletero2022.Areas.Administracion.Controllers
         // GET: Administracion/Fletero
         public ActionResult Index()
         {
-            return View();
+            FleteroModel model = new FleteroModel();
+            IDistritoManager manager = new DistritoManager();
+            model.Districts = manager.ObtenerDistritos();
+
+            ITiendaManager managerT = new TiendaManager();
+            model.Stores = managerT.ObtenerTiendas(0);
+
+            IFleteroManager managerF = new FleteroManager();
+            model.TodosFleteros = managerF.ObtenerFleteroInfoGeneral();
+
+            return View(model);
         }
         public ActionResult Agregar()
         {
@@ -21,5 +34,15 @@ namespace Fletero2022.Areas.Administracion.Controllers
         {
             return View();
         }
+        [HttpGet]
+        public ActionResult GetTiendasList(int id)
+        {
+
+            ITiendaManager manager = new TiendaManager();
+            var tiendas = manager.ObtenerTiendas(id);
+            return Json(tiendas, JsonRequestBehavior.AllowGet);
+        }
+        
+
     }
 }
