@@ -45,6 +45,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DAO\DemoDAO.cs" />
+    <Compile Include="DAO\DistritoDAO.cs" />
+    <Compile Include="DAO\EstadoDAO.cs" />
+    <Compile Include="DAO\Mapper\DistritoMapper.cs" />
+    <Compile Include="DAO\Mapper\EstadoMapper.cs" />
+    <Compile Include="DAO\Mapper\MunicipioMapper.cs" />
+    <Compile Include="DAO\Mapper\TiendaMapper.cs" />
+    <Compile Include="DAO\MunicipioDAO.cs" />
+    <Compile Include="DAO\TiendaDAO.cs" />
     <Compile Include="DAO\UnidadCargaDAO.cs" />
     <Compile Include="DAO\FleteroDAO.cs" />
     <Compile Include="DAO\Helper\DALHelper.cs" />
