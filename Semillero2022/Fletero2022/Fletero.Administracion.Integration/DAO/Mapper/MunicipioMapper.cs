@@ -17,7 +17,7 @@ namespace Fletero.Administracion.Integration.DAO.Mapper
             foreach (DataRow row in ds.Tables[0].Rows)
             {
                 var mun = new MunicipioDTO();
-                mun.ID_MUNICIPIO = Convert.ToInt32(row["ID_ESTADO"]);
+                mun.ID_MUNICIPIO = Convert.ToInt32(row["ID_MUNICIPIO"]);
                 mun.NOMBRE = Convert.ToString(row["NOMBRE"]);
                 mun.ID_ESTADOFK = Convert.ToInt32(row["ID_ESTADO"]);
 

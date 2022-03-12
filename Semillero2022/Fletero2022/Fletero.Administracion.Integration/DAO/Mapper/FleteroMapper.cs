@@ -114,7 +114,8 @@ namespace Fletero.Administracion.Integration.DAO.Mapper
             foreach (DataRow row in ds.Tables[0].Rows)
             {
                 var fletero = new FleteroDTO();
-
+                
+                fletero.idFletero = Convert.ToInt32(row["idFletero"]);
                 fletero.DistrictName = Convert.ToString(row["DISTRICTNAME"]);
                 fletero.StoreName = Convert.ToString(row["STORENAME"]);
                 fletero.nombreFletero = Convert.ToString(row["nombreFletero"]);
@@ -131,14 +132,15 @@ namespace Fletero.Administracion.Integration.DAO.Mapper
 
             return flet;
         }
-        public static List<FleteroDTO> FleteroDSToList_ObtenerFleteroInfoDetallada(DataSet ds)
+        public static FleteroDTO FleteroDSToList_ObtenerFleteroInfoDetallada(DataSet ds)
         {
-            List<FleteroDTO> flet = new List<FleteroDTO>();
+            FleteroDTO flet = new FleteroDTO();
 
             foreach (DataRow row in ds.Tables[0].Rows)
             {
                 var fletero = new FleteroDTO();
 
+                fletero.idFletero = Convert.ToInt32(row["idFletero"]);
                 fletero.DistrictName = Convert.ToString(row["DISTRICTNAME"]);
                 fletero.StoreName = Convert.ToString(row["STORENAME"]);
                 fletero.nombreFletero = Convert.ToString(row["nombreFletero"]);
@@ -157,7 +159,7 @@ namespace Fletero.Administracion.Integration.DAO.Mapper
                 fletero.correoPrincipal = Convert.ToString(row["correoPrincipal"]);
                 fletero.fechaAlta = Convert.ToDateTime(row["fechaAlta"]);
                 
-                flet.Add(fletero);
+                flet = fletero;
             }
 
             return flet;

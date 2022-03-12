@@ -1,6 +1,6 @@
 ﻿@model Fletero2022.Areas.Administracion.Models.FleteroModel
 @{
-    ViewBag.Title = "Fletero Consulta";
+    ViewBag.Title = "Busqueda Fletero";
 }
 
 <h2>@ViewBag.Title</h2>
@@ -24,7 +24,7 @@
                 <p class="mt-1">Tienda:</p>
                 <select class="form-control" aria-label="Selecciona tu tienda" id="TiendaSelect">
                     <option value="0" selected>Seleccionar</option>
-                    
+
                 </select>
                 <br />
             </div>
@@ -51,7 +51,7 @@
                     <option value="2">Inactivo</option>
                 </select>
                 <br />
-                <input type="submit" class="btn btn-primary" onclick="jsBuscarFiltro()" value="Buscar" />
+                <input type="submit" class="btn btn-primary" onclick="document.location.href = '@Url.Content("~/User/Add")'" value="Buscar" />
                 <input type="button" class="btn btn-primary" onclick="jsClearSorting()" value="Limpiar filtros" />
                 <input type="button" class="btn btn-primary" onclick="jsClearRadiosButton()" value="Deselccionar fletero" />
             </div>
@@ -159,29 +159,29 @@
                 <tbody>
                     @foreach (var itemA in Model.TodosFleteros)
                     {
-                    <tr>
-                        <td> <input class="form-check-input" type="radio" id="flexRadioDisabled" name="grupoFleteros"></td>
+                        <tr>
+                            <td> <input class="form-check-input" type="radio" id="flexRadioDisabled" name="grupoFleteros"></td>
 
-                        <td>@itemA.DistrictName</td>
-                        <td>@itemA.StoreName</td>
-                        <td>@itemA.nombreFletero</td>
-                        <td>@itemA.nombreCont</td>
-                        <td>@itemA.telCelCont</td>
-                        <td>@itemA.telOficinaCont</td>
-                        <td>@itemA.telNextelCont</td>
-                        <td>@itemA.correoPrincipal</td>
-                        @if (itemA.tipoEstado == "Activo")
-                        {
-                            <td class="text-success">@itemA.tipoEstado</td>
-                        }
-                        else
-                        {
-                            <td class="text-danger">@itemA.tipoEstado</td>
-                        }   
-                        <td>@itemA.tituloMotivo</td>
-                    </tr>
+                            <td>@itemA.DistrictName</td>
+                            <td>@itemA.StoreName</td>
+                            <td>@itemA.nombreFletero</td>
+                            <td>@itemA.nombreCont</td>
+                            <td>@itemA.telCelCont</td>
+                            <td>@itemA.telOficinaCont</td>
+                            <td>@itemA.telNextelCont</td>
+                            <td>@itemA.correoPrincipal</td>
+                            @if (itemA.tipoEstado == "Activo")
+                            {
+                                <td class="text-success">@itemA.tipoEstado</td>
+                            }
+                            else
+                            {
+                                <td class="text-danger">@itemA.tipoEstado</td>
+                            }
+                            <td>@itemA.tituloMotivo</td>
+                        </tr>
                     }
-                    </tbody>
+                </tbody>
             </table>
 
             <table class="table table-striped" id="tblInformacionDetallada">
@@ -205,7 +205,7 @@
                         <th>Tel Nextel</th>
                         <th>Correo</th>
                         <th>Fecha alta</th>
-                    </th>
+                        </th>
                 </thead>
                 <tbody>
                     @foreach (var itemB in Model.FleterosDetalle)
@@ -231,7 +231,7 @@
                             <td>@itemB.fechaAlta</td>
                         </tr>
                     }
-                    </tbody>
+                </tbody>
             </table>
         </div>
     </div>
@@ -409,51 +409,6 @@
         url = '@Url.Content("~/Administracion/Fletero/Editar")';
         document.location.href = url;
     }
-    function jsBuscarFiltro() {
-        FleteroParam = new Object();
-
-        if (document.getElementById("DistritoSelect").value == 0) {
-            FleteroParam.distrito = null;
-        } else {
-            FleteroParam.distrito = document.getElementById("DistritoSelect").value;
-        }
-
-        if (document.getElementById("TiendaSelect").value == 0) {
-            FleteroParam.tienda = null;
-        } else {
-            FleteroParam.tienda = document.getElementById("TiendaSelect").value;
-        }
-
-        if (document.getElementById("EstatusSelect").value == 0) {
-            FleteroParam.estado = null;
-        } else {
-            FleteroParam.estado = document.getElementById("EstatusSelect").value;
-        }
-
-        if (document.getElementById("FleteroSelect").value == 0) {
-            FleteroParam.idFletero = null;
-        } else {
-            FleteroParam.estado = document.getElementById("FleteroSelect").value;
-        }
-
-      
-         $.ajax({
-            url: "/Administracion/Fletero/Buscar",
-            type: "POST",
-            data: FleteroParam,
-            cache: false,
-            datatype: "json",
-            success: function (result) {
-                 url = '@Url.Content("~/Administracion/Fletero/Buscar")';
-                 document.location.href = url;
-            },
-            error: function (xhr, ajaxOptions, thrownError) {
-                alert('error');
-                console.log(xhr.status, thrownError);
-
-            }
-        });
-    }
 
     function jsDeshabilitarF() {
         alert(' se deshabilitará');
@@ -483,7 +438,4 @@
         tblInformacionDetallada.style.display = "none";
     }
 </script>
-    function jsAddUnidad() {
 
-    }
-</script>

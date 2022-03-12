@@ -146,8 +146,8 @@ namespace Fletero.Administracion.Integration.DAO
             {
                 IList<IDbDataParameter> parameters = new List<IDbDataParameter>();
                 parameters.Add(new SqlParameter { ParameterName = "@opc", Value = 1 }); 
-                parameters.Add(new SqlParameter { ParameterName = "@idFletero", Value = idFletero });
-                parameters.Add(new SqlParameter { ParameterName = "@@idTienda", Value = idTienda }); 
+                parameters.Add(new SqlParameter { ParameterName = "@idFletero", Value = DBNull.Value });
+                parameters.Add(new SqlParameter { ParameterName = "@idTienda", Value = idTienda }); 
 
                 var ds = DALHelper.Retrive("sp_Fletero_DisTienda", parameters);
                 ID = FleteroMapper.FleteroDStoDemoID_AgregarTiendasFletero(ds);
@@ -197,9 +197,9 @@ namespace Fletero.Administracion.Integration.DAO
             }
             return fList;
         }
-        public List<FleteroDTO> ObtenerFleteroInfoDetallada(int idFletero) //Bien
+        public FleteroDTO ObtenerFleteroInfoDetallada(int idFletero) //Bien
         {
-            List<FleteroDTO> fList = new List<FleteroDTO>();
+            FleteroDTO fList = new FleteroDTO();
             try
             {
                 IList<IDbDataParameter> parameters = new List<IDbDataParameter>();

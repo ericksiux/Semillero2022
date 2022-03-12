@@ -14,9 +14,16 @@ create procedure Municipio_Consulta
 )
 as 
 begin
-	
+	if @id != 0
+	begin
 	select ID_MUNICIPIO, NOMBRE, ID_ESTADO
 	from Catalogo_Municipios
 	where ID_ESTADO = @id
+	end
 
+	if @id = 0
+	begin
+	select ID_MUNICIPIO, NOMBRE, ID_ESTADO
+	from Catalogo_Municipios
+	end
 end
