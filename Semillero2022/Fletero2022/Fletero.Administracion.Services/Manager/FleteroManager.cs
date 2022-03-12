@@ -120,9 +120,9 @@ namespace Fletero.Administracion.Services.Manager
             return lista;
         }
 
-        public List<FleteroDTO> ObtenerFleteroInfoDetallada(int fletero)
+        public FleteroDTO ObtenerFleteroInfoDetallada(int fletero)
         {
-            List<FleteroDTO> lista = new List<FleteroDTO>();
+            FleteroDTO lista = new FleteroDTO();
 
             try
             {
