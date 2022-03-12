@@ -116,6 +116,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\Administracion\AdministracionAreaRegistration.cs" />
+    <Compile Include="Areas\Administracion\Controllers\ContratoController.cs" />
     <Compile Include="Areas\Administracion\Controllers\DemoABCController.cs" />
     <Compile Include="Areas\Administracion\Controllers\FleteroController.cs" />
     <Compile Include="Areas\Administracion\Controllers\UnidadController.cs" />
@@ -146,8 +147,8 @@
     <Content Include="Areas\Administracion\Views\Fletero\Index.cshtml" />
     <Content Include="Areas\Administracion\Views\Fletero\Agregar.cshtml" />
     <Content Include="Areas\Administracion\Views\Fletero\Editar.cshtml" />
-
     <Content Include="Areas\Administracion\Views\Unidad\Index.cshtml" />
+    <Content Include="Areas\Administracion\Views\Contrato\Index.cshtml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
