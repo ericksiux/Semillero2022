@@ -41,4 +41,5 @@ AS
 begin
 	insert into operadores (distrito,fletero ,unidad ,nombre ,apellidoPat ,apellidoMat ,calle,numero ,colonia,municipio,estado,cp,noCredencialElector,fechaVigenciaLicencia,noLicencia ,padecimientos ,curp,noIMSS ,estatusConfiabilidad,motivoRechazo,fechaRegistro,puesto,capacitadoChofer,estatus,motivo,descripcion,fechaMotivo,fotografia, placas,tipoUnidad)
 	values( @distrito,@fletero ,@unidad ,@nombre ,@apellidoPat ,@apellidoMat ,@calle,@numero ,@colonia,@municipio,@estado,@cp,@noCredencialElector,@fechaVigenciaLicencia,@noLicencia ,@padecimientos ,@curp,@noIMSS ,@estatusConfiabilidad,@motivoRechazo,@fechaRegistro,@puesto,@capacitadoChofer,@estatus,@motivo,@descripcion,@fechaMotivo,@fotografia, @placas,@tipoUnidad)
+	select @@IDENTITY idOperador;
 end

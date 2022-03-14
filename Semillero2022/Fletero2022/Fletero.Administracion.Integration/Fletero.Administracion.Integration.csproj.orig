@@ -47,8 +47,10 @@
     <Compile Include="DAO\CampoTarifasDAO.cs" />
     <Compile Include="DAO\ContratoDAO.cs" />
     <Compile Include="DAO\DemoDAO.cs" />
+<<<<<<< HEAD
     <Compile Include="DAO\Mapper\CamposTarifasDTO.cs" />
     <Compile Include="DAO\Mapper\CampoTarifasMapper.cs" />
+=======
     <Compile Include="DAO\DistritoDAO.cs" />
     <Compile Include="DAO\EstadoDAO.cs" />
     <Compile Include="DAO\Mapper\DistritoMapper.cs" />
@@ -57,6 +59,7 @@
     <Compile Include="DAO\Mapper\TiendaMapper.cs" />
     <Compile Include="DAO\MunicipioDAO.cs" />
     <Compile Include="DAO\TiendaDAO.cs" />
+>>>>>>> 6a3a8c75f53ffd2a0687adcb483721802ce60caa
     <Compile Include="DAO\UnidadCargaDAO.cs" />
     <Compile Include="DAO\FleteroDAO.cs" />
     <Compile Include="DAO\Helper\DALHelper.cs" />

@@ -45,11 +45,21 @@
     <Compile Include="DomainObject\ContratoDomainObject.cs" />
     <Compile Include="DomainObject\DemoDomainObject.cs" />
     <Compile Include="Manager\ContratoManager.cs" />
+    <Compile Include="DomainObject\DistritoDomainObject.cs" />
+    <Compile Include="DomainObject\EstadoDomainObject.cs" />
     <Compile Include="DomainObject\FleteroDomainObject.cs" />
+    <Compile Include="DomainObject\MunicipioDomainObject.cs" />
+    <Compile Include="DomainObject\TiendaDomainObject.cs" />
     <Compile Include="DomainObject\UnidadDomainObject.cs" />
+    <Compile Include="DomainObject\OperadorDomainObjetc.cs" />
     <Compile Include="Manager\DemoManager.cs" />
+    <Compile Include="Manager\DistritoManager.cs" />
+    <Compile Include="Manager\EstadoManager.cs" />
     <Compile Include="Manager\FleteroManager.cs" />
+    <Compile Include="Manager\MunicipioManager.cs" />
+    <Compile Include="Manager\TiendaManager.cs" />
     <Compile Include="Manager\UnidadManager.cs" />
+    <Compile Include="Manager\OperadorManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

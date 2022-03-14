@@ -116,15 +116,19 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\Administracion\AdministracionAreaRegistration.cs" />
+    <Compile Include="Areas\Administracion\Controllers\ContratoController.cs" />
     <Compile Include="Areas\Administracion\Controllers\DemoABCController.cs" />
     <Compile Include="Areas\Administracion\Controllers\FleteroController.cs" />
     <Compile Include="Areas\Administracion\Controllers\UnidadController.cs" />
+    <Compile Include="Areas\Administracion\Controllers\OperadorController.cs" />
     <Compile Include="Areas\Administracion\Models\DemoABCModel.cs" />
 <<<<<<< HEAD
     <Compile Include="Controllers\ContratosController.cs" />
 =======
+    <Compile Include="Areas\Administracion\Models\FleteroModel.cs" />
+>>>>>>> 6a3a8c75f53ffd2a0687adcb483721802ce60caa
     <Compile Include="Areas\Administracion\Models\UnidadModel.cs" />
->>>>>>> main
+    <Compile Include="Areas\Administracion\Models\OperadorModel.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -149,8 +153,13 @@
     <Content Include="Areas\Administracion\Views\Fletero\Index.cshtml" />
     <Content Include="Areas\Administracion\Views\Fletero\Agregar.cshtml" />
     <Content Include="Areas\Administracion\Views\Fletero\Editar.cshtml" />
-
     <Content Include="Areas\Administracion\Views\Unidad\Index.cshtml" />
+<<<<<<< HEAD
+    <Content Include="Areas\Administracion\Views\Contrato\Index.cshtml" />
+=======
+    <Content Include="Areas\Administracion\Views\Operador\index.cshtml" />
+    <Content Include="Areas\Administracion\Views\Operador\Create.cshtml" />
+>>>>>>> 6a3a8c75f53ffd2a0687adcb483721802ce60caa
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
