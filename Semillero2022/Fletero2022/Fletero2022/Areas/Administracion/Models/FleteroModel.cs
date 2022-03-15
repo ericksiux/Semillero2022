@@ -22,6 +22,7 @@ namespace Fletero2022.Areas.Administracion.Models
         public List<MunicipioDTO> MunicipiosB { get; set; }
         public List<EstadoDTO> EstadoF { get; set; }
         public List<EstadoDTO> EstadoB { get; set; }
+		public List<TituloMotivoDTO> TituloMotivo { get; set; }
 		public int idFletero { get; set; }
 		public string nombreFletero { get; set; }
 		public string RFC { get; set; }

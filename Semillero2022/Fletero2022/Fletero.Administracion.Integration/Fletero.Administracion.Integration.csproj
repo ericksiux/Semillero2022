@@ -51,6 +51,7 @@
     <Compile Include="DAO\Mapper\EstadoMapper.cs" />
     <Compile Include="DAO\Mapper\MunicipioMapper.cs" />
     <Compile Include="DAO\Mapper\TiendaMapper.cs" />
+    <Compile Include="DAO\Mapper\TituloMotivoMapper.cs" />
     <Compile Include="DAO\MunicipioDAO.cs" />
     <Compile Include="DAO\TiendaDAO.cs" />
     <Compile Include="DAO\UnidadCargaDAO.cs" />

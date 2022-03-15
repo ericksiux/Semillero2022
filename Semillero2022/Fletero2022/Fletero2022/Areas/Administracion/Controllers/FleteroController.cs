@@ -25,6 +25,9 @@ namespace Fletero2022.Areas.Administracion.Controllers
             IFleteroManager managerF = new FleteroManager();
             var temp = model.TodosFleteros = managerF.ObtenerFleteroInfoGeneral();
 
+            ITituloMotivoManager managerTM = new TituloMotivoManager();
+            model.TituloMotivo = managerTM.ObtenerTituloMotivos();
+            
             List<FleteroDTO> lst = new List<FleteroDTO>();
 
             for (int i = 0; i < model.TodosFleteros.Count; i++)
@@ -34,6 +37,57 @@ namespace Fletero2022.Areas.Administracion.Controllers
             }
             model.FleterosDetalle = lst;
             return View(model);
+        }
+        [HttpPost]
+        [AcceptVerbs(HttpVerbs.Post)]
+
+        public JsonResult AgregarMotivoDeshabilitar()
+        {
+            try
+            {
+                var id = Convert.ToInt32(Request.Params["idFletero"]);
+
+                MotivoDTO mdto = new MotivoDTO();
+                mdto.motivo = Convert.ToInt32(Request.Params["idMotivo"]);
+                mdto.descripcion = Convert.ToString(Request.Params["desc"]);
+                mdto.fecha = DateTime.Now;
+
+                IFleteroManager managerF = new FleteroManager();
+                int idFletero= managerF.DeshabilitarFletero(id, mdto);
+
+                return Json(new { Success = 1, ValueA = idFletero }, JsonRequestBehavior.AllowGet);
+
+            }catch (Exception ex)
+            {
+                return Json(new { Success = 0, Data = ex }, JsonRequestBehavior.AllowGet);
+            }
+
+        }
+        [HttpPost]
+        [AcceptVerbs(HttpVerbs.Post)]
+
+        public JsonResult AgregarMotivoHabilitar()
+        {
+            try
+            {
+                var id = Convert.ToInt32(Request.Params["idFletero"]);
+
+                MotivoDTO mdto = new MotivoDTO();
+                mdto.motivo = Convert.ToInt32(Request.Params["idMotivo"]);
+                mdto.descripcion = Convert.ToString(Request.Params["desc"]);
+                mdto.fecha = DateTime.Now;
+
+                IFleteroManager managerF = new FleteroManager();
+                int idFletero = managerF.HabilitarFletero(id, mdto);
+
+                return Json(new { Success = 1, ValueA = idFletero }, JsonRequestBehavior.AllowGet);
+
+            }
+            catch (Exception ex)
+            {
+                return Json(new { Success = 0, Data = ex }, JsonRequestBehavior.AllowGet);
+            }
+
         }
         public ActionResult Agregar()
         {
@@ -208,7 +262,6 @@ namespace Fletero2022.Areas.Administracion.Controllers
             var municipios = manager.ObtenerMunicipio(id);
             return Json(municipios, JsonRequestBehavior.AllowGet);
         }
-
-
+       
     }
 }

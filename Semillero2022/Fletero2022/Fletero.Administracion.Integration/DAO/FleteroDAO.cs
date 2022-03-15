@@ -159,6 +159,23 @@ namespace Fletero.Administracion.Integration.DAO
             }
             return ID;
         }
+        public List<TituloMotivoDTO> ObtenerTituloMotivos()
+        {
+            List<TituloMotivoDTO> Lst = new List<TituloMotivoDTO>();
+
+            try
+            {
+                var ds = DALHelper.Retrive("TituloMotivos_Consulta");
+                Lst = TituloMotivoMapper.TituloListDStoList(ds);
+
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+
+            return Lst;
+        }
         public List<FleteroDTO> ObtenerFletero(int idFletero) //Bien
         {
             List <FleteroDTO> fList = new List <FleteroDTO>();

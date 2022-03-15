@@ -159,10 +159,11 @@
                 <input id="fechaAlta" class="form-control" type="datetime" value="@Convert.ToDateTime(DateTime.Now).ToString("dd-MM-yyyy")" readonly />
                 <label class="control-label" for="tituloMotivoSelect">Motivo:</label>
                 <select class="form-control" aria-label="Default select example" id="tituloMotivoSelect">
-                    <option selected>Open this select menu</option>
-                    <option value="1">One</option>
-                    <option value="2">Two</option>
-                    <option value="3">Three</option>
+                    <option selected>Seleccionar</option>
+                    @foreach (var itemM in Model.TituloMotivo)
+                    {
+                        <option value="@itemM.idMotivoM">@itemM.motivo</option>
+                    }
                 </select>
                 <label class="control-label" for="TextareaDescripcion">Descripcion:</label>
                 <textarea class="form-control" id="TextareaDescripcion" rows="3"></textarea>
@@ -188,14 +189,15 @@
                 <label class="control-label" for="fechaMotivo">Fecha:</label>
                 <input id="fechaAlta" class="form-control" type="datetime" value="@Convert.ToDateTime(DateTime.Now).ToString("dd-MM-yyyy")" readonly />
                 <label class="control-label" for="tituloMotivoSelect">Motivo:</label>
-                <select class="form-control" aria-label="Default select example" id="tituloMotivoSelect">
-                    <option selected>Open this select menu</option>
-                    <option value="1">One</option>
-                    <option value="2">Two</option>
-                    <option value="3">Three</option>
+                <select class="form-control" aria-label="Default select example" id="tituloMotivoSelectHabilitar">
+                    <option selected>Seleccionar</option>
+                    @foreach (var itemM in Model.TituloMotivo)
+                    {
+                        <option value="@itemM.idMotivoM">@itemM.motivo</option>
+                    }
                 </select>
                 <label class="control-label" for="TextareaDescripcion">Descripcion:</label>
-                <textarea class="form-control" id="TextareaDescripcion" rows="3"></textarea>
+                <textarea class="form-control" id="TextareaDescripcionHabilitar" rows="3"></textarea>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-success" onclick="jsHabilitarF()">Guardar</button>
@@ -236,8 +238,6 @@
 
         for (let i = 0; i < radioButtonGroup.length; i++) {
             radioButtonGroup[i].addEventListener('change', function () {
-                btnDeshabilitar.disabled = false;
-                btnHabilitar.disabled = false;
                 btnUnidadesCarga.disabled = false;
                 btnOperadoresUnidad.disabled = false;
                 btnContratos.disabled = false;
@@ -245,6 +245,10 @@
                 btnDetalle.disabled = false;
                 BtnInformacionGeneral.disabled = true;
                 BtnInformacionDetallada.disabled = true;
+
+               
+                btnDeshabilitar.disabled = false;
+                btnHabilitar.disabled = false;
             });
         }
 
@@ -360,7 +364,7 @@
             data: FleteroParam,
             cache: false,
             success: function (result) {
-                 
+
             },
             error: function (xhr, ajaxOptions, thrownError) {
                 alert('error');
@@ -371,10 +375,66 @@
     }
 
     function jsDeshabilitarF() {
-        alert(' se deshabilitará');
+        var radioButtonGroup = document.getElementsByName("grupoFleteros");
+        var id = 0;
+        for (let i = 0; i < radioButtonGroup.length; i++) {
+            if (radioButtonGroup[i].checked == true) {
+                id = radioButtonGroup[i].value;
+                break;
+            }
+        }
+
+        var idMotivo = document.getElementById("tituloMotivoSelect").value;
+        var Desc = document.getElementById("TextareaDescripcion").value;
+
+        $.ajax({
+            url: "/Administracion/Fletero/AgregarMotivoDeshabilitar",
+            type: "POST",
+            data: { "idFletero": id, "idMotivo": idMotivo, "desc" : Desc },
+            cache: false,
+            datatype: "json",
+            success: function (result) {
+                 url = '@Url.Content("~/Administracion/Fletero/Index")';
+                 document.location.href = url;
+            },
+            error: function (xhr, ajaxOptions, thrownError) {
+                alert('error');
+                console.log(xhr.status, thrownError);
+
+            }
+        });
+
     }
     function jsHabilitarF() {
-        alert(' se habilitará');
+        var radioButtonGroup = document.getElementsByName("grupoFleteros");
+        var id = 0;
+        for (let i = 0; i < radioButtonGroup.length; i++) {
+            if (radioButtonGroup[i].checked == true) {
+                id = radioButtonGroup[i].value;
+                break;
+            }
+        }
+
+        var idMotivo = document.getElementById("tituloMotivoSelectHabilitar").value;
+        var Desc = document.getElementById("TextareaDescripcionHabilitar").value;
+
+        $.ajax({
+            url: "/Administracion/Fletero/AgregarMotivoHabilitar",
+            type: "POST",
+            data: { "idFletero": id, "idMotivo": idMotivo, "desc" : Desc },
+            cache: false,
+            datatype: "json",
+            success: function (result) {
+                 url = '@Url.Content("~/Administracion/Fletero/Index")';
+                 document.location.href = url;
+            },
+            error: function (xhr, ajaxOptions, thrownError) {
+                alert('error');
+                console.log(xhr.status, thrownError);
+
+            }
+        });
+
     }
     function jsInfoDetallada() {
         var tblInformacionGeneral = document.getElementById("tblInformacionGeneral");
