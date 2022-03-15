@@ -1,5 +1,7 @@
-﻿using Fletero.Administracion.Services.Contracs.Manager;
+﻿using Fletero.Administracion.Services.Contracs.DTO;
+using Fletero.Administracion.Services.Contracs.Manager;
 using Fletero.Administracion.Services.Manager;
+using Fletero2022.Areas.Administracion.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,7 +15,17 @@ namespace Fletero2022.Areas.Administracion.Controllers
         // GET: Administracion/Unidad
         public ActionResult Index()
         {
-            return View();
+            UnidadModel model = new UnidadModel();
+            IDistritoManager manager = new DistritoManager();
+            model.Districts = manager.ObtenerDistritos();
+
+            ITiendaManager managerT = new TiendaManager();
+            model.Stores = managerT.ObtenerTiendas(0);
+
+            IFleteroManager managerF = new FleteroManager();
+            model.TodosFleteros = managerF.ObtenerFleteroInfoGeneral();
+
+            return View(model);
         }
         public ActionResult AgregarUnidad()
         {
@@ -22,6 +34,26 @@ namespace Fletero2022.Areas.Administracion.Controllers
             var datosLista = manager.ObtenerUnidadList();
 
             return View();
+        }
+
+        [HttpPost]
+        [AcceptVerbs(HttpVerbs.Post)]
+        public JsonResult GuardarUnidad(UnidadModel unidadParam)
+        {
+            try
+            {
+                IUnidadManager manager = new UnidadManager();
+                var unidadDTO = new UnidadCargaDTO();
+                unidadDTO.Fletero = unidadParam.Fletero;
+                unidadDTO.TipoUnidad = unidadParam.TipoUnidad;
+                var UnidadID = manager.RegistrarUnidad(unidadDTO);
+
+                return Json(new { Succes = 1, Value = UnidadID }, JsonRequestBehavior.AllowGet);
+            }
+            catch (Exception ex)
+            {
+                return Json(new { Succes = 0, Data = ex }, JsonRequestBehavior.AllowGet);
+            }
         }
 
         // GET: Administracion/Unidad/Details/5
