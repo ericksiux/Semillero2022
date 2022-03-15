@@ -55,11 +55,62 @@ namespace Fletero2022.Areas.Administracion.Controllers
 
             return View(model);
         }
-        public ActionResult Editar()
+        [HttpPost]
+        public ActionResult Editar(FleteroModel model)
         {
-            return View();
+            FleteroDTO fleteroDTO = new FleteroDTO();
+
+            fleteroDTO.idFletero = model.idFletero;
+            fleteroDTO.dirFCalle = model.dirFCalle;
+            fleteroDTO.dirFNum = model.dirFNum;
+            fleteroDTO.dirFCol = model.dirFCol;
+            fleteroDTO.dirFMunicipio = model.dirFMunicipio;
+            fleteroDTO.dirFCP = model.dirFCP;
+            fleteroDTO.dirBCalle = model.dirBCalle;
+            fleteroDTO.dirBNum = model.dirBNum;
+            fleteroDTO.dirBCol = model.dirBCol;
+            fleteroDTO.dirBMunicipio = model.dirBMunicipio;
+            fleteroDTO.dirBCP = model.dirBCP;
+            fleteroDTO.nombreRepresentante = model.nombreRepresentante;
+            fleteroDTO.nombreCont = model.nombreCont;
+            fleteroDTO.telCelCont = model.telCelCont;
+            fleteroDTO.telOficinaCont = model.telOficinaCont;
+            fleteroDTO.telNextelCont = model.telNextelCont;
+            fleteroDTO.correoPrincipal = model.correoPrincipal;
+
+            IFleteroManager manager = new FleteroManager();
+            var idLastF = manager.ModificarFletero(fleteroDTO);
+
+            return Json(new { Success = 1, ValueA = idLastF }, JsonRequestBehavior.AllowGet);
+
         }
-        public ActionResult Buscar()
+        public ActionResult Editar(int id)
+        {
+            FleteroModel model = new FleteroModel();
+            IFleteroManager managerF = new FleteroManager();
+
+            model.FleteroModificar = managerF.ObtenerFletero(id);
+
+            IDistritoManager manager = new DistritoManager();
+            model.Districts = manager.ObtenerDistritos();
+
+            ITiendaManager managerT = new TiendaManager();
+            model.Stores = managerT.ObtenerTiendas(0);
+
+            IEstadoManager managerE = new EstadoManager();
+            model.EstadoF = managerE.ObtenerEstado();
+
+            IMunicipioManager managerMF = new MunicipioManager();
+            model.MunicipiosF = managerMF.ObtenerMunicipio(0);
+
+            model.EstadoB = managerE.ObtenerEstado();
+            model.MunicipiosB = managerMF.ObtenerMunicipio(0);
+
+            return View(model);
+        }
+
+        [HttpGet]
+        public ActionResult Buscar(FleteroModel fletero)
         {
             FleteroModel model = new FleteroModel();
             IDistritoManager manager = new DistritoManager();
@@ -68,47 +119,26 @@ namespace Fletero2022.Areas.Administracion.Controllers
             ITiendaManager managerT = new TiendaManager();
             model.Stores = managerT.ObtenerTiendas(0);
 
+
             IFleteroManager managerF = new FleteroManager();
-            var temp = model.TodosFleteros = managerF.ObtenerFleteroInfoGeneral();
+            var fleterosFiltrosBusqueda = managerF.ObtenerFleteroFiltros(fletero.distrito, fletero.tienda, fletero.idFletero, fletero.estado);
+
+            model.TodosFleteros = managerF.ObtenerFleteroInfoGeneral();
+
+            model.FleteroBusquedaFiltros = fleterosFiltrosBusqueda;
 
             List<FleteroDTO> lst = new List<FleteroDTO>();
 
-            for (int i = 0; i < model.TodosFleteros.Count; i++)
+            for (int i = 0; i < fleterosFiltrosBusqueda.Count; i++)
             {
-                lst.Add(managerF.ObtenerFleteroInfoDetallada(temp[i].idFletero));
+                lst.Add(managerF.ObtenerFleteroInfoDetallada(fleterosFiltrosBusqueda[i].idFletero));
 
             }
             model.FleterosDetalle = lst;
 
-            return View(model);
+            return PartialView("_FleterosGrid", model);
         }
-        [HttpPost]
-        [AcceptVerbs(HttpVerbs.Post)]
-        public ActionResult Buscar(FleteroModel model)
-        {
-            if (ModelState.IsValid)
-            {
-                try
-                {
-                    IFleteroManager manager = new FleteroManager();
-                    var idLastF = manager.ObtenerFleteroFiltros(model.distrito, model.tienda, model.idFletero, model.estado);
-
-
-                    return Json(new { Success = 1, ValueA = idLastF}, JsonRequestBehavior.AllowGet);
-                }
-                catch (Exception ex)
-                {
-                    return Json(new { Success = 0, Data = ex }, JsonRequestBehavior.AllowGet);
-
-                }
-
-            }
-            else
-            {
-                return Json(new { Success = 0 }, JsonRequestBehavior.AllowGet);
-
-            }
-        }
+  
 
         [HttpPost]
         [AcceptVerbs(HttpVerbs.Post)]

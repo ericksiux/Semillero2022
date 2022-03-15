@@ -140,101 +140,10 @@
                 </thead>
             </table>
 
-            <table class="table table-striped" id="tblInformacionGeneral">
-                <thead>
-                    <tr>
-                        <th></th>
-                        <th>Distrito</th>
-                        <th>Tienda</th>
-                        <th>Fletero</th>
-                        <th>Contacto principal</th>
-                        <th>Tel Celular</th>
-                        <th>Tel Oficina</th>
-                        <th>Tel Nextel</th>
-                        <th>Correo</th>
-                        <th>Estado</th>
-                        <th>Motivo</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach (var itemA in Model.TodosFleteros)
-                    {
-                    <tr>
-                        <td> <input class="form-check-input" type="radio" id="flexRadioDisabled" name="grupoFleteros"></td>
-
-                        <td>@itemA.DistrictName</td>
-                        <td>@itemA.StoreName</td>
-                        <td>@itemA.nombreFletero</td>
-                        <td>@itemA.nombreCont</td>
-                        <td>@itemA.telCelCont</td>
-                        <td>@itemA.telOficinaCont</td>
-                        <td>@itemA.telNextelCont</td>
-                        <td>@itemA.correoPrincipal</td>
-                        @if (itemA.tipoEstado == "Activo")
-                        {
-                            <td class="text-success">@itemA.tipoEstado</td>
-                        }
-                        else
-                        {
-                            <td class="text-danger">@itemA.tipoEstado</td>
-                        }   
-                        <td>@itemA.tituloMotivo</td>
-                    </tr>
-                    }
-                    </tbody>
-            </table>
-
-            <table class="table table-striped" id="tblInformacionDetallada">
-                <thead>
-                    <tr>
-                        <th></th>
-                        <th>Distrito</th>
-                        <th>Tienda</th>
-                        <th>Fletero</th>
-                        <th>RFC</th>
-                        <th>dirFCalle</th>
-                        <th>dirFNum</th>
-                        <th>dirFCol</th>
-                        <th>dirFEstado</th>
-                        <th>dirFMunicipio</th>
-                        <th>dirFCP</th>
-                        <th>Nombre representate</th>
-                        <th>Contacto principal</th>
-                        <th>Tel Celular</th>
-                        <th>Tel Oficina</th>
-                        <th>Tel Nextel</th>
-                        <th>Correo</th>
-                        <th>Fecha alta</th>
-                    </th>
-                </thead>
-                <tbody>
-                    @foreach (var itemB in Model.FleterosDetalle)
-                    {
-                        <tr>
-                            <td> <input class="form-check-input" type="radio" id="flexRadioDisabled" name="grupoFleteros"></td>
-                            <td>@itemB.DistrictName</td>
-                            <td>@itemB.StoreName</td>
-                            <td>@itemB.nombreFletero</td>
-                            <td>@itemB.RFC</td>
-                            <td>@itemB.dirFCalle</td>
-                            <td>@itemB.dirFNum</td>
-                            <td>@itemB.dirFCol</td>
-                            <td>@itemB.dirFMunicipio_Estado</td>
-                            <td>@itemB.dirFMunicipio_Municipio</td>
-                            <td>@itemB.dirFCP</td>
-                            <td>@itemB.nombreRepresentante</td>
-                            <td>@itemB.nombreCont</td>
-                            <td>@itemB.telCelCont</td>
-                            <td>@itemB.telOficinaCont</td>
-                            <td>@itemB.telNextelCont</td>
-                            <td>@itemB.correoPrincipal</td>
-                            <td>@itemB.fechaAlta</td>
-                        </tr>
-                    }
-                    </tbody>
-            </table>
+            <div id="GridPartialView">
+                @{ Html.RenderPartial("_FleterosGrid", Model);}
+            </div>
         </div>
-    </div>
 </div>
 
 <div class="modal fade" id="ModalDisable" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
@@ -340,7 +249,6 @@
         }
 
         selectDistricto.addEventListener("change", Refresh);
-        Refresh();
         function Refresh() {
             fetch("/Fletero/GetTiendasList?id=" + selectDistricto.value)
             .then(function (result) {
@@ -406,8 +314,17 @@
         document.location.href = url;
     }
     function jsVerDetalle() {
-        url = '@Url.Content("~/Administracion/Fletero/Editar")';
-        document.location.href = url;
+        var radioButtonGroup = document.getElementsByName("grupoFleteros");
+        var id = 0;
+        for (let i = 0; i < radioButtonGroup.length; i++) {
+            if (radioButtonGroup[i].checked == true) {
+                id = radioButtonGroup[i].value;
+                break;
+            }
+        }
+
+        url = '@Url.Content("~/Administracion/Fletero/Editar/" )';
+        document.location.href = url + id;
     }
     function jsBuscarFiltro() {
         FleteroParam = new Object();
@@ -436,16 +353,14 @@
             FleteroParam.estado = document.getElementById("FleteroSelect").value;
         }
 
-      
+
          $.ajax({
             url: "/Administracion/Fletero/Buscar",
-            type: "POST",
+            type: "GET",
             data: FleteroParam,
             cache: false,
-            datatype: "json",
             success: function (result) {
-                 url = '@Url.Content("~/Administracion/Fletero/Buscar")';
-                 document.location.href = url;
+                 
             },
             error: function (xhr, ajaxOptions, thrownError) {
                 alert('error');

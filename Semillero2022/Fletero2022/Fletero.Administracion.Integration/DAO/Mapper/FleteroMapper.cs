@@ -54,6 +54,7 @@ namespace Fletero.Administracion.Integration.DAO.Mapper
             {
                 var fletero = new FleteroDTO();
 
+                fletero.idFletero = Convert.ToInt32(row["idFletero"]);
                 fletero.DistrictName = Convert.ToString(row["DISTRICTNAME"]);
                 fletero.StoreName = Convert.ToString(row["STORENAME"]);
                 fletero.nombreFletero = Convert.ToString(row["nombreFletero"]);
@@ -77,21 +78,26 @@ namespace Fletero.Administracion.Integration.DAO.Mapper
             foreach (DataRow row in ds.Tables[0].Rows)
             {
                 var fletero = new FleteroDTO();
-
+                fletero.idFletero = Convert.ToInt32(row["idFletero"]);
+                fletero.DistrictId = Convert.ToInt32(row["DistritoId"]);
                 fletero.DistrictName = Convert.ToString(row["DISTRICTNAME"]);
+                fletero.StoreId = Convert.ToInt32(row["IDSTORE"]);
                 fletero.StoreName = Convert.ToString(row["STORENAME"]);
                 fletero.nombreFletero = Convert.ToString(row["nombreFletero"]);
+                fletero.RFC = Convert.ToString(row["RFC"]);
                 fletero.dirFCalle = Convert.ToString(row["dirFCalle"]);
                 fletero.dirFNum = Convert.ToInt32(row["dirFNum"]);
                 fletero.dirFCol = Convert.ToString(row["dirFCol"]);
                 fletero.dirFMunicipio_Estado = Convert.ToString(row["EstadoF"]);
                 fletero.dirFMunicipio_Municipio = Convert.ToString(row["MunicipioF"]);
+                fletero.dirFMunicipio = Convert.ToInt32(row["MunicipioFId"]);
                 fletero.dirFCP = Convert.ToInt32(row["dirFCP"]);
                 fletero.dirBCalle = Convert.ToString(row["dirBCalle"]);
                 fletero.dirBNum = Convert.ToInt32(row["dirBNum"]);
                 fletero.dirBCol = Convert.ToString(row["dirBCol"]);
                 fletero.dirBMunicipio_Estado = Convert.ToString(row["EstadoB"]);
                 fletero.dirBMunicipio_Municipio = Convert.ToString(row["MunicipioB"]);
+                fletero.dirBMunicipio = Convert.ToInt32(row["MunicipioBId"]);
                 fletero.dirBCP = Convert.ToInt32(row["dirBCP"]);
                 fletero.nombreRepresentante = Convert.ToString(row["nombreRepresentante"]);
                 fletero.nombreCont = Convert.ToString(row["nombreCont"]);

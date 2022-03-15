@@ -15,6 +15,8 @@ namespace Fletero2022.Areas.Administracion.Models
         public List<TiendaDTO> Stores { get; set; }
         public List<DistritoDTO> Districts { get; set; }
         public List<FleteroDTO> TodosFleteros { get; set; }
+		public List<FleteroDTO> FleteroModificar { get; set; }
+		public List<FleteroDTO> FleteroBusquedaFiltros { get; set; }
 		public List<FleteroDTO> FleterosDetalle { get; set; }
 		public List<MunicipioDTO> MunicipiosF { get; set; }
         public List<MunicipioDTO> MunicipiosB { get; set; }
