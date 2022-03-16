@@ -7,11 +7,10 @@ using System.Threading.Tasks;
 
 namespace Fletero.Administracion.Services.Contracs.DomainObject
 {
-    public interface IUnidadDomainObject
+    public interface IContratoDomainObject
     {
-        List<UnidadCargaDTO> ObtenerUnidadList();
-        int RegistrarUnidad(UnidadCargaDTO unidadDTO);
-        int EditarUnidad(UnidadCargaDTO unidadDTO);
-
+        ContratoDTO Editar(ContratoDTO ContratoDTO);
+        int Guardar(ContratoDTO ContratoDTO);
+        IEnumerable<ContratoDTO> ObtenerContrato(int contrato);
     }
 }

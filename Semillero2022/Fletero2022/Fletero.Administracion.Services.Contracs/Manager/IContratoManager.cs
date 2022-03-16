@@ -7,11 +7,11 @@ using System.Threading.Tasks;
 
 namespace Fletero.Administracion.Services.Contracs.Manager
 {
-    public interface IUnidadManager
+    public interface IContratoManager
     {
-        List<UnidadCargaDTO> ObtenerUnidadList();
-        int RegistrarUnidad(UnidadCargaDTO unidadDTO);
-        //int EditarUnidad(UnidadCargaDTO unidadDTO);
+        List<ContratoDTO> ObtenerContrato();
+        int Guardar(ContratoDTO ContratoDTO);
 
+        ContratoDTO Editar(ContratoDTO ContratoDTO);
     }
 }
