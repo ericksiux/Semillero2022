@@ -1,4 +1,4 @@
-﻿
+﻿@model Fletero2022.Areas.Administracion.Models.UnidadModel
 @{
     ViewBag.Title = "Unidad Consulta";
 }
@@ -11,10 +11,11 @@
             <div class="col-md-3">
                 <p>Distrito:</p>
                 <select class="form-control" aria-label="Default select example" id="DistritoSelect">
-                    <option selected>Open this select menu</option>
-                    <option value="1">One</option>
-                    <option value="2">Two</option>
-                    <option value="3">Three</option>
+                    <option value="0" selected>Seleccione</option>
+                    @foreach (var item in Model.Districts)
+                    {
+                        <option value="@item.IDDISTRICT">@item.DISTRICTNAME</option>
+                    }
                 </select>
                 <br />
             </div>
@@ -22,10 +23,8 @@
             <div class="col-md-3">
                 <p class="mt-1">Tienda:</p>
                 <select class="form-control" aria-label="Default select example" id="TiendaSelect">
-                    <option selected>Open this select menu</option>
-                    <option value="1">One</option>
-                    <option value="2">Two</option>
-                    <option value="3">Three</option>
+                    <option value="0" selected>Seleccione</option>
+
                 </select>
                 <br />
             </div>
@@ -33,10 +32,11 @@
             <div class="col-md-3">
                 <p class="mt-1">Fletero:</p>
                 <select class="form-control" aria-label="Default select example" id="FleteroSelect">
-                    <option selected>Open this select menu</option>
-                    <option value="1">One</option>
-                    <option value="2">Two</option>
-                    <option value="3">Three</option>
+                    <option value="0" selected>Seleccione</option>
+                    @foreach(var item in Model.TodosFleteros)
+                    {
+                        <option value="@item.idFletero">@item.nombreFletero</option>
+                    }
                 </select>
                 <br />
             </div>
@@ -152,6 +152,33 @@
         tiendaSelect.selectedIndex = 0;
         fleteroSelect.selectedIndex = 0;
     }
+
+    var selectDistricto = document.getElementById("DistritoSelect");
+
+    selectDistricto.addEventListener("change", Refresh);
+    Refresh();
+
+    function Refresh() {
+        fetch("/Fletero/GetTiendasList?id=" + selectDistricto.value)
+            .then(function (result) {
+                if (result.ok)
+                    return result.json();
+            })
+            .then(function (data){
+                console.log(data);
+                let cbo = document.getElementById("TiendaSelect");
+                cbo.innerHTML = "";
+                data.forEach(function (element) {
+                    let opt = document.createElement("option")
+                    opt.appendChild(document.createTextNode(element.STORENAME));
+                    opt.value = element.IDSTORE;
+                    document.createElement("option");
+                    cbo.appendChild(opt);
+                })
+            })
+    }
+
+
 
     function jsAddUnidad() {
         url = '@Url.Content("~/Administracion/Unidad/AgregarUnidad")';

@@ -4,6 +4,66 @@
     ViewBag.Title = "Index";
 }
 
+@section scripts{
+        <script>
+const { type } = require("jquery");
+
+
+            function Guardar()
+            {
+                debugger
+                var tiendaID = document.getElementById('TiendaSelect').value;
+                var fleteroID = parseInt(document.getElementById('FleteroSelect').value);
+                /*Modalidad*/
+                var tipoUnidadID = document.getElementById('TipoUnidadSelect').value;
+                var numeroEconomico = document.getElementById('Numero_ecoSelect');
+                var tipoCarroceria = document.getElementById('TipoCarroceriaSelect').value;
+                var marca = document.getElementById('MarcaText').value;
+                var modelo = document.getElementById('ModeloText').value;
+                var largo = document.getElementById('LargoText');
+                var ancho = document.getElementById('AnchoText');
+                var alto = document.getElementById('AltoText');
+                var peso = document.getElementById('PesoText');
+                var numeroPoliza = document.getElementById('NumeroPolizaText');
+                /*Fecha vencimiento poliza*/
+                /*Fecha vencimiento Tarjeta de circulacion*/
+                var nombrePermiso = document.getElementById('PermisoText');
+                /*Fech vencimiento Permiso*/
+                var placas = document.getElementById('PlacasText');
+                /*federal true/false*/
+                var caractEspecial = document.getElementById('CaractEspecialText');
+                /*GPS true/false*/
+
+
+                var unidadParam = new Object();
+                demoParam.Fletero = fleteroID;
+                demoParam.TipoUnidad = tipoUnidadID;
+
+                $.ajax({
+                    url:"/Administracion/Unidad/GuardarUnidad",
+                    type:"POST",
+                    data: demoParam,
+                    cache:false,
+                    dataType:"json",
+                    succes: function (result) {
+                        debugger
+                        alert('Se guardo correctamente');
+
+                    },
+                    error: function (xhr, ajaxOptions, thrownError) {
+                        debugger
+                        alert(xhr.status);
+                        alert(thrownError);
+                    }
+                });
+
+
+                return false;
+            }
+
+        </script>
+}
+
 <!DOCTYPE html>
 
 <html>
@@ -80,10 +140,10 @@
     <br />
     <div class="" style="display: flex; align-items:center">
         <div class="col-sm-2 ">
-            <label class="control-label" for="Numero_eco">Numero Economico:</label>
+            <label class="control-label" for="Numero_ecoSelect">Numero Economico:</label>
         </div>
         <div class="col-sm-6">
-            <input id="Numero_eco" class="form-control" type="text" />
+            <input id="Numero_ecoSelect" class="form-control" type="text" />
         </div>
     </div>
     <br />
@@ -173,8 +233,10 @@
             <div class="col-sm-2 ">
                 <label class="control-label" for="FechaVencimiento">Fecha de Vencimiento:</label>
             </div>
-            <div class="col-sm-6">
-                <input id="FechaVencimiento" class="form-control" type="text" />
+            <div class="col-md-10">
+                <input type="date" id="start" name="trip-start"
+                       value="2022-03-08"
+                       min="2015-01-01" max="2028-12-31">
             </div>
         </div>
     </fieldset>
@@ -187,13 +249,36 @@
             <div class="col-sm-2 ">
                 <label class="control-label" for="FVencimientoTCirculacionText">Fecha de Vencimiento:</label>
             </div>
-            <div class="col-sm-6">
-                <input id="FVencimientoTCirculacionText" class="form-control" type="text" />
+            <div class="col-md-10">
+                <input type="date" id="start" name="trip-start"
+                       value="2022-03-08"
+                       min="2015-01-01" max="2028-12-31">
             </div>
         </div>
     </fieldset>
     <br />
     <br />
+    <fieldset>
+        <legend class="w-auto px-2">Permisos</legend>
+        <div class="" style="display: flex; align-items:center">
+            <div class="col-sm-2">
+                <label class="control-label" for="PermisoText">Nombre de Permiso:</label>
+            </div>
+            <div class="col-sm-6">
+                <input id="PermisoText" class="form-control" type="text" />
+            </div>
+            <div class="col-sm-2 ">
+                <label class="control-label" for="FVencimientoPermisoText">Fecha de Vencimiento:</label>
+            </div>
+            <div class="col-md-10">
+                <input type="date" id="start" name="trip-start"
+                       value="2022-03-08"
+                       min="2015-01-01" max="2028-12-31">
+            </div>
+        </div>
+    </fieldset>
+    <br/>
+    <br/>
     <div class="" style="display: flex; align-items:center">
         <div class="col-sm-2 ">
             <label class="control-label" for="PlacasText">Placas:</label>
@@ -236,7 +321,7 @@
     </div>
     <br/>
     <div class="modal-footer">
-        <button type="button" class="btn btn-success" onclick="jsBack()">Aceptar</button>
+        <button type="button" class="btn btn-success" onclick="Guardar()">Aceptar</button>
         <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
     </div>
 </body>
