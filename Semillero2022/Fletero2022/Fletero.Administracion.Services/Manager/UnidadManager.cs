@@ -30,5 +30,22 @@ namespace Fletero.Administracion.Services.Manager
 
             return unidadList;
         }
+
+        public int RegistrarUnidad(UnidadCargaDTO unidadDTO)
+        {
+            int ID = 0;
+
+            try
+            {
+                IUnidadDomainObject domain = new UnidadDomainObject();
+                ID = domain.RegistrarUnidad(unidadDTO);
+            }
+            catch(Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            return ID;
+        }
     }
+
 }

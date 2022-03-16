@@ -116,11 +116,13 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\Administracion\AdministracionAreaRegistration.cs" />
+    <Compile Include="Areas\Administracion\Controllers\ContratoController.cs" />
     <Compile Include="Areas\Administracion\Controllers\DemoABCController.cs" />
     <Compile Include="Areas\Administracion\Controllers\FleteroController.cs" />
     <Compile Include="Areas\Administracion\Controllers\UnidadController.cs" />
     <Compile Include="Areas\Administracion\Controllers\OperadorController.cs" />
     <Compile Include="Areas\Administracion\Models\DemoABCModel.cs" />
+    <Compile Include="Controllers\ContratosController.cs" />
     <Compile Include="Areas\Administracion\Models\FleteroModel.cs" />
     <Compile Include="Areas\Administracion\Models\UnidadModel.cs" />
     <Compile Include="Areas\Administracion\Models\OperadorModel.cs" />
@@ -148,9 +150,14 @@
     <Content Include="Areas\Administracion\Views\Fletero\Index.cshtml" />
     <Content Include="Areas\Administracion\Views\Fletero\Agregar.cshtml" />
     <Content Include="Areas\Administracion\Views\Fletero\Editar.cshtml" />
+    <Content Include="Areas\Administracion\Views\Unidad\AgregarUnidad.cshtml" />
     <Content Include="Areas\Administracion\Views\Unidad\Index.cshtml" />
+    <Content Include="Areas\Administracion\Views\Contrato\Index.cshtml" />
     <Content Include="Areas\Administracion\Views\Operador\index.cshtml" />
     <Content Include="Areas\Administracion\Views\Operador\Create.cshtml" />
+    <Content Include="Areas\Administracion\Views\Fletero\Buscar.cshtml" />
+    <Content Include="Areas\Administracion\Views\Fletero\_FleterosGrid.cshtml" />
+    <Content Include="Areas\Administracion\Views\Fletero\_FleterosGridSearch.cshtml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
@@ -176,6 +183,7 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Contratos\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

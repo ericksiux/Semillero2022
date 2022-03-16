@@ -1,4 +1,5 @@
-﻿
+﻿@model Fletero2022.Areas.Administracion.Models.FleteroModel
+
 @{
     ViewBag.Title = "Editar fletero";
 }
@@ -14,10 +15,11 @@
                 </div>
                 <div class="col-sm-6">
                     <select class="form-control" aria-label="Default select example" id="DistritoSelect" disabled>
-                        <option selected>Open this select menu</option>
-                        <option value="1">One</option>
-                        <option value="2">Two</option>
-                        <option value="3">Three</option>
+                        <option selected>@Model.FleteroModificar[0].DistrictName</option>
+                        @foreach (var itemD in Model.Districts)
+                        {
+                            <option value="@itemD.IDDISTRICT">@itemD.DISTRICTNAME</option>
+                        }
                     </select>
                 </div>
             </div>
@@ -28,10 +30,7 @@
                 </div>
                 <div class="col-sm-6">
                     <select class="form-control" aria-label="Default select example" id="TiendaSelect" disabled>
-                        <option selected>Open this select menu</option>
-                        <option value="1">One</option>
-                        <option value="2">Two</option>
-                        <option value="3">Three</option>
+                        <option selected>@Model.FleteroModificar[0].StoreName</option>
                     </select>
                 </div>
             </div>
@@ -41,7 +40,7 @@
                     <label class="control-label" for="Fletero">Fletero(*):</label>
                 </div>
                 <div class="col-sm-6">
-                    <input id="Fletero" class="form-control" type="text" readonly/>
+                    <input id="Fletero" class="form-control" type="text" readonly value="@Model.FleteroModificar[0].nombreFletero"/>
                 </div>
             </div>
             <br />
@@ -50,7 +49,7 @@
                     <label class="control-label" for="RFC">RFC(*):</label>
                 </div>
                 <div class="col-sm-6">
-                    <input id="RFC" class="form-control" type="text" readonly />
+                    <input id="RFC" class="form-control" type="text" readonly value="@Model.FleteroModificar[0].RFC"/>
                 </div>
             </div>
             <br />
@@ -61,7 +60,7 @@
                     <label class="control-label" for="dirFCalle">Calle(*):</label>
                 </div>
                 <div class="col-sm-6">
-                    <input id="dirFCalle" class="form-control" type="text" />
+                    <input id="dirFCalle" class="form-control" type="text" value="@Model.FleteroModificar[0].dirFCalle"/>
                 </div>
             </div>
             <br />
@@ -70,7 +69,7 @@
                     <label class="control-label" for="dirFNum">Número(*):</label>
                 </div>
                 <div class="col-sm-6">
-                    <input id="dirFNum" class="form-control" type="text" />
+                    <input id="dirFNum" class="form-control" type="text" value="@Model.FleteroModificar[0].dirFNum"/>
                 </div>
             </div>
             <br />
@@ -79,7 +78,7 @@
                     <label class="control-label" for="dirFCol">Colonia(*):</label>
                 </div>
                 <div class="col-sm-6">
-                    <input id="dirFCol" class="form-control" type="text" />
+                    <input id="dirFCol" class="form-control" type="text" value="@Model.FleteroModificar[0].dirFCol" />
                 </div>
             </div>
             <br />
@@ -89,10 +88,11 @@
                 </div>
                 <div class="col-sm-6">
                     <select class="form-control" aria-label="Default select example" id="MunicipioFSelect">
-                        <option selected>Open this select menu</option>
-                        <option value="1">One</option>
-                        <option value="2">Two</option>
-                        <option value="3">Three</option>
+                        <option value="@Model.FleteroModificar[0].dirFMunicipio"selected>@Model.FleteroModificar[0].dirFMunicipio_Municipio</option>
+                        @foreach (var itemMF in Model.MunicipiosF)
+                        {
+                            <option value="@itemMF.ID_MUNICIPIO">@itemMF.NOMBRE</option>
+                        }
                     </select>
                 </div>
             </div>
@@ -103,10 +103,11 @@
                 </div>
                 <div class="col-sm-6">
                     <select class="form-control" aria-label="Default select example" id="EstadoFSelect">
-                        <option selected>Open this select menu</option>
-                        <option value="1">One</option>
-                        <option value="2">Two</option>
-                        <option value="3">Three</option>
+                        <option selected>@Model.FleteroModificar[0].dirFMunicipio_Estado</option>
+                        @foreach (var itemEF in Model.EstadoF)
+                        {
+                            <option value="@itemEF.ID_ESTADO">@itemEF.NOMBRE</option>
+                        }
                     </select>
                 </div>
             </div>
@@ -116,7 +117,7 @@
                     <label class="control-label" for="dirFCP">CP(*):</label>
                 </div>
                 <div class="col-sm-6">
-                    <input id="dirFCP" class="form-control" type="text" />
+                    <input id="dirFCP" class="form-control" type="text" value="@Model.FleteroModificar[0].dirFCP"/>
                 </div>
             </div>
             <br />
@@ -126,7 +127,7 @@
                     <label class="control-label" for="dirBCalle">Calle(*):</label>
                 </div>
                 <div class="col-sm-6">
-                    <input id="dirBCalle" class="form-control" type="text" />
+                    <input id="dirBCalle" class="form-control" type="text" value="@Model.FleteroModificar[0].dirBCalle"/>
                 </div>
             </div>
             <br />
@@ -135,7 +136,7 @@
                     <label class="control-label" for="dirBNum">Número(*):</label>
                 </div>
                 <div class="col-sm-6">
-                    <input id="dirBNum" class="form-control" type="text" />
+                    <input id="dirBNum" class="form-control" type="text" value="@Model.FleteroModificar[0].dirBNum" />
                 </div>
             </div>
             <br />
@@ -144,7 +145,7 @@
                     <label class="control-label" for="dirBCol">Colonia(*):</label>
                 </div>
                 <div class="col-sm-6">
-                    <input id="dirBCol" class="form-control" type="text" />
+                    <input id="dirBCol" class="form-control" type="text"value="@Model.FleteroModificar[0].dirBCol" />
                 </div>
             </div>
             <br />
@@ -154,10 +155,11 @@
                 </div>
                 <div class="col-sm-6">
                     <select class="form-control" aria-label="Default select example" id="MunicipioBSelect">
-                        <option selected>Open this select menu</option>
-                        <option value="1">One</option>
-                        <option value="2">Two</option>
-                        <option value="3">Three</option>
+                        <option value="@Model.FleteroModificar[0].dirBMunicipio" selected>@Model.FleteroModificar[0].dirBMunicipio_Municipio</option>
+                        @foreach (var itemMB in Model.MunicipiosB)
+                        {
+                            <option value="@itemMB.ID_MUNICIPIO">@itemMB.NOMBRE</option>
+                        }
                     </select>
                 </div>
             </div>
@@ -168,10 +170,11 @@
                 </div>
                 <div class="col-sm-6">
                     <select class="form-control" aria-label="Default select example" id="EstadoBSelect">
-                        <option selected>Open this select menu</option>
-                        <option value="1">One</option>
-                        <option value="2">Two</option>
-                        <option value="3">Three</option>
+                        <option selected>@Model.FleteroModificar[0].dirBMunicipio_Estado</option>
+                        @foreach (var itemEB in Model.EstadoB)
+                        {
+                            <option value="@itemEB.ID_ESTADO">@itemEB.NOMBRE</option>
+                        }
                     </select>
                 </div>
             </div>
@@ -181,7 +184,7 @@
                     <label class="control-label" for="dirBCP">CP(*):</label>
                 </div>
                 <div class="col-sm-6">
-                    <input id="dirBCP" class="form-control" type="text" />
+                    <input id="dirBCP" class="form-control" type="text" value="@Model.FleteroModificar[0].dirBCP"/>
                 </div>
             </div>
             <br />
@@ -192,7 +195,7 @@
                     <label class="control-label" for="NombreRepresentante">Nombre representate(*):</label>
                 </div>
                 <div class="col-sm-6">
-                    <input id="NombreRepresentante" class="form-control" type="text" />
+                    <input id="NombreRepresentante" class="form-control" type="text" value="@Model.FleteroModificar[0].nombreRepresentante" />
                 </div>
             </div>
             <br />
@@ -201,7 +204,7 @@
                     <label class="control-label" for="contPrincipal">Contacto principal(*):</label>
                 </div>
                 <div class="col-sm-6">
-                    <input id="contPrincipal" class="form-control" type="text" />
+                    <input id="contPrincipal" class="form-control" type="text" value="@Model.FleteroModificar[0].nombreCont"/>
                 </div>
             </div>
             <br />
@@ -210,7 +213,7 @@
                     <label class="control-label" for="telCel">Teléfono celular(*):</label>
                 </div>
                 <div class="col-sm-6">
-                    <input id="telCel" class="form-control" type="text" />
+                    <input id="telCel" class="form-control" type="text" value="@Model.FleteroModificar[0].telCelCont"/>
                 </div>
             </div>
             <br />
@@ -219,7 +222,7 @@
                     <label class="control-label" for="telOfic">Teléfono de Oficina(*):</label>
                 </div>
                 <div class="col-sm-6">
-                    <input id="telOfic" class="form-control" type="text" />
+                    <input id="telOfic" class="form-control" type="text" value="@Model.FleteroModificar[0].telOficinaCont"/>
                 </div>
             </div>
             <br />
@@ -228,7 +231,7 @@
                     <label class="control-label" for="telNext">Teléfono Nextel(*):</label>
                 </div>
                 <div class="col-sm-6">
-                    <input id="telNext" class="form-control" type="text" />
+                    <input id="telNext" class="form-control" type="text" value="@Model.FleteroModificar[0].telNextelCont"/>
                 </div>
             </div>
             <br />
@@ -237,7 +240,7 @@
                     <label class="control-label" for="correo">Correo(*):</label>
                 </div>
                 <div class="col-sm-6">
-                    <input id="correo" class="form-control" type="text" />
+                    <input id="correo" class="form-control" type="text" value="@Model.FleteroModificar[0].correoPrincipal"/>
                 </div>
             </div>
             <br />
@@ -246,7 +249,7 @@
                     <label class="control-label" for="fechaAlta">Fecha alta(*):</label>
                 </div>
                 <div class="col-sm-6">
-                    <input id="fechaAlta" class="form-control" type="datetime" value="@Convert.ToDateTime(DateTime.Now).ToString("dd-MM-yyyy")" readonly />
+                    <input id="fechaAlta" class="form-control" type="datetime" value="@Convert.ToDateTime(Model.FleteroModificar[0].fechaAlta).ToString("dd-MM-yyyy")" readonly />
                 </div>
             </div>
             <div class="" style="display: flex; align-items:center">
@@ -262,7 +265,7 @@
             <br />
 
             <div class="col-lg-12">
-                <input type="submit" class="btn btn-success" style="margin-right:3px;" onclick="document.location.href = '@Url.Content("~/User/Add")'" value="Guardar" />
+                <input type="submit" class="btn btn-success" style="margin-right:3px;" onclick="EditarFletero()" value="Guardar" />
                 <input type="button" class="btn btn-danger" data-toggle="modal" data-target="#ModalCenter" value="Cancelar" />
             </div>
         </form>
@@ -291,9 +294,123 @@
 </div>
 
 <script>
+    document.addEventListener("DOMContentLoaded", function () {
+        var selectDistricto = document.getElementById("DistritoSelect");
 
+        selectDistricto.addEventListener("change", Refresh);
+
+        function Refresh() {
+            fetch("/Fletero/GetTiendasList?id=" + selectDistricto.value)
+                .then(function (result) {
+                    if (result.ok)
+                        return result.json();
+                })
+                .then(function (data) {
+                    console.log(data);
+                    let cbo = document.getElementById("TiendaSelect");
+                    cbo.innerHTML = "";
+                    data.forEach(function (element) {
+                        let opt = document.createElement("option")
+                        opt.appendChild(document.createTextNode(element.STORENAME));
+                        opt.value = element.IDSTORE;
+                        document.createElement("option");
+                        cbo.appendChild(opt);
+                    })
+                })
+
+        }
+
+        var selectFEstado = document.getElementById("EstadoFSelect");
+
+        selectFEstado.addEventListener("change", RefreshMun);
+
+        function RefreshMun() {
+            fetch("/Fletero/GetMunicipiosList?id=" + selectFEstado.value)
+                .then(function (result) {
+                    if (result.ok)
+                        return result.json(); //Convertir el resultado en json
+                })
+                .then(function (data) {
+                    console.log(data);
+                    let cbo = document.getElementById("MunicipioFSelect");
+                    cbo.innerHTML = "";
+                    data.forEach(function (element) {
+                        let opt = document.createElement("option")
+                        opt.appendChild(document.createTextNode(element.NOMBRE));
+                        opt.value = element.ID_MUNICIPIO;
+                        document.createElement("option");
+                        cbo.appendChild(opt);
+                    })
+                })
+
+        }
+
+        var selectBEstado = document.getElementById("EstadoBSelect");
+
+        selectBEstado.addEventListener("change", RefreshEB);
+
+        function RefreshEB() {
+            fetch("/Fletero/GetMunicipiosList?id=" + selectBEstado.value)
+                .then(function (result) {
+                    if (result.ok)
+                        return result.json();
+                })
+                .then(function (data) {
+                    console.log(data);
+                    let cbo = document.getElementById("MunicipioBSelect");
+                    cbo.innerHTML = "";
+                    data.forEach(function (element) {
+                        let opt = document.createElement("option")
+                        opt.appendChild(document.createTextNode(element.NOMBRE));
+                        opt.value = element.ID_MUNICIPIO;
+                        document.createElement("option");
+                        cbo.appendChild(opt);
+                    })
+                })
+
+        }
+    });
     function jsBack() {
         url = '@Url.Content("~/Administracion/Fletero/Index")';
         document.location.href = url;
+    }
+    function EditarFletero() {
+        var FleteroParam = new Object();
+
+        FleteroParam.idFletero = @Model.FleteroModificar[0].idFletero;
+        FleteroParam.dirFCalle = document.getElementById("dirFCalle").value;
+        FleteroParam.dirFNum = document.getElementById("dirFNum").value;
+        FleteroParam.dirFCol = document.getElementById("dirFCol").value;
+        FleteroParam.dirFMunicipio = document.getElementById("MunicipioFSelect").value;
+        FleteroParam.dirFCP = document.getElementById("dirFCP").value;
+        FleteroParam.dirBCalle = document.getElementById("dirBCalle").value;
+        FleteroParam.dirBNum = document.getElementById("dirBNum").value;
+        FleteroParam.dirBCol = document.getElementById("dirBCol").value;
+        FleteroParam.dirBMunicipio = document.getElementById("MunicipioBSelect").value;
+        FleteroParam.dirBCP = document.getElementById("dirBCP").value;
+        FleteroParam.nombreRepresentante = document.getElementById("NombreRepresentante").value;
+        FleteroParam.nombreCont = document.getElementById("contPrincipal").value;
+        FleteroParam.telCelCont = document.getElementById("telCel").value;
+        FleteroParam.telOficinaCont = document.getElementById("telOfic").value;
+        FleteroParam.telNextelCont = document.getElementById("telNext").value;
+        FleteroParam.correoPrincipal = document.getElementById("correo").value;
+
+        $.ajax({
+            url: "/Administracion/Fletero/Editar",
+            type: "POST",
+            data: FleteroParam,
+            cache: false,
+            datatype: "json",
+            success: function (result) {
+                debugger
+                 url = '@Url.Content("~/Administracion/Fletero/Index")';
+                 document.location.href = url;
+            },
+            error: function (xhr, ajaxOptions, thrownError) {
+                alert('error');
+                console.log(xhr.status, thrownError);
+
+            }
+        });
     }
 </script>

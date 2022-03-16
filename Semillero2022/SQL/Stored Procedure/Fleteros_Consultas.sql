@@ -17,7 +17,7 @@ AS
 BEGIN
 	IF @opc = 1 --Información general Fletero sin filtro
 	BEGIN
-		 select DISTRICTNAME, STORENAME, nombreFletero, nombreCont, telCelCont, telOficinaCont, telNextelCont, correoPrincipal, e.estado TipoEstado, tm.motivo TituloMotivo
+		 select idFletero, DISTRICTNAME, STORENAME, nombreFletero, nombreCont, telCelCont, telOficinaCont, telNextelCont, correoPrincipal, e.estado TipoEstado, tm.motivo TituloMotivo
   		  from DistTienda dt
 			inner join Catalogo_Tienda ct
 				inner join Catalogo_Distrito cd
@@ -35,7 +35,7 @@ BEGIN
 
 	IF @opc = 2 --Informacion detallada Fletero
 	BEGIN
-		select DISTRICTNAME, STORENAME, f.nombreFletero, f.RFC, f.dirFCalle, f.dirFNum, f.dirFCol, ce.NOMBRE EstadoF, cm.NOMBRE MunicipioF, f.dirFCP, f.nombreRepresentante, f.nombreCont, f.telCelCont, f.telOficinaCont, f.telNextelCont, f.correoPrincipal, f.fechaAlta
+		select idFletero, DISTRICTNAME, STORENAME, f.nombreFletero, f.RFC, f.dirFCalle, f.dirFNum, f.dirFCol, ce.NOMBRE EstadoF, cm.NOMBRE MunicipioF, f.dirFCP, f.nombreRepresentante, f.nombreCont, f.telCelCont, f.telOficinaCont, f.telNextelCont, f.correoPrincipal, f.fechaAlta
   		from DistTienda dt
 			inner join Catalogo_Tienda ct
 				inner join Catalogo_Distrito cd
@@ -52,7 +52,7 @@ BEGIN
 
 	IF @opc = 3 --Informacion un Fletero
 	BEGIN
-		select DISTRICTNAME, STORENAME, f.nombreFletero, RFC, f.dirFCalle, f.dirFNum, f.dirFCol, ce.NOMBRE EstadoF, cm.NOMBRE MunicipioF, f.dirFCP,  f.dirBCalle, f.dirBNum, f.dirBCol, ceB.NOMBRE EstadoB, cmB.NOMBRE MunicipioB, f.dirBCP,f.nombreRepresentante, f.nombreCont, f.telCelCont, f.telOficinaCont, f.telNextelCont, f.correoPrincipal, f.fechaAlta, f.indicadorCertif
+		select idFletero, cd.IDDISTRICT DistritoId, DISTRICTNAME, IDSTORE, STORENAME, f.nombreFletero, RFC, f.dirFCalle, f.dirFNum, f.dirFCol, ce.NOMBRE EstadoF, cm.NOMBRE MunicipioF, cm.ID_MUNICIPIO MunicipioFId, f.dirFCP,  f.dirBCalle, f.dirBNum, f.dirBCol, ceB.NOMBRE EstadoB, cmB.NOMBRE MunicipioB, cmB.ID_MUNICIPIO MunicipioBId,f.dirBCP,f.nombreRepresentante, f.nombreCont, f.telCelCont, f.telOficinaCont, f.telNextelCont, f.correoPrincipal, f.fechaAlta, f.indicadorCertif
   		from DistTienda dt
 			inner join Catalogo_Tienda ct
 				inner join Catalogo_Distrito cd

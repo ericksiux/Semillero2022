@@ -1,0 +1,79 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{CBEA2D86-7D58-4C52-96FC-28A4134C7A48}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Fletero.Administracion.Services</RootNamespace>
+    <AssemblyName>Fletero.Administracion.Services</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DomainObject\ContratoDomainObject.cs" />
+    <Compile Include="DomainObject\DemoDomainObject.cs" />
+<<<<<<< HEAD
+    <Compile Include="Manager\ContratoManager.cs" />
+=======
+    <Compile Include="DomainObject\DistritoDomainObject.cs" />
+    <Compile Include="DomainObject\EstadoDomainObject.cs" />
+>>>>>>> 6a3a8c75f53ffd2a0687adcb483721802ce60caa
+    <Compile Include="DomainObject\FleteroDomainObject.cs" />
+    <Compile Include="DomainObject\MunicipioDomainObject.cs" />
+    <Compile Include="DomainObject\TiendaDomainObject.cs" />
+    <Compile Include="DomainObject\UnidadDomainObject.cs" />
+    <Compile Include="DomainObject\OperadorDomainObjetc.cs" />
+    <Compile Include="Manager\DemoManager.cs" />
+    <Compile Include="Manager\DistritoManager.cs" />
+    <Compile Include="Manager\EstadoManager.cs" />
+    <Compile Include="Manager\FleteroManager.cs" />
+    <Compile Include="Manager\MunicipioManager.cs" />
+    <Compile Include="Manager\TiendaManager.cs" />
+    <Compile Include="Manager\UnidadManager.cs" />
+    <Compile Include="Manager\OperadorManager.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Fletero.Administracion.Integration\Fletero.Administracion.Integration.csproj">
+      <Project>{79EA2BAC-83EA-4B41-8B75-B70D07D7FDED}</Project>
+      <Name>Fletero.Administracion.Integration</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Fletero.Administracion.Services.Contracs\Fletero.Administracion.Services.Contracs.csproj">
+      <Project>{06455C9A-A25F-414C-B647-EF8569BEEA4C}</Project>
+      <Name>Fletero.Administracion.Services.Contracs</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

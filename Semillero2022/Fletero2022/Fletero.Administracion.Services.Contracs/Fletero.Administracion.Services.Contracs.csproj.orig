@@ -1,0 +1,92 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{06455C9A-A25F-414C-B647-EF8569BEEA4C}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Fletero.Administracion.Services.Contracs</RootNamespace>
+    <AssemblyName>Fletero.Administracion.Services.Contracs</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DomainObject\ICampoTarifasDomainObject.cs" />
+    <Compile Include="DomainObject\IContratoDomainObject.cs" />
+    <Compile Include="DomainObject\IDemoDomainObject.cs" />
+<<<<<<< HEAD
+    <Compile Include="DTO\CamposTarifas.cs" />
+=======
+    <Compile Include="DomainObject\IDistritoDomainObject.cs" />
+    <Compile Include="DomainObject\IEstadoDomainObject.cs" />
+>>>>>>> 6a3a8c75f53ffd2a0687adcb483721802ce60caa
+    <Compile Include="DomainObject\IFleteroDomainObject.cs" />
+    <Compile Include="DomainObject\IMunicipioDomainObject.cs" />
+    <Compile Include="DomainObject\ITiendaDomainObject.cs" />
+    <Compile Include="DomainObject\IUnidadDomainObject.cs" />
+    <Compile Include="DomainObject\IOperadorDomainObjetc.cs" />
+    <Compile Include="DTO\CatalogoDTO.cs" />
+<<<<<<< HEAD
+    <Compile Include="DTO\ContratoDTO.cs" />
+    <Compile Include="DTO\EstatusContrato.cs" />
+    <Compile Include="DTO\infoArchivo.cs" />
+    <Compile Include="DTO\MotivoContrato.cs" />
+    <Compile Include="DTO\TituloMotivoContrato.cs" />
+=======
+    <Compile Include="DTO\DistritoDTO.cs" />
+    <Compile Include="DTO\EstadoDTO.cs" />
+    <Compile Include="DTO\MunicipioDTO.cs" />
+    <Compile Include="DTO\TiendaDTO.cs" />
+>>>>>>> 6a3a8c75f53ffd2a0687adcb483721802ce60caa
+    <Compile Include="DTO\UnidadCargaDTO.cs" />
+    <Compile Include="DTO\DemoDTO.cs" />
+    <Compile Include="DTO\OperadorDTO.cs" />
+    <Compile Include="DTO\DistTiendaDTO.cs" />
+    <Compile Include="DTO\FleteroDTO.cs" />
+    <Compile Include="DTO\MotivoDTO.cs" />
+    <Compile Include="Manager\ICampoTarifasManager.cs" />
+    <Compile Include="Manager\IContratoManager.cs" />
+    <Compile Include="Manager\IDemoManager.cs" />
+    <Compile Include="Manager\IDistritoManager.cs" />
+    <Compile Include="Manager\IEstadoManager.cs" />
+    <Compile Include="Manager\IFleteroManager.cs" />
+    <Compile Include="Manager\IMunicipioManager.cs" />
+    <Compile Include="Manager\ITiendaManager.cs" />
+    <Compile Include="Manager\IUnidadManager.cs" />
+    <Compile Include="Manager\IOperadorManager.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
