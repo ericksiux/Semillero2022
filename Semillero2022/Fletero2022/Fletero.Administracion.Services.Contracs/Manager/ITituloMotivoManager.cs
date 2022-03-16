@@ -7,11 +7,8 @@ using System.Threading.Tasks;
 
 namespace Fletero.Administracion.Services.Contracs.Manager
 {
-    public interface IUnidadManager
+    public interface ITituloMotivoManager
     {
-        List<UnidadCargaDTO> ObtenerUnidadList();
-        int RegistrarUnidad(UnidadCargaDTO unidadDTO);
-        //int EditarUnidad(UnidadCargaDTO unidadDTO);
-
+        List<TituloMotivoDTO> ObtenerTituloMotivos();
     }
 }

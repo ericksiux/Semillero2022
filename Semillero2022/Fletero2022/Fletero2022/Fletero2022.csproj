@@ -150,10 +150,14 @@
     <Content Include="Areas\Administracion\Views\Fletero\Index.cshtml" />
     <Content Include="Areas\Administracion\Views\Fletero\Agregar.cshtml" />
     <Content Include="Areas\Administracion\Views\Fletero\Editar.cshtml" />
+    <Content Include="Areas\Administracion\Views\Unidad\AgregarUnidad.cshtml" />
     <Content Include="Areas\Administracion\Views\Unidad\Index.cshtml" />
     <Content Include="Areas\Administracion\Views\Contrato\Index.cshtml" />
     <Content Include="Areas\Administracion\Views\Operador\index.cshtml" />
     <Content Include="Areas\Administracion\Views\Operador\Create.cshtml" />
+    <Content Include="Areas\Administracion\Views\Fletero\Buscar.cshtml" />
+    <Content Include="Areas\Administracion\Views\Fletero\_FleterosGrid.cshtml" />
+    <Content Include="Areas\Administracion\Views\Fletero\_FleterosGridSearch.cshtml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />

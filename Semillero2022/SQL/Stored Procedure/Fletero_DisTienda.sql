@@ -22,7 +22,7 @@ BEGIN
 		SET @idDistrito = (select IDDISTRICT from Catalogo_Tienda where IDSTORE = @idTienda)
 		
 		DECLARE @id int
-		SET @id = (select @@IDENTITY)
+		SET @id = (select max(idFletero) from Fletero)
 
 		insert into DistTienda(tienda, distrito, fletero)values(@idTienda, @idDistrito, @id)
 		select @@IDENTITY ultimoIdDistTienda
