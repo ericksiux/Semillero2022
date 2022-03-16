@@ -34,7 +34,9 @@ namespace Fletero.Administracion.Services.Contracs.DTO
 
 		/***********Atributos de búsqueda general***********/
 		public string DistrictName { get; set; }
+		public int DistrictId { get; set; }
 		public string StoreName { get; set; }
+		public int StoreId { get; set; }
 		public string tipoEstado { get; set; }
 		public string tituloMotivo { get; set; }
 

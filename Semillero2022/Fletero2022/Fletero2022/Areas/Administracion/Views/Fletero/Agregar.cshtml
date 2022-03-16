@@ -1,4 +1,4 @@
-﻿
+﻿@model Fletero2022.Areas.Administracion.Models.FleteroModel
 @{
     ViewBag.Title = "Agregar fletero";
 }
@@ -7,17 +7,18 @@
 <br />
 <div class="container">
     <div class="col-lg-6">
-        <form>
+        
             <div class="" style="display: flex; align-items:center">
                 <div class="col-sm-2 ">
                     <label class="control-label" for="DistritoSelect">Distrito:</label>
                 </div>
                 <div class="col-sm-6">
                     <select class="form-control" aria-label="Default select example" id="DistritoSelect">
-                        <option selected>Open this select menu</option>
-                        <option value="1">One</option>
-                        <option value="2">Two</option>
-                        <option value="3">Three</option>
+                        <option value="0" selected>Seleccionar</option>
+                        @foreach (var itemD in Model.Districts)
+                        {
+                            <option value="@itemD.IDDISTRICT">@itemD.DISTRICTNAME</option>
+                        }
                     </select>
                 </div>
             </div>
@@ -28,10 +29,7 @@
                 </div>
                 <div class="col-sm-6">
                     <select class="form-control" aria-label="Default select example" id="TiendaSelect">
-                        <option selected>Open this select menu</option>
-                        <option value="1">One</option>
-                        <option value="2">Two</option>
-                        <option value="3">Three</option>
+                        <option value="0" selected>Seleccionar</option>
                     </select>
                 </div>
             </div>
@@ -41,7 +39,7 @@
                     <label class="control-label" for="Fletero">Fletero(*):</label>
                 </div>
                 <div class="col-sm-6">
-                    <input id="Fletero" class="form-control" type="text" />
+                    <input required id="Fletero" class="form-control" type="text" onkeydown="ValidationFletero(this)" onkeyup="ValidationFletero(this)"/>
                 </div>
             </div>
             <br />
@@ -50,7 +48,7 @@
                     <label class="control-label" for="RFC">RFC(*):</label>
                 </div>
                 <div class="col-sm-6">
-                    <input id="RFC" class="form-control" type="text" />
+                    <input required id="RFC" class="form-control" type="text"  onkeydown="ValidationRFC(this)" onkeyup="ValidationRFC(this)"/>
                 </div>
             </div>
             <br />
@@ -61,7 +59,7 @@
                     <label class="control-label" for="dirFCalle">Calle(*):</label>
                 </div>
                 <div class="col-sm-6">
-                    <input id="dirFCalle" class="form-control" type="text" />
+                    <input required id="dirFCalle" class="form-control" type="text" onkeypress="return letras(event)" onkeydown="ValidationdirFCalle(this)" onkeyup="ValidationdirFCalle(this)"/>
                 </div>
             </div>
             <br />
@@ -70,7 +68,7 @@
                     <label class="control-label" for="dirFNum">Número(*):</label>
                 </div>
                 <div class="col-sm-6">
-                    <input id="dirFNum" class="form-control" type="text" />
+                    <input required id="dirFNum" class="form-control" type="text" onkeypress="return numeros(event)" onkeydown="ValidationdirFNum(this)" onkeyup="ValidationdirFNum(this)"/>
                 </div>
             </div>
             <br />
@@ -79,7 +77,7 @@
                     <label class="control-label" for="dirFCol">Colonia(*):</label>
                 </div>
                 <div class="col-sm-6">
-                    <input id="dirFCol" class="form-control" type="text" />
+                    <input required id="dirFCol" class="form-control" type="text" onkeydown="ValidationdirFCol(this)" onkeyup="ValidationdirFCol(this)"/>
                 </div>
             </div>
             <br />
@@ -89,10 +87,11 @@
                 </div>
                 <div class="col-sm-6">
                     <select class="form-control" aria-label="Default select example" id="MunicipioFSelect">
-                        <option selected>Open this select menu</option>
-                        <option value="1">One</option>
-                        <option value="2">Two</option>
-                        <option value="3">Three</option>
+                        <option value="0" selected>Seleccionar</option>
+                        @foreach (var itemMF in Model.MunicipiosF)
+                        {
+                            <option value="@itemMF.ID_MUNICIPIO">@itemMF.NOMBRE</option>
+                        }
                     </select>
                 </div>
             </div>
@@ -103,10 +102,11 @@
                 </div>
                 <div class="col-sm-6">
                     <select class="form-control" aria-label="Default select example" id="EstadoFSelect">
-                        <option selected>Open this select menu</option>
-                        <option value="1">One</option>
-                        <option value="2">Two</option>
-                        <option value="3">Three</option>
+                        <option value="0" selected>Seleccionar</option>
+                        @foreach (var itemEF in Model.EstadoF)
+                        {
+                            <option value="@itemEF.ID_ESTADO">@itemEF.NOMBRE</option>
+                        }
                     </select>
                 </div>
             </div>
@@ -116,7 +116,7 @@
                     <label class="control-label" for="dirFCP">CP(*):</label>
                 </div>
                 <div class="col-sm-6">
-                    <input id="dirFCP" class="form-control" type="text" />
+                    <input required id="dirFCP" class="form-control" type="text" onkeypress="return numeros(event)" onkeydown="ValidationdirFCP(this)" onkeyup="ValidationdirFCP(this)"/>
                 </div>
             </div>
             <br />
@@ -126,7 +126,7 @@
                     <label class="control-label" for="dirBCalle">Calle(*):</label>
                 </div>
                 <div class="col-sm-6">
-                    <input id="dirBCalle" class="form-control" type="text" />
+                    <input required id="dirBCalle" class="form-control" type="text"  onkeypress="return letras(event)" onkeydown="ValidationdirBCalle(this)" onkeyup="ValidationdirBCalle(this)"/>
                 </div>
             </div>
             <br />
@@ -135,7 +135,7 @@
                     <label class="control-label" for="dirBNum">Número(*):</label>
                 </div>
                 <div class="col-sm-6">
-                    <input id="dirBNum" class="form-control" type="text" />
+                    <input required id="dirBNum" class="form-control" type="text" onkeypress="return numeros(event)" onkeydown="ValidationdirBNum(this)" onkeyup="ValidationdirBNum(this)"/>
                 </div>
             </div>
             <br />
@@ -144,7 +144,7 @@
                     <label class="control-label" for="dirBCol">Colonia(*):</label>
                 </div>
                 <div class="col-sm-6">
-                    <input id="dirBCol" class="form-control" type="text" />
+                    <input required id="dirBCol" class="form-control" type="text"  onkeydown="ValidationdirBCol(this)" onkeyup="ValidationdirBCol(this)"/>
                 </div>
             </div>
             <br />
@@ -154,10 +154,11 @@
                 </div>
                 <div class="col-sm-6">
                     <select class="form-control" aria-label="Default select example" id="MunicipioBSelect">
-                        <option selected>Open this select menu</option>
-                        <option value="1">One</option>
-                        <option value="2">Two</option>
-                        <option value="3">Three</option>
+                        <option value="0" selected>Seleccionar</option>
+                        @foreach (var itemMB in Model.MunicipiosB)
+                        {
+                            <option value="@itemMB.ID_MUNICIPIO">@itemMB.NOMBRE</option>
+                        }
                     </select>
                 </div>
             </div>
@@ -168,10 +169,11 @@
                 </div>
                 <div class="col-sm-6">
                     <select class="form-control" aria-label="Default select example" id="EstadoBSelect">
-                        <option selected>Open this select menu</option>
-                        <option value="1">One</option>
-                        <option value="2">Two</option>
-                        <option value="3">Three</option>
+                        <option value="0" selected>Seleccionar</option>
+                        @foreach (var itemEB in Model.EstadoB)
+                        {
+                            <option value="@itemEB.ID_ESTADO">@itemEB.NOMBRE</option>
+                        }
                     </select>
                 </div>
             </div>
@@ -181,7 +183,7 @@
                     <label class="control-label" for="dirBCP">CP(*):</label>
                 </div>
                 <div class="col-sm-6">
-                    <input id="dirBCP" class="form-control" type="text" />
+                    <input required id="dirBCP" class="form-control" type="text"  onkeypress="return numeros(event)" onkeydown="ValidationdirBCP(this)" onkeyup="ValidationdirBCP(this)"/>
                 </div>
             </div>
             <br />
@@ -192,7 +194,7 @@
                     <label class="control-label" for="NombreRepresentante">Nombre representate(*):</label>
                 </div>
                 <div class="col-sm-6">
-                    <input id="NombreRepresentante" class="form-control" type="text" />
+                    <input required id="NombreRepresentante" class="form-control" type="text" onkeypress="return letras(event)" onkeydown="ValidationRepresentante(this)" onkeyup="ValidationRepresentante(this)"/>
                 </div>
             </div>
             <br />
@@ -201,7 +203,7 @@
                     <label class="control-label" for="contPrincipal">Contacto principal(*):</label>
                 </div>
                 <div class="col-sm-6">
-                    <input id="contPrincipal" class="form-control" type="text" />
+                    <input required id="contPrincipal" class="form-control" type="text" onkeypress="return letras(event)" onkeydown="ValidationCont(this)" onkeyup="ValidationCont(this)" />
                 </div>
             </div>
             <br />
@@ -210,7 +212,7 @@
                     <label class="control-label" for="telCel">Teléfono celular(*):</label>
                 </div>
                 <div class="col-sm-6">
-                    <input id="telCel" class="form-control" type="text" />
+                    <input required id="telCel" class="form-control" type="text" onkeydown="ValidationTelCel(this)" onkeyup="ValidationTelCel(this)" />
                 </div>
             </div>
             <br />
@@ -219,7 +221,7 @@
                     <label class="control-label" for="telOfic">Teléfono de Oficina(*):</label>
                 </div>
                 <div class="col-sm-6">
-                    <input id="telOfic" class="form-control" type="text" />
+                    <input required id="telOfic" class="form-control" type="text" onkeydown="ValidationTelOfic(this)" onkeyup="ValidationTelOfic(this)" />
                 </div>
             </div>
             <br />
@@ -228,7 +230,7 @@
                     <label class="control-label" for="telNext">Teléfono Nextel(*):</label>
                 </div>
                 <div class="col-sm-6">
-                    <input id="telNext" class="form-control" type="text" />
+                    <input required id="telNext" class="form-control" type="text" onkeydown="ValidationTelNex(this)" onkeyup="ValidationTelNex(this)" />
                 </div>
             </div>
             <br />
@@ -237,7 +239,7 @@
                     <label class="control-label" for="correo">Correo(*):</label>
                 </div>
                 <div class="col-sm-6">
-                    <input id="correo" class="form-control" type="text" />
+                    <input required id="correo" class="form-control" type="email" maxlength="50" />
                 </div>
             </div>
             <br />
@@ -262,10 +264,10 @@
             <br />
 
             <div class="col-lg-12">
-                <input type="submit" class="btn btn-success" style="margin-right:3px;" onclick="document.location.href = '@Url.Content("~/User/Add")'" value="Guardar" />
+                <input type="button" class="btn btn-success" style="margin-right:3px;" onclick="AgregarFletero()" value="Guardar" />
                 <input type="button" class="btn btn-danger" data-toggle="modal" data-target="#ModalCenter" value="Cancelar" />
             </div>
-        </form>
+        
     </div>
 
 </div>
@@ -295,8 +297,262 @@ DateTime dt=DateTime.ParseExact("24/01/2013", "dd/MM/yyyy", CultureInfo.Invarian
 
 <script>
 
+
+    document.addEventListener("DOMContentLoaded", function () {
+
+
+    var selectDistricto = document.getElementById("DistritoSelect");
+
+    selectDistricto.addEventListener("change", Refresh);
+    Refresh(); /*Al inicio se refreshea*/
+
+    function Refresh() {
+        fetch("/Fletero/GetTiendasList?id=" + selectDistricto.value)
+            .then(function (result) {
+                if (result.ok)
+                    return result.json();
+            })
+            .then(function (data) {
+                console.log(data);
+                let cbo = document.getElementById("TiendaSelect");
+                cbo.innerHTML = "";
+                data.forEach(function (element) {
+                    let opt = document.createElement("option")
+                    opt.appendChild(document.createTextNode(element.STORENAME));
+                    opt.value = element.IDSTORE;
+                    document.createElement("option");
+                    cbo.appendChild(opt);
+                })
+            })
+
+        }
+
+    var selectFEstado = document.getElementById("EstadoFSelect");
+
+    selectFEstado.addEventListener("change", RefreshMun);
+    RefreshMun(); /*Al inicio se refreshea*/
+
+    function RefreshMun() {
+        fetch("/Fletero/GetMunicipiosList?id=" + selectFEstado.value)
+            .then(function (result) {
+                if (result.ok)
+                    return result.json(); //Convertir el resultado en json
+            })
+            .then(function (data) {
+                console.log(data);
+                let cbo = document.getElementById("MunicipioFSelect");
+                cbo.innerHTML = "";
+                data.forEach(function (element) {
+                    let opt = document.createElement("option")
+                    opt.appendChild(document.createTextNode(element.NOMBRE));
+                    opt.value = element.ID_MUNICIPIO;
+                    document.createElement("option");
+                    cbo.appendChild(opt);
+                })
+            })
+
+        }
+
+        var selectBEstado = document.getElementById("EstadoBSelect");
+
+        selectBEstado.addEventListener("change", RefreshEB);
+        RefreshEB(); /*Al inicio se refreshea*/
+
+        function RefreshEB() {
+            fetch("/Fletero/GetMunicipiosList?id=" + selectBEstado.value)
+                .then(function (result) {
+                    if (result.ok)
+                        return result.json();
+                })
+                .then(function (data) {
+                    console.log(data);
+                    let cbo = document.getElementById("MunicipioBSelect");
+                    cbo.innerHTML = "";
+                    data.forEach(function (element) {
+                        let opt = document.createElement("option")
+                        opt.appendChild(document.createTextNode(element.NOMBRE));
+                        opt.value = element.ID_MUNICIPIO;
+                        document.createElement("option");
+                        cbo.appendChild(opt);
+                    })
+                })
+
+        }
+
+    });
+
+    function AgregarFletero() {
+        var FleteroParam = new Object();
+
+        FleteroParam.idDistritoDistTienda = document.getElementById("DistritoSelect").value;
+        FleteroParam.idTiendaDistTienda = document.getElementById("TiendaSelect").value;
+        FleteroParam.nombreFletero = document.getElementById("Fletero").value;
+        FleteroParam.RFC = document.getElementById("RFC").value;
+        FleteroParam.dirFCalle = document.getElementById("dirFCalle").value;
+        FleteroParam.dirFNum = document.getElementById("dirFNum").value;
+        FleteroParam.dirFCol = document.getElementById("dirFCol").value;
+        FleteroParam.dirFMunicipio = document.getElementById("MunicipioFSelect").value;
+        FleteroParam.dirFCP = document.getElementById("dirFCP").value;
+        FleteroParam.dirBCalle = document.getElementById("dirBCalle").value;
+        FleteroParam.dirBNum = document.getElementById("dirBNum").value;
+        FleteroParam.dirBCol = document.getElementById("dirBCol").value;
+        FleteroParam.dirBMunicipio = document.getElementById("MunicipioBSelect").value;
+        FleteroParam.dirBCP = document.getElementById("dirBCP").value;
+        FleteroParam.nombreRepresentante = document.getElementById("NombreRepresentante").value;
+        FleteroParam.nombreCont = document.getElementById("contPrincipal").value;
+        FleteroParam.telCelCont = document.getElementById("telCel").value;
+        FleteroParam.telOficinaCont = document.getElementById("telOfic").value;
+        FleteroParam.telNextelCont = document.getElementById("telNext").value;
+        FleteroParam.correoPrincipal = document.getElementById("correo").value;
+        FleteroParam.fechaAlta = document.getElementById("fechaAlta").value;
+        FleteroParam.indicadorCertif = 0;
+        FleteroParam.estado = 1;
+
+        $.ajax({
+            url: "/Administracion/Fletero/Agregar",
+            type: "POST",
+            data: FleteroParam,
+            cache: false,
+            datatype: "json",
+            success: function (result) {
+                 url = '@Url.Content("~/Administracion/Fletero/Index")';
+                 document.location.href = url;
+            },
+            error: function (xhr, ajaxOptions, thrownError) {
+                alert('error');
+                console.log(xhr.status, thrownError);
+
+            }
+        });
+    }
+
     function jsBack() {
         url = '@Url.Content("~/Administracion/Fletero/Index")';
         document.location.href = url;
     }
+    function numeros() {
+        var charCode = event.keyCode;
+
+        if ((charCode > 47 && charCode < 58) || charCode == 8)
+
+            return true;
+        else
+            return false;
+    }
+    function letras() {
+        //propiedad keyCode devuelve el código de caracteres Unicode de la tecla que activa la onkeypress, keyCode 8 es el borrar
+        var charCode = event.keyCode;
+
+        if ((charCode > 64 && charCode < 91) || (charCode > 96 && charCode < 123) || charCode == 8 || charCode == 32)
+
+            return true;
+        else
+            return false;
+    }
+    function ValidationFletero() {
+        var input = document.getElementById("Fletero");
+
+        if (input.value.length > 100) {
+            input.value = input.value.substr(0, 100);
+        }
+    }
+    function ValidationRFC() {
+        var input = document.getElementById("RFC");
+
+        if (input.value.length > 12) {
+            input.value = input.value.substr(0, 12);
+        }
+    }
+    function ValidationdirFCalle() {
+        var input = document.getElementById("dirFCalle");
+
+        if (input.value.length > 100) {
+            input.value = input.value.substr(0, 100);
+        }
+    }
+    function ValidationdirFNum() {
+        var input = document.getElementById("dirFNum");
+
+        if (input.value.length > 20) {
+            input.value = input.value.substr(0, 20);
+        }
+    }
+    function ValidationdirFCol() {
+        var input = document.getElementById("dirFCol");
+
+        if (input.value.length > 100) {
+            input.value = input.value.substr(0, 100);
+        }
+    }
+    function ValidationdirFCP() {
+        var input = document.getElementById("dirFCP");
+
+        if (input.value.length > 5) {
+            input.value = input.value.substr(0, 5);
+        }
+    }
+    function ValidationdirBCalle() {
+        var input = document.getElementById("dirBCalle");
+
+        if (input.value.length > 100) {
+            input.value = input.value.substr(0, 100);
+        }
+    }
+    function ValidationdirBNum() {
+        var input = document.getElementById("dirBNum");
+
+        if (input.value.length > 20) {
+            input.value = input.value.substr(0, 20);
+        }
+    }
+    function ValidationdirBCol() {
+        var input = document.getElementById("dirBCol");
+
+        if (input.value.length > 100) {
+            input.value = input.value.substr(0, 100);
+        }
+    }
+    function ValidationdirBCP() {
+        var input = document.getElementById("dirBCP");
+
+        if (input.value.length > 5) {
+            input.value = input.value.substr(0, 5);
+        }
+    }
+    function ValidationRepresentante() {
+        var input = document.getElementById("NombreRepresentante");
+
+        if (input.value.length > 50) {
+            input.value = input.value.substr(0, 50);
+        }
+    }
+    function ValidationCont() {
+        var input = document.getElementById("contPrincipal");
+
+        if (input.value.length > 50) {
+            input.value = input.value.substr(0, 50);
+        }
+    }
+    function ValidationTelCel() {
+        var input = document.getElementById("telCel");
+
+        if (input.value.length > 12) {
+            input.value = input.value.substr(0, 12);
+        }
+    }
+    function ValidationTelOfic() {
+        var input = document.getElementById("telOfic");
+
+        if (input.value.length > 20) {
+            input.value = input.value.substr(0, 20);
+        }
+    }
+    function ValidationTelNex() {
+        var input = document.getElementById("telNext");
+
+        if (input.value.length > 15) {
+            input.value = input.value.substr(0, 15);
+        }
+    }
+
 </script>
