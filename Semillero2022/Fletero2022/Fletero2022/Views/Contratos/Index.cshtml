@@ -1,0 +1,123 @@
+﻿@model IEnumerable<Fletero.Administracion.Services.Contracs.DTO.ContratoDTO>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.idContrato)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.lugarFirmaContrato)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.fechaFirmaContrato)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.quienFirmaHomeDepot)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.quienFirmaFletero)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.quienRealizoFirma)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.fechaInicioContrato)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.fechaTerminacionContrato)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.renovacionAutomatica)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IDREGION)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IDDISTRICT)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IDSTORE)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.idFletero)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.statusContrato)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.idCampoTarifa)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.idArchivo)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.idContrato)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.lugarFirmaContrato)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.fechaFirmaContrato)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.quienFirmaHomeDepot)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.quienFirmaFletero)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.quienRealizoFirma)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.fechaInicioContrato)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.fechaTerminacionContrato)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.renovacionAutomatica)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IDREGION)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IDDISTRICT)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IDSTORE)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.idFletero)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.statusContrato)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.idCampoTarifa)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.idArchivo)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+        </td>
+    </tr>
+}
+
+</table>

@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{79EA2BAC-83EA-4B41-8B75-B70D07D7FDED}</ProjectGuid>
+    <ProjectGuid>{CBEA2D86-7D58-4C52-96FC-28A4134C7A48}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Fletero.Administracion.Integration</RootNamespace>
-    <AssemblyName>Fletero.Administracion.Integration</AssemblyName>
+    <RootNamespace>Fletero.Administracion.Services</RootNamespace>
+    <AssemblyName>Fletero.Administracion.Services</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -33,9 +33,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
-    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -44,31 +42,34 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DAO\CampoTarifasDAO.cs" />
-    <Compile Include="DAO\ContratoDAO.cs" />
-    <Compile Include="DAO\DemoDAO.cs" />
-    <Compile Include="DAO\Mapper\CamposTarifasDTO.cs" />
-    <Compile Include="DAO\Mapper\CampoTarifasMapper.cs" />
-    <Compile Include="DAO\DistritoDAO.cs" />
-    <Compile Include="DAO\EstadoDAO.cs" />
-    <Compile Include="DAO\Mapper\DistritoMapper.cs" />
-    <Compile Include="DAO\Mapper\EstadoMapper.cs" />
-    <Compile Include="DAO\Mapper\MunicipioMapper.cs" />
-    <Compile Include="DAO\Mapper\TiendaMapper.cs" />
-    <Compile Include="DAO\MunicipioDAO.cs" />
-    <Compile Include="DAO\TiendaDAO.cs" />
-    <Compile Include="DAO\UnidadCargaDAO.cs" />
-    <Compile Include="DAO\FleteroDAO.cs" />
-    <Compile Include="DAO\Helper\DALHelper.cs" />
-    <Compile Include="DAO\Mapper\ContratoMapper.cs" />
-    <Compile Include="DAO\Mapper\DemoMapper.cs" />
-    <Compile Include="DAO\Mapper\UnidadMapper.cs" />
-    <Compile Include="DAO\Mapper\OperadorMapper.cs" />
-    <Compile Include="DAO\operadorDAO.cs" />
-    <Compile Include="DAO\Mapper\FleteroMapper.cs" />
+    <Compile Include="DomainObject\ContratoDomainObject.cs" />
+    <Compile Include="DomainObject\DemoDomainObject.cs" />
+<<<<<<< HEAD
+    <Compile Include="Manager\ContratoManager.cs" />
+=======
+    <Compile Include="DomainObject\DistritoDomainObject.cs" />
+    <Compile Include="DomainObject\EstadoDomainObject.cs" />
+>>>>>>> 6a3a8c75f53ffd2a0687adcb483721802ce60caa
+    <Compile Include="DomainObject\FleteroDomainObject.cs" />
+    <Compile Include="DomainObject\MunicipioDomainObject.cs" />
+    <Compile Include="DomainObject\TiendaDomainObject.cs" />
+    <Compile Include="DomainObject\UnidadDomainObject.cs" />
+    <Compile Include="DomainObject\OperadorDomainObjetc.cs" />
+    <Compile Include="Manager\DemoManager.cs" />
+    <Compile Include="Manager\DistritoManager.cs" />
+    <Compile Include="Manager\EstadoManager.cs" />
+    <Compile Include="Manager\FleteroManager.cs" />
+    <Compile Include="Manager\MunicipioManager.cs" />
+    <Compile Include="Manager\TiendaManager.cs" />
+    <Compile Include="Manager\UnidadManager.cs" />
+    <Compile Include="Manager\OperadorManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Fletero.Administracion.Integration\Fletero.Administracion.Integration.csproj">
+      <Project>{79EA2BAC-83EA-4B41-8B75-B70D07D7FDED}</Project>
+      <Name>Fletero.Administracion.Integration</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Fletero.Administracion.Services.Contracs\Fletero.Administracion.Services.Contracs.csproj">
       <Project>{06455C9A-A25F-414C-B647-EF8569BEEA4C}</Project>
       <Name>Fletero.Administracion.Services.Contracs</Name>

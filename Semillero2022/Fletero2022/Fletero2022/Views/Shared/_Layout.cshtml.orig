@@ -21,12 +21,15 @@
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("Demo ABC", "Index", "DemoABC", new { Area = "Administracion" }, new { })</li>
+<<<<<<< HEAD
                     <li>@Html.ActionLink("Unidad", "Index", "unidad", new { Area = "Administracion" }, new { })</li>
                     <li>@Html.ActionLink("Fletero", "Index", "Fletero", new { Area = "Administracion" })</li>
                     <li>@Html.ActionLink("Contrato", "Index", "Contrato", new { Area = "Administracion" })</li>
+=======
                     <li>@Html.ActionLink("Unidad", "Index", "unidad", new { Area = "Administracion" }, new {})</li>
                     <li>@Html.ActionLink("Fletero", "Index", "Fletero", new { Area = "Administracion" }, new { })</li>
                     <li>@Html.ActionLink("Operador", "Index", "Operador", new { Area = "Administracion" }, new { })</li>
+>>>>>>> 6a3a8c75f53ffd2a0687adcb483721802ce60caa
                 </ul>
             </div>
         </div>
