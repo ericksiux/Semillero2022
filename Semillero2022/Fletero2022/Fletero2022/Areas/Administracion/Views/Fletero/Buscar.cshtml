@@ -340,26 +340,30 @@
         }
 
         selectDistricto.addEventListener("change", Refresh);
-        Refresh();
         function Refresh() {
-            fetch("/Fletero/GetTiendasList?id=" + selectDistricto.value)
-            .then(function (result) {
-                if (result.ok)
-                    return result.json();
-            })
-            .then(function (data) {
-                console.log(data);
-                let cbo = document.getElementById("TiendaSelect");
-                cbo.innerHTML = "";
-                data.forEach(function (element) {
-                    let opt = document.createElement("option")
-                    opt.appendChild(document.createTextNode(element.STORENAME));
-                    opt.value = element.IDSTORE;
-                    document.createElement("option");
-                    cbo.appendChild(opt);
-                })
-            })
 
+            fetch("/Fletero/GetTiendasList?id=" + selectDistricto.value)
+                .then(function (result) {
+                    if (result.ok)
+                        return result.json();
+                })
+                .then(function (data) {
+                    console.log(data);
+                    let cbo = document.getElementById("TiendaSelect");
+                    cbo.innerHTML = "";
+                    data.forEach(function (element) {
+                        let opt = document.createElement("option")
+                        opt.appendChild(document.createTextNode(element.STORENAME));
+                        opt.value = element.IDSTORE;
+                        document.createElement("option");
+                        cbo.appendChild(opt);
+                    })
+                })
+
+           
+            //this.value
+            // document.getElementById("TiendaSelect").selectedIndex = -1;
+           
         }
 
     });
