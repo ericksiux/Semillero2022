@@ -10,7 +10,7 @@ namespace Fletero.Administracion.Services.Contracs.DomainObject
     public interface IUnidadDomainObject
     {
         List<UnidadCargaDTO> ObtenerUnidadList();
-        int GuardarUnidad(UnidadCargaDTO unidadDTO);
+        int RegistrarUnidad(UnidadCargaDTO unidadDTO);
         int EditarUnidad(UnidadCargaDTO unidadDTO);
 
     }

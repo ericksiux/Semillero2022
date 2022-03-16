@@ -1,31 +1,30 @@
-﻿
+﻿@model Fletero2022.Areas.Administracion.Models.FleteroModel
 @{
     ViewBag.Title = "Fletero Consulta";
 }
 
 <h2>@ViewBag.Title</h2>
 
-<div class="container-fluid">
+<div class="">
     <form>
         <div class="row col-1g-12">
             <div class="col-md-3">
                 <p>Distrito:</p>
-                <select class="form-control" aria-label="Default select example" id="DistritoSelect">
-                    <option selected>Open this select menu</option>
-                    <option value="1">One</option>
-                    <option value="2">Two</option>
-                    <option value="3">Three</option>
+                <select class="form-control" aria-label="Selecciona tu distrito" id="DistritoSelect">
+                    <option value="0" selected>Seleccionar</option>
+                    @foreach (var item in Model.Districts)
+                    {
+                        <option value="@item.IDDISTRICT">@item.DISTRICTNAME</option>
+                    }
                 </select>
                 <br />
             </div>
 
             <div class="col-md-3">
                 <p class="mt-1">Tienda:</p>
-                <select class="form-control" aria-label="Default select example" id="TiendaSelect">
-                    <option selected>Open this select menu</option>
-                    <option value="1">One</option>
-                    <option value="2">Two</option>
-                    <option value="3">Three</option>
+                <select class="form-control" aria-label="Selecciona tu tienda" id="TiendaSelect">
+                    <option value="0" selected>Seleccionar</option>
+                    
                 </select>
                 <br />
             </div>
@@ -33,27 +32,28 @@
             <div class="col-md-3">
                 <p class="mt-1">Fletero:</p>
                 <select class="form-control" aria-label="Default select example" id="FleteroSelect">
-                    <option selected>Open this select menu</option>
-                    <option value="1">One</option>
-                    <option value="2">Two</option>
-                    <option value="3">Three</option>
+                    <option value="0" selected>Seleccionar</option>
+                    @foreach (var item in Model.TodosFleteros)
+                    {
+                        <option value="@item.idFletero">@item.nombreFletero</option>
+                    }
                 </select>
                 <br />
             </div>
         </div>
         <div class="row col-1g-12">
-            <div class="col-md-3">
+            <div class="col-md-4">
 
                 <p>Estatus:</p>
                 <select class="form-control" aria-label="Default select example" id="EstatusSelect">
-                    <option selected>Open this select menu</option>
-                    <option value="1">One</option>
-                    <option value="2">Two</option>
-                    <option value="3">Three</option>
+                    <option value="0" selected>Seleccionar</option>
+                    <option value="1">Activo</option>
+                    <option value="2">Inactivo</option>
                 </select>
                 <br />
-                <input type="submit" class="btn btn-primary" onclick="document.location.href = '@Url.Content("~/User/Add")'" value="Buscar" />
+                <input type="submit" class="btn btn-primary" onclick="jsBuscarFiltro()" value="Buscar" />
                 <input type="button" class="btn btn-primary" onclick="jsClearSorting()" value="Limpiar filtros" />
+                <input type="button" class="btn btn-primary" onclick="jsClearRadiosButton()" value="Deselccionar fletero" />
             </div>
         </div>
     </form>
@@ -140,103 +140,10 @@
                 </thead>
             </table>
 
-            <table class="table table-striped" id="tblInformacionGeneral">
-                <thead>
-                    <tr>
-                        <th></th>
-                        <th>Distrito</th>
-                        <th>Tienda</th>
-                        <th>Fletero</th>
-                        <th>Contacto principal</th>
-                        <th>Tel Celular</th>
-                        <th>Tel Oficina</th>
-                        <th>Tel Nextel</th>
-
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td> <input class="form-check-input" type="radio" id="flexRadioDisabled" name="grupoFleteros"></td>
-                        <td>Distrito</td>
-                        <td>Tienda</td>
-                        <td>Fletero</td>
-                        <td>Contacto principal</td>
-                        <td>Tel Celular</td>
-                        <td>Tel Oficina</td>
-                        <td>Tel Nextel</td>
-                    </tr>
-                   
-                </tbody>
-            </table>
-
-            <table class="table table-striped" id="tblInformacionDetallada">
-                <thead>
-                    <tr>
-                        <th></th>
-                        <th>Distrito</th>
-                        <th>Tienda</th>
-                        <th>Fletero</th>
-                        <th>RFC</th>
-                        <th>dirFCalle</th>
-                        <th>dirFNum</th>
-                        <th>dirFCol</th>
-                        <th>dirFEstado</th>
-                        <th>dirFMunicipio</th>
-                        <th>dirFCP</th>
-                        <th>Nombre representate</th>
-                        <th>Contacto principal</th>
-                        <th>Tel Celular</th>
-                        <th>Tel Oficina</th>
-                        <th>Tel Nextel</th>
-                        <th>Correo</th>
-                        <th>Fecha alta</th>
-                    </th>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td> <input class="form-check-input" type="radio" id="flexRadioDisabled" name="grupoFleteros"></td>
-                        <td>Distrito</td>
-                        <td>Tienda</td>
-                        <td>Fletero</td>
-                        <td>RFC</td>
-                        <td>dirFCalle</td>
-                        <td>dirFNum</td>
-                        <td>dirFCol</td>
-                        <td>dirFEstado</td>
-                        <td>dirFMunicipio</td>
-                        <td>dirFCP</td>
-                        <td>Nombre representate</td>
-                        <td>Contacto principal</td>
-                        <td>Tel Celular</td>
-                        <td>Tel Oficina</td>
-                        <td>Tel Nextel</td>
-                        <td>Correo</td>
-                        <td>Fecha alta</td>
-                    </tr>
-                    <tr>
-                        <td> <input class="form-check-input" type="radio" id="flexRadioDisabled" name="grupoFleteros"></td>
-                        <td>Distrito</td>
-                        <td>Tienda</td>
-                        <td>Fletero</td>
-                        <td>RFC</td>
-                        <td>dirFCalle</td>
-                        <td>dirFNum</td>
-                        <td>dirFCol</td>
-                        <td>dirFEstado</td>
-                        <td>dirFMunicipio</td>
-                        <td>dirFCP</td>
-                        <td>Nombre representate</td>
-                        <td>Contacto principal</td>
-                        <td>Tel Celular</td>
-                        <td>Tel Oficina</td>
-                        <td>Tel Nextel</td>
-                        <td>Correo</td>
-                        <td>Fecha alta</td>
-                    </tr>
-                </tbody>
-            </table>
+            <div id="GridPartialView">
+                @{ Html.RenderPartial("_FleterosGrid", Model);}
+            </div>
         </div>
-    </div>
 </div>
 
 <div class="modal fade" id="ModalDisable" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
@@ -252,10 +159,11 @@
                 <input id="fechaAlta" class="form-control" type="datetime" value="@Convert.ToDateTime(DateTime.Now).ToString("dd-MM-yyyy")" readonly />
                 <label class="control-label" for="tituloMotivoSelect">Motivo:</label>
                 <select class="form-control" aria-label="Default select example" id="tituloMotivoSelect">
-                    <option selected>Open this select menu</option>
-                    <option value="1">One</option>
-                    <option value="2">Two</option>
-                    <option value="3">Three</option>
+                    <option selected>Seleccionar</option>
+                    @foreach (var itemM in Model.TituloMotivo)
+                    {
+                        <option value="@itemM.idMotivoM">@itemM.motivo</option>
+                    }
                 </select>
                 <label class="control-label" for="TextareaDescripcion">Descripcion:</label>
                 <textarea class="form-control" id="TextareaDescripcion" rows="3"></textarea>
@@ -281,14 +189,15 @@
                 <label class="control-label" for="fechaMotivo">Fecha:</label>
                 <input id="fechaAlta" class="form-control" type="datetime" value="@Convert.ToDateTime(DateTime.Now).ToString("dd-MM-yyyy")" readonly />
                 <label class="control-label" for="tituloMotivoSelect">Motivo:</label>
-                <select class="form-control" aria-label="Default select example" id="tituloMotivoSelect">
-                    <option selected>Open this select menu</option>
-                    <option value="1">One</option>
-                    <option value="2">Two</option>
-                    <option value="3">Three</option>
+                <select class="form-control" aria-label="Default select example" id="tituloMotivoSelectHabilitar">
+                    <option selected>Seleccionar</option>
+                    @foreach (var itemM in Model.TituloMotivo)
+                    {
+                        <option value="@itemM.idMotivoM">@itemM.motivo</option>
+                    }
                 </select>
                 <label class="control-label" for="TextareaDescripcion">Descripcion:</label>
-                <textarea class="form-control" id="TextareaDescripcion" rows="3"></textarea>
+                <textarea class="form-control" id="TextareaDescripcionHabilitar" rows="3"></textarea>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-success" onclick="jsHabilitarF()">Guardar</button>
@@ -311,6 +220,8 @@
         var btnContratos = document.getElementById("BtnContratos");
         var BtnInformacionGeneral = document.getElementById("BtnInformacionGeneral");
         var tblInformacionDetallada = document.getElementById("tblInformacionDetallada");
+        var selectDistricto = document.getElementById("DistritoSelect");
+        var selectTienda = document.getElementById("TiendaSelect");
 
         btnAgregar.disabled = false;
         btnDetalle.disabled = true;
@@ -327,8 +238,6 @@
 
         for (let i = 0; i < radioButtonGroup.length; i++) {
             radioButtonGroup[i].addEventListener('change', function () {
-                btnDeshabilitar.disabled = false;
-                btnHabilitar.disabled = false;
                 btnUnidadesCarga.disabled = false;
                 btnOperadoresUnidad.disabled = false;
                 btnContratos.disabled = false;
@@ -336,9 +245,35 @@
                 btnDetalle.disabled = false;
                 BtnInformacionGeneral.disabled = true;
                 BtnInformacionDetallada.disabled = true;
+
+               
+                btnDeshabilitar.disabled = false;
+                btnHabilitar.disabled = false;
             });
         }
-        
+
+        selectDistricto.addEventListener("change", Refresh);
+        function Refresh() {
+            fetch("/Fletero/GetTiendasList?id=" + selectDistricto.value)
+            .then(function (result) {
+                if (result.ok)
+                    return result.json();
+            })
+            .then(function (data) {
+                console.log(data);
+                let cbo = document.getElementById("TiendaSelect");
+                cbo.innerHTML = "";
+                data.forEach(function (element) {
+                    let opt = document.createElement("option")
+                    opt.appendChild(document.createTextNode(element.STORENAME));
+                    opt.value = element.IDSTORE;
+                    document.createElement("option");
+                    cbo.appendChild(opt);
+                })
+            })
+
+        }
+
     });
 
     function jsClearSorting() {
@@ -352,21 +287,154 @@
         fleteroSelect.selectedIndex = 0;
         estatusSelect.selectedIndex = 0;
     }
+    function jsClearRadiosButton() {
+        var radioButtonGroup = document.getElementsByName("grupoFleteros");
+        var btnAgregar = document.getElementById("BtnAgregar");
+        var btnDetalle = document.getElementById("BtnDetalle");
+        var btnDeshabilitar = document.getElementById("BtnDeshabilitar");
+        var btnHabilitar = document.getElementById("BtnHabilitar");
+        var btnUnidadesCarga = document.getElementById("BtnUnidadesCarga");
+        var btnOperadoresUnidad = document.getElementById("BtnOperadoresUnidad");
+        var btnContratos = document.getElementById("BtnContratos");
+        var BtnInformacionGeneral = document.getElementById("BtnInformacionGeneral");
+        var tblInformacionDetallada = document.getElementById("tblInformacionDetallada");
 
+        for (let i = 0; i < radioButtonGroup.length; i++) {
+            radioButtonGroup[i].checked = false;
+        }
+        btnDeshabilitar.disabled = true;
+        btnHabilitar.disabled = true;
+        btnUnidadesCarga.disabled = true;
+        btnOperadoresUnidad.disabled = true;
+        btnContratos.disabled = true;
+        btnAgregar.disabled = false;
+        btnDetalle.disabled = true;
+        BtnInformacionGeneral.disabled = false;
+        BtnInformacionDetallada.disabled = false;
+
+    }
     function jsAddFletero() {
         url = '@Url.Content("~/Administracion/Fletero/Agregar")';
         document.location.href = url;
     }
     function jsVerDetalle() {
-        url = '@Url.Content("~/Administracion/Fletero/Editar")';
-        document.location.href = url;
+        var radioButtonGroup = document.getElementsByName("grupoFleteros");
+        var id = 0;
+        for (let i = 0; i < radioButtonGroup.length; i++) {
+            if (radioButtonGroup[i].checked == true) {
+                id = radioButtonGroup[i].value;
+                break;
+            }
+        }
+
+        url = '@Url.Content("~/Administracion/Fletero/Editar/" )';
+        document.location.href = url + id;
+    }
+    function jsBuscarFiltro() {
+        FleteroParam = new Object();
+
+        if (document.getElementById("DistritoSelect").value == 0) {
+            FleteroParam.distrito = null;
+        } else {
+            FleteroParam.distrito = document.getElementById("DistritoSelect").value;
+        }
+
+        if (document.getElementById("TiendaSelect").value == 0) {
+            FleteroParam.tienda = null;
+        } else {
+            FleteroParam.tienda = document.getElementById("TiendaSelect").value;
+        }
+
+        if (document.getElementById("EstatusSelect").value == 0) {
+            FleteroParam.estado = null;
+        } else {
+            FleteroParam.estado = document.getElementById("EstatusSelect").value;
+        }
+
+        if (document.getElementById("FleteroSelect").value == 0) {
+            FleteroParam.idFletero = null;
+        } else {
+            FleteroParam.estado = document.getElementById("FleteroSelect").value;
+        }
+
+
+         $.ajax({
+            url: "/Administracion/Fletero/Buscar",
+            type: "GET",
+            data: FleteroParam,
+            cache: false,
+            success: function (result) {
+
+            },
+            error: function (xhr, ajaxOptions, thrownError) {
+                alert('error');
+                console.log(xhr.status, thrownError);
+
+            }
+        });
     }
 
     function jsDeshabilitarF() {
-        alert(' se deshabilitará');
+        var radioButtonGroup = document.getElementsByName("grupoFleteros");
+        var id = 0;
+        for (let i = 0; i < radioButtonGroup.length; i++) {
+            if (radioButtonGroup[i].checked == true) {
+                id = radioButtonGroup[i].value;
+                break;
+            }
+        }
+
+        var idMotivo = document.getElementById("tituloMotivoSelect").value;
+        var Desc = document.getElementById("TextareaDescripcion").value;
+
+        $.ajax({
+            url: "/Administracion/Fletero/AgregarMotivoDeshabilitar",
+            type: "POST",
+            data: { "idFletero": id, "idMotivo": idMotivo, "desc" : Desc },
+            cache: false,
+            datatype: "json",
+            success: function (result) {
+                 url = '@Url.Content("~/Administracion/Fletero/Index")';
+                 document.location.href = url;
+            },
+            error: function (xhr, ajaxOptions, thrownError) {
+                alert('error');
+                console.log(xhr.status, thrownError);
+
+            }
+        });
+
     }
     function jsHabilitarF() {
-        alert(' se habilitará');
+        var radioButtonGroup = document.getElementsByName("grupoFleteros");
+        var id = 0;
+        for (let i = 0; i < radioButtonGroup.length; i++) {
+            if (radioButtonGroup[i].checked == true) {
+                id = radioButtonGroup[i].value;
+                break;
+            }
+        }
+
+        var idMotivo = document.getElementById("tituloMotivoSelectHabilitar").value;
+        var Desc = document.getElementById("TextareaDescripcionHabilitar").value;
+
+        $.ajax({
+            url: "/Administracion/Fletero/AgregarMotivoHabilitar",
+            type: "POST",
+            data: { "idFletero": id, "idMotivo": idMotivo, "desc" : Desc },
+            cache: false,
+            datatype: "json",
+            success: function (result) {
+                 url = '@Url.Content("~/Administracion/Fletero/Index")';
+                 document.location.href = url;
+            },
+            error: function (xhr, ajaxOptions, thrownError) {
+                alert('error');
+                console.log(xhr.status, thrownError);
+
+            }
+        });
+
     }
     function jsInfoDetallada() {
         var tblInformacionGeneral = document.getElementById("tblInformacionGeneral");
@@ -388,5 +456,9 @@
         BtnInformacionDetallada.style.display = "table";
         tblInformacionGeneral.style.display = "table";
         tblInformacionDetallada.style.display = "none";
+    }
+</script>
+    function jsAddUnidad() {
+
     }
 </script>

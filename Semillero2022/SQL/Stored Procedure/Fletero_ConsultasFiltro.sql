@@ -1,3 +1,4 @@
+use Fleteros2022;
 IF EXISTS (Select 1 from sysobjects where name = 'sp_Fletero_ConsultasFiltro' and type = 'P')
 	drop procedure sp_Fletero_ConsultasFiltro
 GO
@@ -16,7 +17,7 @@ create procedure sp_Fletero_ConsultasFiltro(
 )
 AS
 BEGIN
-	select DISTRICTNAME, STORENAME, f.nombreFletero, f.nombreCont, f.telCelCont, f.telOficinaCont, f.telNextelCont, f.correoPrincipal, e.estado EstadoDescripcion, tm.motivo MotivoTitulo
+	select idFletero, DISTRICTNAME, STORENAME, f.nombreFletero, f.nombreCont, f.telCelCont, f.telOficinaCont, f.telNextelCont, f.correoPrincipal, e.estado EstadoDescripcion, tm.motivo MotivoTitulo
   		  from DistTienda dt
 			inner join Catalogo_Tienda ct
 				inner join Catalogo_Distrito cd
@@ -30,9 +31,9 @@ BEGIN
 						on tm.idTituloM = m.motivo
 					on m.idMotivo = f.motivo
 				on f.idFletero = dt.fletero
-		where (@fletero IS NULL or idFletero = @fletero)
-		and (@idDistrito IS NULL or dt.distrito = @idDistrito)
-		and (@idTienda IS NULL or dt.tienda = @idTienda)
-		and (@estado IS NULL or f.estado = @estado)
+		where (@fletero = 0 or idFletero = @fletero)
+		and (@idDistrito = 0 or dt.distrito = @idDistrito)
+		and (@idTienda = 0 or dt.tienda = @idTienda)
+		and (@estado = 0 or f.estado = @estado)
 
 END
