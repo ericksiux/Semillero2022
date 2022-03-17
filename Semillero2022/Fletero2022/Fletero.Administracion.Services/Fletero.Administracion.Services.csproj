@@ -44,6 +44,8 @@
   <ItemGroup>
     <Compile Include="DomainObject\ContratoDomainObject.cs" />
     <Compile Include="DomainObject\DemoDomainObject.cs" />
+    <Compile Include="DomainObject\TipoCarroceriaDomainObject.cs" />
+    <Compile Include="DomainObject\TipoUnidadDomainObject.cs" />
     <Compile Include="Manager\ContratoManager.cs" />
     <Compile Include="DomainObject\DistritoDomainObject.cs" />
     <Compile Include="DomainObject\EstadoDomainObject.cs" />
@@ -59,6 +61,8 @@
     <Compile Include="Manager\FleteroManager.cs" />
     <Compile Include="Manager\MunicipioManager.cs" />
     <Compile Include="Manager\TiendaManager.cs" />
+    <Compile Include="Manager\TipoCarroceriaManager.cs" />
+    <Compile Include="Manager\TipoUnidadManager.cs" />
     <Compile Include="Manager\TituloMotivoManager.cs" />
     <Compile Include="Manager\UnidadManager.cs" />
     <Compile Include="Manager\OperadorManager.cs" />

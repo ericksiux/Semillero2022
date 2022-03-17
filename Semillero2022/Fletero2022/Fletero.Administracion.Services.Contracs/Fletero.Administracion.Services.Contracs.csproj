@@ -45,6 +45,8 @@
     <Compile Include="DomainObject\ICampoTarifasDomainObject.cs" />
     <Compile Include="DomainObject\IContratoDomainObject.cs" />
     <Compile Include="DomainObject\IDemoDomainObject.cs" />
+    <Compile Include="DomainObject\ITipoCarroceriaDomainObject.cs" />
+    <Compile Include="DomainObject\ITipoUnidadDomainObject.cs" />
     <Compile Include="DTO\CamposTarifas.cs" />
     <Compile Include="DomainObject\IDistritoDomainObject.cs" />
     <Compile Include="DomainObject\IEstadoDomainObject.cs" />
@@ -59,6 +61,8 @@
     <Compile Include="DTO\EstatusContrato.cs" />
     <Compile Include="DTO\infoArchivo.cs" />
     <Compile Include="DTO\MotivoContrato.cs" />
+    <Compile Include="DTO\TipoCarroceriaDTO.cs" />
+    <Compile Include="DTO\TipoUnidadDTO.cs" />
     <Compile Include="DTO\TituloMotivoContrato.cs" />
     <Compile Include="DTO\DistritoDTO.cs" />
     <Compile Include="DTO\EstadoDTO.cs" />
@@ -79,6 +83,8 @@
     <Compile Include="Manager\IFleteroManager.cs" />
     <Compile Include="Manager\IMunicipioManager.cs" />
     <Compile Include="Manager\ITiendaManager.cs" />
+    <Compile Include="Manager\ITipoCarroceriaManager.cs" />
+    <Compile Include="Manager\ITipoUnidadManager.cs" />
     <Compile Include="Manager\ITituloMotivoManager.cs" />
     <Compile Include="Manager\IUnidadManager.cs" />
     <Compile Include="Manager\IOperadorManager.cs" />

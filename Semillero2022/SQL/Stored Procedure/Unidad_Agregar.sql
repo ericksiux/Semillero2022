@@ -12,7 +12,9 @@ GO
 
 CREATE PROC Unidad_Agregar
 (
+	@tienda int,
 	@fletero int,
+	@modalidad bit,
 	@permiso int,
 	@tipoUnidad int,
 	@numero_eco varchar(8),
@@ -32,9 +34,9 @@ CREATE PROC Unidad_Agregar
 AS
 BEGIN
 
-INSERT INTO UnidadCarga(fletero,permiso,tipoUnidad,numero_eco,tipoCarroceria,marca,
+INSERT INTO UnidadCarga(tienda,fletero,modalidad,permiso,tipoUnidad,numero_eco,tipoCarroceria,marca,
 modelo,largo,ancho,alto,peso,polizaSeguro,tarjetaCirculacion,placas,caract_especial,GPS)
-VALUES (@fletero,@permiso,@tipoUnidad,@numero_eco,@tipoCarroceria,@marca,@modelo,
+VALUES (@tienda,@fletero,@modalidad,@permiso,@tipoUnidad,@numero_eco,@tipoCarroceria,@marca,@modelo,
 @largo,@ancho,@alto,@peso,@polizaSeguro,@tarjetaCirculacion,@placas,@caract_especial,@GPS);
 
 select @@IDENTITY idUnidad;
