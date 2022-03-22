@@ -140,8 +140,10 @@
                 </thead>
             </table>
 
+            @{ Html.RenderPartial("_FleterosGrid", Model);}
+
             <div id="GridPartialView">
-                @{ Html.RenderPartial("_FleterosGrid", Model);}
+
             </div>
         </div>
 </div>
@@ -359,13 +361,15 @@
         }
 
 
-         $.ajax({
+        $.ajax({
             url: "/Administracion/Fletero/Buscar",
-            type: "GET",
-            data: FleteroParam,
+            type: "Get",
             cache: false,
-            success: function (result) {
-
+            data: { "distrito": FleteroParam.distrito, "tienda": FleteroParam.tienda, "id": FleteroParam.idFletero, "estado": FleteroParam.estado },
+             dataType: "json",
+             success: function (result) {
+                 console.log(result.data);
+                 //$("#GridPartialView").html(result.Data);
             },
             error: function (xhr, ajaxOptions, thrownError) {
                 alert('error');
@@ -458,7 +462,7 @@
         tblInformacionGeneral.style.display = "table";
         tblInformacionDetallada.style.display = "none";
     }
-</script>
+
     function jsAddUnidad() {
 
     }

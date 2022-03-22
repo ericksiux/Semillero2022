@@ -17,6 +17,6 @@ namespace Fletero.Administracion.Services.Contracs.Manager
         List<FleteroDTO> ObtenerFletero(int fletero);
         List<FleteroDTO> ObtenerFleteroInfoGeneral();
         FleteroDTO ObtenerFleteroInfoDetallada(int fletero);
-        List<FleteroDTO> ObtenerFleteroFiltros(int? idDistrito, int? idTienda, int? idFletero, int? idEstado);
+        List<FleteroDTO> ObtenerFleteroFiltros(int idDistrito, int idTienda, int idFletero, int idEstado);
     }
 }

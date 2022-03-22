@@ -164,18 +164,56 @@ namespace Fletero2022.Areas.Administracion.Controllers
         }
 
         [HttpGet]
-        public ActionResult Buscar(FleteroModel fletero)
+        public ActionResult Buscar()
         {
             FleteroModel model = new FleteroModel();
-            IDistritoManager manager = new DistritoManager();
+            /*IDistritoManager manager = new DistritoManager();
             model.Districts = manager.ObtenerDistritos();
 
             ITiendaManager managerT = new TiendaManager();
             model.Stores = managerT.ObtenerTiendas(0);
+            */
 
+            int distrito, tienda, idFletero, estado;
+            
+            if(Request.Params["distrito"] != "")
+            {
+                distrito = Convert.ToInt32(Request.Params["distrito"]);
+            }
+            else
+            {
+               distrito = 0;
+            }
+
+            if(Request.Params["tienda"] != "")
+            {
+               tienda = Convert.ToInt32(Request.Params["tienda"]);
+            }
+            else
+            {
+                tienda = 0;
+            }
+
+            if (Request.Params["id"] != "")
+            {
+                idFletero = Convert.ToInt32(Request.Params["id"]);
+            }
+            else
+            {
+                idFletero = 0;
+            }
+
+            if(Request.Params["estado"] != "")
+            {
+                estado = Convert.ToInt32(Request.Params["estado"]);
+            }
+            else
+            {
+                estado = 0;
+            }
 
             IFleteroManager managerF = new FleteroManager();
-            var fleterosFiltrosBusqueda = managerF.ObtenerFleteroFiltros(fletero.distrito, fletero.tienda, fletero.idFletero, fletero.estado);
+            var fleterosFiltrosBusqueda = managerF.ObtenerFleteroFiltros(distrito, tienda, idFletero, estado);
 
             model.TodosFleteros = managerF.ObtenerFleteroInfoGeneral();
 

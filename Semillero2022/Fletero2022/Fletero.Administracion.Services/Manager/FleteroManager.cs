@@ -102,7 +102,7 @@ namespace Fletero.Administracion.Services.Manager
             return lista;
         }
 
-        public List<FleteroDTO> ObtenerFleteroFiltros(int? idDistrito, int? idTienda, int? idFletero, int? idEstado)
+        public List<FleteroDTO> ObtenerFleteroFiltros(int idDistrito, int idTienda, int idFletero, int idEstado)
         {
             List<FleteroDTO> lista = new List<FleteroDTO>();
 
