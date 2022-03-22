@@ -44,13 +44,15 @@
   <ItemGroup>
     <Compile Include="DomainObject\ContratoDomainObject.cs" />
     <Compile Include="DomainObject\DemoDomainObject.cs" />
+<<<<<<< HEAD
     <Compile Include="Manager\ContratoManager.cs" />
+=======
     <Compile Include="DomainObject\DistritoDomainObject.cs" />
     <Compile Include="DomainObject\EstadoDomainObject.cs" />
+>>>>>>> 6a3a8c75f53ffd2a0687adcb483721802ce60caa
     <Compile Include="DomainObject\FleteroDomainObject.cs" />
     <Compile Include="DomainObject\MunicipioDomainObject.cs" />
     <Compile Include="DomainObject\TiendaDomainObject.cs" />
-    <Compile Include="DomainObject\TituloMotivoDomainObject.cs" />
     <Compile Include="DomainObject\UnidadDomainObject.cs" />
     <Compile Include="DomainObject\OperadorDomainObjetc.cs" />
     <Compile Include="Manager\DemoManager.cs" />
@@ -59,7 +61,6 @@
     <Compile Include="Manager\FleteroManager.cs" />
     <Compile Include="Manager\MunicipioManager.cs" />
     <Compile Include="Manager\TiendaManager.cs" />
-    <Compile Include="Manager\TituloMotivoManager.cs" />
     <Compile Include="Manager\UnidadManager.cs" />
     <Compile Include="Manager\OperadorManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

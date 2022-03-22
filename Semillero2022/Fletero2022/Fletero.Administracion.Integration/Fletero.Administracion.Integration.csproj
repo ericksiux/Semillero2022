@@ -44,7 +44,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DAO\CampoTarifasDAO.cs" />
+    <Compile Include="DAO\ContratoDAO.cs" />
     <Compile Include="DAO\DemoDAO.cs" />
+    <Compile Include="DAO\Mapper\CamposTarifasDTO.cs" />
+    <Compile Include="DAO\Mapper\CampoTarifasMapper.cs" />
     <Compile Include="DAO\DistritoDAO.cs" />
     <Compile Include="DAO\EstadoDAO.cs" />
     <Compile Include="DAO\Mapper\DistritoMapper.cs" />
@@ -57,6 +61,7 @@
     <Compile Include="DAO\UnidadCargaDAO.cs" />
     <Compile Include="DAO\FleteroDAO.cs" />
     <Compile Include="DAO\Helper\DALHelper.cs" />
+    <Compile Include="DAO\Mapper\ContratoMapper.cs" />
     <Compile Include="DAO\Mapper\DemoMapper.cs" />
     <Compile Include="DAO\Mapper\UnidadMapper.cs" />
     <Compile Include="DAO\Mapper\OperadorMapper.cs" />
@@ -64,7 +69,6 @@
     <Compile Include="DAO\Mapper\FleteroMapper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\Fletero.Administracion.Services.Contracs\Fletero.Administracion.Services.Contracs.csproj">
       <Project>{06455C9A-A25F-414C-B647-EF8569BEEA4C}</Project>

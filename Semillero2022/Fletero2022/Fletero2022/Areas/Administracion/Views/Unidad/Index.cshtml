@@ -1,236 +1,187 @@
 ﻿@model Fletero2022.Areas.Administracion.Models.UnidadModel
-
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Unidad Consulta";
 }
 
-<!DOCTYPE html>
+<h2>@ViewBag.Title</h2>
 
-<html>
-<head>
-    <meta name="viewport" content="width=device-width"/>
-    <title>Index</title>
-    <link type="text/css" href="~/Content/bootstrap.min.css" rel="stylesheet"/>
-    <script type="text/javascript" src="~/Scripts/bootstrap.min.js"></script>
-</head>
-<body>
-    <div>
-        <h1>Unidad</h1>
-    </div>
-    <div class="" style="display: flex; align-items:center">
-        <div class="col-sm-2 ">
-            <label class="control-label" for="TiendaSelect">Tienda:</label>
-        </div>
-        <div class="col-sm-6">
-            <select class="form-control" aria-label="Default select example" id="TiendaSelect">
-                <option selected>Seleccione</option>
-                <option value="1">One</option>
-                <option value="2">Two</option>
-                <option value="3">Three</option>
-            </select>
-        </div>
-    </div>
-    <br />
-    <div class="" style="display: flex; align-items:center">
-        <div class="col-sm-2 ">
-            <label class="control-label" for="FleteroSelect">Fletero:</label>
-        </div>
-        <div class="col-sm-6">
-            <select class="form-control" aria-label="Default select example" id="FleteroSelect">
-                <option selected>Seleccione</option>
-                <option value="1">One</option>
-                <option value="2">Two</option>
-                <option value="3">Three</option>
-            </select>
-        </div>
-    </div>
-    <br />
-    <div class="" style="display: flex; align-items:center">
-        <div class="form-check">
-            <label class="control-label" for="ModalidadRadio">Modalidad:</label>
-            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" checked>
-            <label class="form-check-label" for="flexRadioDefault1">
-                Base
-            </label>
-        </div>
-        <br />
-        <div class="form-check">
-            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2">
-            <label class="form-check-label" for="flexRadioDefault2">
-                Adicional
-            </label>
-        </div>
-    </div>
-    <br />
-    <div class="" style="display: flex; align-items:center">
-        <div class="col-sm-2 ">
-            <label class="control-label" for="TipoUnidadSelect">Tipo de Unidad:</label>
-        </div>
-        <div class="col-sm-6">
-            <select class="form-control" aria-label="Default select example" id="TipoUnidadSelect">
-                <option selected>Seleccione</option>
-                <option value="1">One</option>
-                <option value="2">Two</option>
-                <option value="3">Three</option>
-            </select>
-        </div>
-    </div>
-    <br />
-    <div class="" style="display: flex; align-items:center">
-        <div class="col-sm-2 ">
-            <label class="control-label" for="Numero_eco">Numero Economico:</label>
-        </div>
-        <div class="col-sm-6">
-            <input id="Numero_eco" class="form-control" type="text" />
-        </div>
-    </div>
-    <br />
-    <div class="" style="display: flex; align-items:center">
-        <div class="col-sm-2 ">
-            <label class="control-label" for="TipoCarroceriaSelect">Tipo Carroceria:</label>
-        </div>
-        <div class="col-sm-6">
-            <select class="form-control" aria-label="Default select example" id="TipoCarroceriaSelect">
-                <option selected>Seleccione</option>
-                <option value="1">One</option>
-                <option value="2">Two</option>
-            </select>
-        </div>
-    </div>
-    <br />
-    <div class="" style="display: flex; align-items:center">
-        <div class="col-sm-2 ">
-            <label class="control-label" for="MarcaText">Marca:</label>
-        </div>
-        <div class="col-sm-6">
-            <input id="MarcaText" class="form-control" type="text" />
-        </div>
-    </div>
-    <br />
-    <div class="" style="display: flex; align-items:center">
-        <div class="col-sm-2 ">
-            <label class="control-label" for="ModeloText">Modelo:</label>
-        </div>
-        <div class="col-sm-6">
-            <input id="ModeloText" class="form-control" type="text" />
-        </div>
-    </div>
-    <br />
-    <br />
-    <div class="" style="display: flex; align-items:center">
-        <div class="col-sm-2 ">
-            <label class="control-label" for="LargoText">Largo:</label>
-        </div>
-        <div class="col-sm-6">
-            <input id="LargoText" class="form-control" type="text" />
-        </div>
-    </div>
-    <br />
-    <div class="" style="display: flex; align-items:center">
-        <div class="col-sm-2 ">
-            <label class="control-label" for="AnchoText">Ancho:</label>
-        </div>
-        <div class="col-sm-6">
-            <input id="AnchoText" class="form-control" type="text" />
-        </div>
-    </div>
-    <br />
-    <div class="" style="display: flex; align-items:center">
-        <div class="col-sm-2 ">
-            <label class="control-label" for="AltoText">Alto:</label>
-        </div>
-        <div class="col-sm-6">
-            <input id="AltoText" class="form-control" type="text" />
-        </div>
-    </div>
-    <br />
-    <div class="" style="display: flex; align-items:center">
-        <div class="col-sm-2 ">
-            <label class="control-label" for="PesoText">Peso:</label>
-        </div>
-        <div class="col-sm-6">
-            <input id="PesoText" class="form-control" type="text" />
-        </div>
-    </div>
-    <br />
-    <br />
-    <br />
-    <div class="" style="display: flex; align-items:center">
-        <div class="col-sm-2 ">
-            <label class="control-label" for="NumeroPolizaText">Numero de Poliza:</label>
-        </div>
-        <div class="col-sm-6">
-            <input id="NumeroPolizaText" class="form-control" type="text" />
-        </div>
-        <div class="col-sm-2 ">
-            <label class="control-label" for="FechaVencimiento">Fecha de Vencimiento:</label>
-        </div>
-        <div class="col-sm-6">
-            <input id="FechaVencimiento" class="form-control" type="text" />
-        </div>
-    </div>
-    <br />
-    <br />
-    <br />
-    <div class="" style="display: flex; align-items:center">
-        <div class="col-sm-2 ">
-            <label class="control-label" for="FVencimientoTCirculacionText">Fecha de Vencimiento de la Tarjeta de Circulacion:</label>
-        </div>
-        <div class="col-sm-6">
-            <input id="FVencimientoTCirculacionText" class="form-control" type="text" />
-        </div>
-    </div>
-    <br />
-    <br />
-    <div class="" style="display: flex; align-items:center">
-        <div class="col-sm-2 ">
-            <label class="control-label" for="PlacasText">Placas:</label>
-        </div>
-        <div class="col-sm-6">
-            <input id="PlacasText" class="form-control" type="text" />
-        </div>
-        <div class="form-check">
-            <input class="form-check-input" type="checkbox" value="" id="FederalCheckBox">
-            <label class="form-check-label" for="flexCheckDefault">
-                Federal
-            </label>
-        </div>
-    </div>
-    <br />
-    <div class="" style="display: flex; align-items:center">
-        <div class="col-sm-2 ">
-            <label class="control-label" for="CaractEspecialText">Caracteristica Especial:</label>
-        </div>
-        <div class="col-sm-6">
-            <input id="CaractEspecialText" class="form-control" type="text" />
-        </div>
-    </div>
-    <br />
-    <div class="" style="display: flex; align-items:center">
-        <div class="form-check">
-            <label class="control-label" for="GPSRadio">Contiene GPS:</label>
-            <input class="form-check-input" type="radio" name="flexRadioDefault" id="GPSRadio1" checked>
-            <label class="form-check-label" for="flexRadioDefault1">
-                Si
-            </label>
-        </div>
-        <br />
-        <div class="form-check">
-            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2">
-            <label class="form-check-label" for="flexRadioDefault2">
-                No
-            </label>
-        </div>
-    </div>
-    <br/>
-    <div class="modal-footer">
-        <button type="button" class="btn btn-success" onclick="jsBack()">Aceptar</button>
-        <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
-    </div>
-</body>
-</html>
+<div class="container-fluid">
+    <form>
+        <div class="row col-1g-12">
+            <div class="col-md-3">
+                <p>Distrito:</p>
+                <select class="form-control" aria-label="Default select example" id="DistritoSelect">
+                    <option value="0" selected>Seleccione</option>
+                    @foreach (var item in Model.Districts)
+                    {
+                        <option value="@item.IDDISTRICT">@item.DISTRICTNAME</option>
+                    }
+                </select>
+                <br />
+            </div>
 
-<p>
-    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+            <div class="col-md-3">
+                <p class="mt-1">Tienda:</p>
+                <select class="form-control" aria-label="Default select example" id="TiendaSelect">
+                    <option value="0" selected>Seleccione</option>
+
+                </select>
+                <br />
+            </div>
+
+            <div class="col-md-3">
+                <p class="mt-1">Fletero:</p>
+                <select class="form-control" aria-label="Default select example" id="FleteroSelect">
+                    <option value="0" selected>Seleccione</option>
+                    @foreach(var item in Model.TodosFleteros)
+                    {
+                        <option value="@item.idFletero">@item.nombreFletero</option>
+                    }
+                </select>
+                <br />
+            </div>
+        </div>
+        <div class="row col-1g-12">
+            <div class="col-md-3">
+                <input type="submit" class="btn btn-primary" onclick="document.location.href = '@Url.Content("~/User/Add")'" value="Buscar" />
+                <input type="button" class="btn btn-primary" onclick="jsClearSorting()" value="Limpiar filtros" />
+            </div>
+        </div>
+    </form>
+    <br />
+    <div class="row">
+        <div class="col-1g-12">
+            <table class="table" style="margin: 0px;">
+                <thead style="background-color: lightgrey">
+                    <tr>
+                        <th>
+                            <button type="button" class="btn btn-default" id="agregar" onclick="jsAddUnidad()">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus" viewBox="0 0 16 16" style="vertical-align:middle;">
+                                    <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z" />
+                                </svg>
+                                Agregar
+                            </button>
+                        </th>
+                        <th>
+                            <button type="button" class="btn btn-default">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-eye-fill" viewBox="0 0 16 16" style="vertical-align:middle;">
+                                    <path d="M10.5 8a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0z" />
+                                    <path d="M0 8s3-5.5 8-5.5S16 8 16 8s-3 5.5-8 5.5S0 8 0 8zm8 3.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7z" />
+                                </svg>
+                                Ver detalle
+                            </button>
+                        </th>
+                        <th>
+                            <button type="button" class="btn btn-default" onclick="jsToDisable()">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash3-fill" viewBox="0 0 16 16">
+                                    <path d="M11 1.5v1h3.5a.5.5 0 0 1 0 1h-.538l-.853 10.66A2 2 0 0 1 11.115 16h-6.23a2 2 0 0 1-1.994-1.84L2.038 3.5H1.5a.5.5 0 0 1 0-1H5v-1A1.5 1.5 0 0 1 6.5 0h3A1.5 1.5 0 0 1 11 1.5Zm-5 0v1h4v-1a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5ZM4.5 5.029l.5 8.5a.5.5 0 1 0 .998-.06l-.5-8.5a.5.5 0 1 0-.998.06Zm6.53-.528a.5.5 0 0 0-.528.47l-.5 8.5a.5.5 0 0 0 .998.058l.5-8.5a.5.5 0 0 0-.47-.528ZM8 4.5a.5.5 0 0 0-.5.5v8.5a.5.5 0 0 0 1 0V5a.5.5 0 0 0-.5-.5Z" />
+                                </svg>
+                                Eliminar
+                            </button>
+                        </th>
+                        <th>
+                            <button type="button" class="btn btn-default" onclick="jsEnable()">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-repeat" viewBox="0 0 16 16">
+                                    <path d="M11.534 7h3.932a.25.25 0 0 1 .192.41l-1.966 2.36a.25.25 0 0 1-.384 0l-1.966-2.36a.25.25 0 0 1 .192-.41zm-11 2h3.932a.25.25 0 0 0 .192-.41L2.692 6.23a.25.25 0 0 0-.384 0L.342 8.59A.25.25 0 0 0 .534 9z" />
+                                    <path fill-rule="evenodd" d="M8 3c-1.552 0-2.94.707-3.857 1.818a.5.5 0 1 1-.771-.636A6.002 6.002 0 0 1 13.917 7H12.9A5.002 5.002 0 0 0 8 3zM3.1 9a5.002 5.002 0 0 0 8.757 2.182.5.5 0 1 1 .771.636A6.002 6.002 0 0 1 2.083 9H3.1z" />
+                                </svg>
+                                Actualizar
+                            </button>
+                        </th>
+                        <th>
+                            <button type="button" class="btn btn-default">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-box-arrow-in-right" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd" d="M6 3.5a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-2a.5.5 0 0 0-1 0v2A1.5 1.5 0 0 0 6.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-8A1.5 1.5 0 0 0 5 3.5v2a.5.5 0 0 0 1 0v-2z" />
+                                    <path fill-rule="evenodd" d="M11.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H1.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3z" />
+                                </svg>
+                                Exportar a
+                            </button>
+                        </th>
+                    </tr>
+                </thead>
+            </table>
+
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>Distrito</th>
+                        <th>Tienda</th>
+                        <th>Fletero</th>
+                        <th>Numero Economico</th>
+                        <th>Tipo de Unidad</th>
+                        <th>Tipo de Carroceria</th>
+                        <th>Largo</th>
+                        <th>Marca</th>
+                        <th>Modelo</th>
+                        <th>Placas</th>
+                        <th>Tipo de Placas</th>
+                        <th>Indicador GPS</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td> <input class="form-check-input" type="radio" id="flexRadioDisabled" name="gropoFleteros"></td>
+                        <td>Distrito</td>
+                        <td>Tienda</td>
+                        <td>Fletero</td>
+                        <td>Numero Economico</td>
+                        <td>Tipo de Unidad</td>
+                        <td>Tipo de Carroceria</td>
+                        <td>Largo</td>
+                        <td>Marca</td>
+                        <td>Modelo</td>
+                        <td>Placas</td>
+                        <td>Tipo de Placas</td>
+                        <td>Indicador GPS</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<script>
+    function jsClearSorting() {
+        var distritoSelect = document.getElementById("DistritoSelect");
+        var tiendaSelect = document.getElementById("TiendaSelect");
+        var fleteroSelect = document.getElementById("FleteroSelect");
+
+        distritoSelect.selectedIndex = 0;
+        tiendaSelect.selectedIndex = 0;
+        fleteroSelect.selectedIndex = 0;
+    }
+
+    var selectDistricto = document.getElementById("DistritoSelect");
+
+    selectDistricto.addEventListener("change", Refresh);
+    Refresh();
+
+    function Refresh() {
+        fetch("/Fletero/GetTiendasList?id=" + selectDistricto.value)
+            .then(function (result) {
+                if (result.ok)
+                    return result.json();
+            })
+            .then(function (data){
+                console.log(data);
+                let cbo = document.getElementById("TiendaSelect");
+                cbo.innerHTML = "";
+                data.forEach(function (element) {
+                    let opt = document.createElement("option")
+                    opt.appendChild(document.createTextNode(element.STORENAME));
+                    opt.value = element.IDSTORE;
+                    document.createElement("option");
+                    cbo.appendChild(opt);
+                })
+            })
+    }
+
+
+
+    function jsAddUnidad() {
+        url = '@Url.Content("~/Administracion/Unidad/AgregarUnidad")';
+        document.location.href = url;
+    }
+</script>

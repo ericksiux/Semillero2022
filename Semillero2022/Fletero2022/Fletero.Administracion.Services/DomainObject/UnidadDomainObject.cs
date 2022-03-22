@@ -60,7 +60,7 @@ namespace Fletero.Administracion.Services.DomainObject
 
             return unidadList;
         }
-        public int GuardarUnidad(UnidadCargaDTO unidadDTO)
+        public int RegistrarUnidad(UnidadCargaDTO unidadDTO)
         {
             int unidadID = 0;
 
