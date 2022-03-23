@@ -232,17 +232,30 @@ namespace Fletero.Administracion.Integration.DAO
             }
             return fList;
         }
-        public List<FleteroDTO> ObtenerFleteroFiltros(int? idDistrito, int? idTienda, int? idFletero, int? idEstado) //Corregir valores nulos, creo que ya quedó
+        public List<FleteroDTO> ObtenerFleteroFiltros(int idDistrito, int idTienda, int idFletero, int idEstado) //Corregir valores nulos, creo que ya quedó
         {
             
             List<FleteroDTO> fList = new List<FleteroDTO>();
             try
             {
                 IList<IDbDataParameter> parameters = new List<IDbDataParameter>();
-                parameters.Add(new SqlParameter { ParameterName = "@idDistrito", Value = idDistrito });
-                parameters.Add(new SqlParameter { ParameterName = "@idTienda", Value = idTienda });
-                parameters.Add(new SqlParameter { ParameterName = "@fletero", Value = idFletero });
-                parameters.Add(new SqlParameter { ParameterName = "@estado", Value = idEstado });
+               
+                    parameters.Add(new SqlParameter { ParameterName = "@idDistrito", Value = idDistrito });
+                
+                 
+
+               
+                    parameters.Add(new SqlParameter { ParameterName = "@idTienda", Value = idTienda });
+                
+
+               
+                    parameters.Add(new SqlParameter { ParameterName = "@fletero", Value = idFletero });
+                
+
+               
+                    parameters.Add(new SqlParameter { ParameterName = "@estado", Value = idEstado });
+                
+
 
                 var ds = DALHelper.Retrive("sp_Fletero_ConsultasFiltro", parameters);
                 fList = FleteroMapper.FleteroDSToList_ObtenerFleteroFiltros(ds);
