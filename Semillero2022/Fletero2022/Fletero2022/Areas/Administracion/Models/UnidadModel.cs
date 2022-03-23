@@ -33,5 +33,7 @@ namespace Fletero2022.Areas.Administracion.Models
         public List<DistritoDTO> Districts { get; set; }
         public List<TiendaDTO> Stores { get; set; }
         public List<FleteroDTO> TodosFleteros { get; set; }
+        public List<TipoUnidadDTO> TipoDeUnidad { get; set; }
+        public List<TipoCarroceriaDTO> TipoDeCarroceria { get; set; }
     }
 }

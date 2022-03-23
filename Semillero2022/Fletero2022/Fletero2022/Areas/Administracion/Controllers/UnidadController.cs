@@ -29,11 +29,24 @@ namespace Fletero2022.Areas.Administracion.Controllers
         }
         public ActionResult AgregarUnidad()
         {
+            UnidadModel model = new UnidadModel();
+            ITiendaManager managerT = new TiendaManager();
+            model.Stores = managerT.ObtenerTiendas(0);
+
+            IFleteroManager managerF = new FleteroManager();
+            model.TodosFleteros = managerF.ObtenerFleteroInfoGeneral();
+
+            ITipoUnidadManager managerTU = new TipoUnidadManager();
+            model.TipoDeUnidad = managerTU.ObtenerTipoUnidad(0);
+
+            ITipoCarroceriaManager managerTC = new TipoCarroceriaManager();
+            model.TipoDeCarroceria = managerTC.ObtenerTipoCarroceria(0);
+
             IUnidadManager manager = new UnidadManager();
 
             var datosLista = manager.ObtenerUnidadList();
 
-            return View();
+            return View(model);
         }
 
         [HttpPost]
