@@ -1,331 +1,308 @@
 ﻿@model Fletero2022.Areas.Administracion.Models.UnidadModel
-
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Agregar unidad";
 }
 
-@section scripts{
-        <script>
-const { type } = require("jquery");
+<h2>@ViewBag.Title</h2>
+<br />
+<div class="container">
+    <div class="col-lg-6">
 
-
-            function Guardar()
-            {
-                debugger
-                var tiendaID = document.getElementById('TiendaSelect').value;
-                var fleteroID = parseInt(document.getElementById('FleteroSelect').value);
-                /*Modalidad*/
-                var tipoUnidadID = document.getElementById('TipoUnidadSelect').value;
-                var numeroEconomico = document.getElementById('Numero_ecoSelect');
-                var tipoCarroceria = document.getElementById('TipoCarroceriaSelect').value;
-                var marca = document.getElementById('MarcaText').value;
-                var modelo = document.getElementById('ModeloText').value;
-                var largo = document.getElementById('LargoText');
-                var ancho = document.getElementById('AnchoText');
-                var alto = document.getElementById('AltoText');
-                var peso = document.getElementById('PesoText');
-                var numeroPoliza = document.getElementById('NumeroPolizaText');
-                /*Fecha vencimiento poliza*/
-                /*Fecha vencimiento Tarjeta de circulacion*/
-                var nombrePermiso = document.getElementById('PermisoText');
-                /*Fech vencimiento Permiso*/
-                var placas = document.getElementById('PlacasText');
-                /*federal true/false*/
-                var caractEspecial = document.getElementById('CaractEspecialText');
-                /*GPS true/false*/
-
-
-                var unidadParam = new Object();
-                demoParam.Fletero = fleteroID;
-                demoParam.TipoUnidad = tipoUnidadID;
-
-                $.ajax({
-                    url:"/Administracion/Unidad/GuardarUnidad",
-                    type:"POST",
-                    data: demoParam,
-                    cache:false,
-                    dataType:"json",
-                    succes: function (result) {
-                        debugger
-                        alert('Se guardo correctamente');
-
-                    },
-                    error: function (xhr, ajaxOptions, thrownError) {
-                        debugger
-                        alert(xhr.status);
-                        alert(thrownError);
+        <div class="" style="display: flex; align-items:center">
+            <div class="col-sm-2 ">
+                <label class="control-label" for="TiendaSelect">Tienda:</label>
+            </div>
+            <div class="col-sm-6">
+                <select class="form-control" aria-label="Default select example" id="TiendaSelect">
+                    <option value="0" selected>Seleccione</option>
+                    @foreach (var itemT in Model.Stores)/**/
+                    {
+                        <option value="@itemT.IDSTORE">@itemT.STORENAME</option>
                     }
-                });
-
-
-                return false;
-            }
-
-        </script>
-}
-
-<!DOCTYPE html>
-
-<html>
-<head>
-    <meta name="viewport" content="width=device-width"/>
-    <title>Index</title>
-    <link type="text/css" href="~/Content/bootstrap.min.css" rel="stylesheet"/>
-    <script type="text/javascript" src="~/Scripts/bootstrap.min.js"></script>
-</head>
-<body>
-    <div>
-        <h1>Unidad</h1>
-    </div>
-    <div class="" style="display: flex; align-items:center">
-        <div class="col-sm-2 ">
-            <label class="control-label" for="TiendaSelect">Tienda:</label>
-        </div>
-        <div class="col-sm-6">
-            <select class="form-control" aria-label="Default select example" id="TiendaSelect">
-                <option selected>Seleccione</option>
-                <option value="1">One</option>
-                <option value="2">Two</option>
-                <option value="3">Three</option>
-            </select>
-        </div>
-    </div>
-    <br />
-    <div class="" style="display: flex; align-items:center">
-        <div class="col-sm-2 ">
-            <label class="control-label" for="FleteroSelect">Fletero:</label>
-        </div>
-        <div class="col-sm-6">
-            <select class="form-control" aria-label="Default select example" id="FleteroSelect">
-                <option selected>Seleccione</option>
-                <option value="1">One</option>
-                <option value="2">Two</option>
-                <option value="3">Three</option>
-            </select>
-        </div>
-    </div>
-    <br />
-    <div class="" style="display: flex; align-items:center">
-        <div class="form-check">
-            <label class="control-label" for="ModalidadRadio">Modalidad:</label>
-            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" checked>
-            <label class="form-check-label" for="flexRadioDefault1">
-                Base
-            </label>
-        </div>
-        <br />
-        <div class="form-check">
-            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2">
-            <label class="form-check-label" for="flexRadioDefault2">
-                Adicional
-            </label>
-        </div>
-    </div>
-    <br />
-    <fieldset>
-        <legend class="w-auto px-2">Descripcion de la unidad</legend>
-    <div class="" style="display: flex; align-items:center">
-        <div class="col-sm-2 ">
-            <label class="control-label" for="TipoUnidadSelect">Tipo de Unidad:</label>
-        </div>
-        <div class="col-sm-6">
-            <select class="form-control" aria-label="Default select example" id="TipoUnidadSelect">
-                <option selected>Seleccione</option>
-                <option value="1">One</option>
-                <option value="2">Two</option>
-                <option value="3">Three</option>
-            </select>
-        </div>
-    </div>
-    <br />
-    <div class="" style="display: flex; align-items:center">
-        <div class="col-sm-2 ">
-            <label class="control-label" for="Numero_ecoSelect">Numero Economico:</label>
-        </div>
-        <div class="col-sm-6">
-            <input id="Numero_ecoSelect" class="form-control" type="text" />
-        </div>
-    </div>
-    <br />
-    <div class="" style="display: flex; align-items:center">
-        <div class="col-sm-2 ">
-            <label class="control-label" for="TipoCarroceriaSelect">Tipo Carroceria:</label>
-        </div>
-        <div class="col-sm-6">
-            <select class="form-control" aria-label="Default select example" id="TipoCarroceriaSelect">
-                <option selected>Seleccione</option>
-                <option value="1">One</option>
-                <option value="2">Two</option>
-            </select>
-        </div>
-    </div>
-    <br />
-    <div class="" style="display: flex; align-items:center">
-        <div class="col-sm-2 ">
-            <label class="control-label" for="MarcaText">Marca:</label>
-        </div>
-        <div class="col-sm-6">
-            <input id="MarcaText" class="form-control" type="text" />
-        </div>
-    </div>
-    <br />
-    <div class="" style="display: flex; align-items:center">
-        <div class="col-sm-2 ">
-            <label class="control-label" for="ModeloText">Modelo:</label>
-        </div>
-        <div class="col-sm-6">
-            <input id="ModeloText" class="form-control" type="text" />
-        </div>
-    </div>
-    </fieldset>
-    <br />
-    <br />
-    <fieldset>
-        <legend class="w-auto px-2">Capacidades del transporte</legend>
-        <div class="" style="display: flex; align-items:center">
-            <div class="col-sm-2 ">
-                <label class="control-label" for="LargoText">Largo:</label>
-            </div>
-            <div class="col-sm-6">
-                <input id="LargoText" class="form-control" type="text" />
+                </select>
             </div>
         </div>
         <br />
         <div class="" style="display: flex; align-items:center">
             <div class="col-sm-2 ">
-                <label class="control-label" for="AnchoText">Ancho:</label>
+                <label class="control-label" for="FleteroSelect">Fletero:</label>
             </div>
             <div class="col-sm-6">
-                <input id="AnchoText" class="form-control" type="text" />
+                <select class="form-control" aria-label="Default select example" id="FleteroSelect">
+                    <option value="0" selected>Seleccione</option>
+                    @foreach (var itemF in Model.TodosFleteros)
+                    {
+                        <option value="@itemF.idFletero">@itemF.nombreFletero</option>
+                    }
+                </select>
+            </div>
+        </div>
+        <br />
+        <div class="" style="display: flex; align-items:center">
+            <div class="form-check">
+                <label class="control-label" for="ModalidadRadio">Modalidad:</label>
+                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" checked>
+                <label class="form-check-label" for="flexRadioDefault1">
+                    Base
+                </label>
+            </div>
+            <br />
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2">
+                <label class="form-check-label" for="flexRadioDefault2">
+                    Adicional
+                </label>
+            </div>
+        </div>
+        <br />
+        <fieldset>
+            <legend class="w-auto px-2">Descripcion de la unidad</legend>
+            <div class="" style="display: flex; align-items:center">
+                <div class="col-sm-2 ">
+                    <label class="control-label" for="TipoUnidadSelect">Tipo de Unidad:</label>
+                </div>
+                <div class="col-sm-6">
+                    <select class="form-control" aria-label="Default select example" id="TipoUnidadSelect">
+                        <option value="0" selected>Seleccione</option>
+                        @foreach(var itemTU in Model.TipoDeUnidad)
+                        {
+                            <option value="@itemTU.IdTipoUnidad">@itemTU.NombreUnidad</option>
+                        }
+                    </select>
+                </div>
+            </div>
+            <br />
+            <div class="" style="display: flex; align-items:center">
+                <div class="col-sm-2 ">
+                    <label class="control-label" for="Numero_ecoSelect">Numero Economico:</label>
+                </div>
+                <div class="col-sm-6">
+                    <input id="Numero_ecoSelect" class="form-control" type="text" />
+                </div>
+            </div>
+            <br />
+            <div class="" style="display: flex; align-items:center">
+                <div class="col-sm-2 ">
+                    <label class="control-label" for="TipoCarroceriaSelect">Tipo Carroceria:</label>
+                </div>
+                <div class="col-sm-6">
+                    <select class="form-control" aria-label="Default select example" id="TipoCarroceriaSelect">
+                        <option value="0" selected>Seleccione</option>
+                        @foreach (var itemTC in Model.TipoDeCarroceria)
+                        {
+                            <option value="@itemTC.IdCarroceria">@itemTC.TipoCarroceria</option>
+                        }
+                    </select>
+                </div>
+            </div>
+            <br />
+            <div class="" style="display: flex; align-items:center">
+                <div class="col-sm-2 ">
+                    <label class="control-label" for="MarcaText">Marca:</label>
+                </div>
+                <div class="col-sm-6">
+                    <input id="MarcaText" class="form-control" type="text" />
+                </div>
+            </div>
+            <br />
+            <div class="" style="display: flex; align-items:center">
+                <div class="col-sm-2 ">
+                    <label class="control-label" for="ModeloText">Modelo:</label>
+                </div>
+                <div class="col-sm-6">
+                    <input id="ModeloText" class="form-control" type="text" />
+                </div>
+            </div>
+        </fieldset>
+        <br />
+        <br />
+        <fieldset>
+            <legend class="w-auto px-2">Capacidades del transporte</legend>
+            <div class="" style="display: flex; align-items:center">
+                <div class="col-sm-2 ">
+                    <label class="control-label" for="LargoText">Largo:</label>
+                </div>
+                <div class="col-sm-6">
+                    <input id="LargoText" class="form-control" type="text" />
+                </div>
+                <div>
+                    <label>pies</label>
+                </div>
+            </div>
+            <br />
+            <div class="" style="display: flex; align-items:center">
+                <div class="col-sm-2 ">
+                    <label class="control-label" for="AnchoText">Ancho:</label>
+                </div>
+                <div class="col-sm-6">
+                    <input id="AnchoText" class="form-control" type="text" />
+                </div>
+                <div>
+                    <label>mts</label>
+                </div>
+            </div>
+            <br />
+            <div class="" style="display: flex; align-items:center">
+                <div class="col-sm-2 ">
+                    <label class="control-label" for="AltoText">Alto:</label>
+                </div>
+                <div class="col-sm-6">
+                    <input id="AltoText" class="form-control" type="text" />
+                </div>
+                <div>
+                    <label>mts</label>
+                </div>
+            </div>
+            <br />
+            <div class="" style="display: flex; align-items:center">
+                <div class="col-sm-2 ">
+                    <label class="control-label" for="PesoText">Peso:</label>
+                </div>
+                <div class="col-sm-6">
+                    <input id="PesoText" class="form-control" type="text" />
+                </div>
+                <div>
+                    <label>kgs</label>
+                </div>
+            </div>
+        </fieldset>
+        <br />
+        <br />
+        <br />
+        <fieldset>
+            <legend class="w-auto px-2">Poliza de Seguro</legend>
+            <div class="" style="display: flex; align-items:center">
+                <div class="col-sm-2 ">
+                    <label class="control-label" for="NumeroPolizaText">Numero:</label>
+                </div>
+                <div class="col-sm-6">
+                    <input id="NumeroPolizaText" class="form-control" type="text" />
+                </div>
+                <div class="col-sm-2 ">
+                    <label class="control-label" for="FechaVencimiento">Fecha de Vencimiento:</label>
+                </div>
+                <div class="col-md-10">
+                    <input type="date" id="start" name="trip-start"
+                           value="2022-03-08"
+                           min="2015-01-01" max="2028-12-31">
+                </div>
+            </div>
+        </fieldset>
+        <br />
+        <br />
+        <br />
+        <fieldset>
+            <legend class="w-auto px-2">Tarjeta de Circulacion</legend>
+            <div class="" style="display: flex; align-items:center">
+                <div class="col-sm-2 ">
+                    <label class="control-label" for="FVencimientoTCirculacionText">Fecha de Vencimiento:</label>
+                </div>
+                <div class="col-md-10">
+                    <input type="date" id="start" name="trip-start"
+                           value="2022-03-08"
+                           min="2015-01-01" max="2028-12-31">
+                </div>
+            </div>
+        </fieldset>
+        <br />
+        <br />
+        <fieldset>
+            <legend class="w-auto px-2">Permisos</legend>
+            <div class="" style="display: flex; align-items:center">
+                <div class="col-sm-2">
+                    <label class="control-label" for="PermisoText">Nombre de Permiso:</label>
+                </div>
+                <div class="col-sm-6">
+                    <input id="PermisoText" class="form-control" type="text" />
+                </div>
+                <div class="col-sm-2 ">
+                    <label class="control-label" for="FVencimientoPermisoText">Fecha de Vencimiento:</label>
+                </div>
+                <div class="col-md-10">
+                    <input type="date" id="start" name="trip-start"
+                           value="2022-03-08"
+                           min="2015-01-01" max="2028-12-31">
+                </div>
+            </div>
+        </fieldset>
+        <br />
+        <br />
+        <div class="" style="display: flex; align-items:center">
+            <div class="col-sm-2 ">
+                <label class="control-label" for="PlacasText">Placas:</label>
+            </div>
+            <div class="col-sm-6">
+                <input id="PlacasText" class="form-control" type="text" />
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="FederalCheckBox">
+                <label class="form-check-label" for="flexCheckDefault">
+                    Federal
+                </label>
             </div>
         </div>
         <br />
         <div class="" style="display: flex; align-items:center">
             <div class="col-sm-2 ">
-                <label class="control-label" for="AltoText">Alto:</label>
+                <label class="control-label" for="CaractEspecialText">Caracteristica Especial:</label>
             </div>
             <div class="col-sm-6">
-                <input id="AltoText" class="form-control" type="text" />
+                <input id="CaractEspecialText" class="form-control" type="text" />
             </div>
         </div>
         <br />
         <div class="" style="display: flex; align-items:center">
-            <div class="col-sm-2 ">
-                <label class="control-label" for="PesoText">Peso:</label>
+            <div class="form-check">
+                <label class="control-label" for="GPSRadio">Contiene GPS:</label>
+                <input class="form-check-input" type="radio" name="flexRadioDefault" id="GPSRadio1" checked>
+                <label class="form-check-label" for="flexRadioDefault1">
+                    Si
+                </label>
             </div>
-            <div class="col-sm-6">
-                <input id="PesoText" class="form-control" type="text" />
+            <br />
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2">
+                <label class="form-check-label" for="flexRadioDefault2">
+                    No
+                </label>
             </div>
-        </div>
-    </fieldset>
-    <br />
-    <br />
-    <br />
-    <fieldset>
-        <legend class="w-auto px-2">Poliza de Seguro</legend>
-        <div class="" style="display: flex; align-items:center">
-            <div class="col-sm-2 ">
-                <label class="control-label" for="NumeroPolizaText">Numero:</label>
-            </div>
-            <div class="col-sm-6">
-                <input id="NumeroPolizaText" class="form-control" type="text" />
-            </div>
-            <div class="col-sm-2 ">
-                <label class="control-label" for="FechaVencimiento">Fecha de Vencimiento:</label>
-            </div>
-            <div class="col-md-10">
-                <input type="date" id="start" name="trip-start"
-                       value="2022-03-08"
-                       min="2015-01-01" max="2028-12-31">
-            </div>
-        </div>
-    </fieldset>
-    <br />
-    <br />
-    <br />
-    <fieldset>
-        <legend class="w-auto px-2">Tarjeta de Circulacion</legend>
-        <div class="" style="display: flex; align-items:center">
-            <div class="col-sm-2 ">
-                <label class="control-label" for="FVencimientoTCirculacionText">Fecha de Vencimiento:</label>
-            </div>
-            <div class="col-md-10">
-                <input type="date" id="start" name="trip-start"
-                       value="2022-03-08"
-                       min="2015-01-01" max="2028-12-31">
-            </div>
-        </div>
-    </fieldset>
-    <br />
-    <br />
-    <fieldset>
-        <legend class="w-auto px-2">Permisos</legend>
-        <div class="" style="display: flex; align-items:center">
-            <div class="col-sm-2">
-                <label class="control-label" for="PermisoText">Nombre de Permiso:</label>
-            </div>
-            <div class="col-sm-6">
-                <input id="PermisoText" class="form-control" type="text" />
-            </div>
-            <div class="col-sm-2 ">
-                <label class="control-label" for="FVencimientoPermisoText">Fecha de Vencimiento:</label>
-            </div>
-            <div class="col-md-10">
-                <input type="date" id="start" name="trip-start"
-                       value="2022-03-08"
-                       min="2015-01-01" max="2028-12-31">
-            </div>
-        </div>
-    </fieldset>
-    <br/>
-    <br/>
-    <div class="" style="display: flex; align-items:center">
-        <div class="col-sm-2 ">
-            <label class="control-label" for="PlacasText">Placas:</label>
-        </div>
-        <div class="col-sm-6">
-            <input id="PlacasText" class="form-control" type="text" />
-        </div>
-        <div class="form-check">
-            <input class="form-check-input" type="checkbox" value="" id="FederalCheckBox">
-            <label class="form-check-label" for="flexCheckDefault">
-                Federal
-            </label>
-        </div>
-    </div>
-    <br />
-    <div class="" style="display: flex; align-items:center">
-        <div class="col-sm-2 ">
-            <label class="control-label" for="CaractEspecialText">Caracteristica Especial:</label>
-        </div>
-        <div class="col-sm-6">
-            <input id="CaractEspecialText" class="form-control" type="text" />
-        </div>
-    </div>
-    <br />
-    <div class="" style="display: flex; align-items:center">
-        <div class="form-check">
-            <label class="control-label" for="GPSRadio">Contiene GPS:</label>
-            <input class="form-check-input" type="radio" name="flexRadioDefault" id="GPSRadio1" checked>
-            <label class="form-check-label" for="flexRadioDefault1">
-                Si
-            </label>
         </div>
         <br />
-        <div class="form-check">
-            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2">
-            <label class="form-check-label" for="flexRadioDefault2">
-                No
-            </label>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-success" onclick="Guardar()">Aceptar</button>
+            <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
         </div>
     </div>
-    <br/>
-    <div class="modal-footer">
-        <button type="button" class="btn btn-success" onclick="Guardar()">Aceptar</button>
-        <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
-    </div>
-</body>
-</html>
+</div>
+
+<script>
+
+    //var selectDistricto = document.getElementById("DistritoSelect");
+
+    //selectDistricto.addEventListener("change", Refresh);
+    //Refresh();
+
+    //function Refresh() {
+    //    fetch("/Fletero/GetTiendasList?id=" + selectDistricto.value)
+    //        .then(function (result) {
+    //            if (result.ok)
+    //                return result.json();
+    //        })
+    //        .then(function (data) {
+    //            console.log(data);
+    //            let cbo = document.getElementById("TiendaSelect");
+    //            cbo.innerHTML = "";
+    //            data.forEach(function (element) {
+    //                let opt = document.createElement("option")
+    //                opt.appendChild(document.createTextNode(element.STORENAME));
+    //                opt.value = element.IDSTORE;
+    //                document.createElement("option");
+    //                cbo.appendChild(opt);
+    //            })
+    //       })
+    //}
+
+</script>
 
 <p>
     @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
