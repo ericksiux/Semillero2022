@@ -14,6 +14,12 @@ namespace Fletero2022.Areas.Administracion.Controllers
             return View();
         }
 
+        [HttpGet]
+        public ActionResult Agregar()
+        {
+            return View();
+        }
+
         // GET: Administracion/Contrato/Details/5
         public ActionResult Details(int id)
         {

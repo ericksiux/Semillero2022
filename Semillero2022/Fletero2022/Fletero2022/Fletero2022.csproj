@@ -116,10 +116,12 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\Administracion\AdministracionAreaRegistration.cs" />
+    <Compile Include="Areas\Administracion\Controllers\ContratoController.cs" />
     <Compile Include="Areas\Administracion\Controllers\DemoABCController.cs" />
     <Compile Include="Areas\Administracion\Controllers\FleteroController.cs" />
     <Compile Include="Areas\Administracion\Controllers\UnidadController.cs" />
     <Compile Include="Areas\Administracion\Controllers\OperadorController.cs" />
+    <Compile Include="Areas\Administracion\Models\ContratoModel.cs" />
     <Compile Include="Areas\Administracion\Models\DemoABCModel.cs" />
     <Compile Include="Areas\Administracion\Models\FleteroModel.cs" />
     <Compile Include="Areas\Administracion\Models\UnidadModel.cs" />
@@ -153,6 +155,9 @@
     <Content Include="Areas\Administracion\Views\Operador\Create.cshtml" />
     <Content Include="Areas\Administracion\Views\Fletero\Buscar.cshtml" />
     <Content Include="Areas\Administracion\Views\Fletero\_FleterosGrid.cshtml" />
+    <Content Include="Areas\Administracion\Views\Contrato\Index.cshtml" />
+    <Content Include="Areas\Administracion\Views\Contrato\ContratosGrid.cshtml" />
+    <Content Include="Areas\Administracion\Views\Contrato\Agregar.cshtml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
