@@ -1,269 +1,96 @@
-﻿
+﻿@model Fletero2022.Areas.Administracion.Models.ContratoModel
+
 @{
-    ViewBag.Title = "Configuracion de Contrato Regular";
+    ViewBag.Title = "Consultar Contratos Regulares";
 }
 
 <h2>@ViewBag.Title</h2>
 
 <div class="row" align="center">
     <div class="col-lg-12">
-        <form action="/" method="post">
-            <div class="" style="display: flex; align-items: center; margin-top: 35px;">
-                <div class="col-lg-4" style="text-align: right;">
-                    <label>Distrito:</label>
-                </div>
-                <div style="text-align:left" class="col-sm-4">
-                    <select class="form-control" id="DistritoSelect">
-                        <option selected value="value">Selecciona el Distrito</option>
-                        <option value="value">Norte</option>
-                        <option value="value">Sur</option>
-                        <option value="value">Centro</option>
-                    </select>
-                </div>
-            </div>
-            <div class="" style="display: flex; align-items: center; margin-top: 30px;">
-                <div class="col-lg-4" style="text-align: right;">
-                    <label>Tienda:</label>
-                </div>
-                <div style="text-align:left" class="col-sm-4">
-                    <select class="form-control" id="DistritoSelect">
-                        <option selected value="value">Selecciona el Distrito</option>
-                        <option value="value">Norte</option>
-                        <option value="value">Sur</option>
-                        <option value="value">Centro</option>
-                    </select>
-                </div>
-            </div>
-            <div class="" style="display: flex; align-items: center; margin-top: 30px;">
-                <div class="col-lg-4" style="text-align: right;">
-                    <label>Fletero:</label>
-                </div>
-                <div style="text-align:left" class="col-sm-4">
-                    <select class="form-control" id="DistritoSelect">
-                        <option selected value="value">Selecciona el Distrito</option>
-                        <option value="value">Norte</option>
-                        <option value="value">Sur</option>
-                        <option value="value">Centro</option>
-                    </select>
-                </div>
-            </div>
+        <div class="col-sm-3">
+            <p>Region:</p>
+            <select class="form-control" aria-label="Selecciona la Region" id="RegionSelect">
+                <option value="0" selected>Selecciona</option>
 
-            <div class="" style="display: flex; align-items: center; margin-top: 30px;">
-                <div class="col-lg-4" style="text-align: right;">
-                    <label>Lugar y Fecha de la Firma de Contrato:</label>
-                </div>
-                <div style="text-align:left" class="col-sm-4">
-                    <input class="form-control" type="text" name="LugarFechaContrato" value="" />
-                    <input class="form-control" type="date" name="name" value="" />
-                </div>
-            </div>
-            <div class="" style="display: flex; align-items: center; margin-top: 30px;">
-                <div class="col-lg-4" style="text-align: right;">
-                    <label>Quién lo Firma por Parte de Home Depot:</label>
-                </div>
-                <div style="text-align:left" class="col-sm-4">
-                    <input class="form-control" style="width: 100%;" type="text" name="QuienFirmaHomeDepot" value="" />
-                </div>
-            </div>
-            <div class="" style="display: flex; align-items: center; margin-top: 30px;">
-                <div class="col-lg-4" style="text-align: right;">
-                    <label>Quién lo Firma por Parte del Fletero:</label>
-                </div>
-                <div style="text-align:left" class="col-sm-4">
-                    <input class="form-control" style="width: 100%;" type="text" name="QuienFirmaFletero" value="" />
-                </div>
-            </div>
-            <div class="" style="display: flex; align-items: center; margin-top: 30px;">
-                <div class="col-lg-4" style="text-align: right;">
-                    <label>Quién Realizó el Tramite de la Firma:</label>
-                </div>
-                <div style="text-align:left" class="col-sm-4">
-                    <input class="form-control" style="width: 100%;" type="text" name="QuienRealizoTramiteFirma" value="" />
-                </div>
-            </div>
-            <div class="" style="display: flex; align-items: center; margin-top: 30px;">
-                <div class="col-lg-4" style="text-align: right;">
-                    <label>Fecha Inicio del Contrato:</label>
-                </div>
-                <div style="text-align:left" class="col-sm-4">
-                    <input class="form-control" type="date" name="name" value="" />
-                </div>
-            </div>
-            <div class="" style="display: flex; align-items: center; margin-top: 30px;">
-                <div class="col-lg-4" style="text-align: right;">
-                    <label>Fecha de Terminación de Contrato:</label>
-                </div>
-                <div style="text-align:left" class="col-sm-4">
-                    <input class="form-control" type="date" name="name" value="" />
-                </div>
-            </div>
-            <div class="" style="display: flex; align-items: center; margin-top: 30px;">
-                <div class="col-lg-4" style="text-align: right;">
-                    <label>Renovación Automática:</label>
-                </div>
-                <div style="text-align:left" class="col-sm-4">
-                    <label><input type="checkbox" name="name" value="" />Si</label>
-                </div>
-            </div>
+            </select>
+            <br />
+        </div>
+        <div class="col-sm-3">
+            <p>Distrito:</p>
+            <select class="form-control" aria-label="Selecciona el Distrito" id="DistritoSelect">
+                <option value="0" selected>Selecciona</option>
 
-            <hr />
-            <h3 style="text-align: left;">Anexo C</h3>
+            </select>
+            <br />
+        </div>
+        <div class="col-sm-3">
+            <p>Tienda:</p>
+            <select class="form-control" aria-label="Selecciona la Tienda" id="TiendaSelect">
+                <option value="0" selected>Selecciona</option>
 
-            <div class="" style="display: flex; align-items: center; margin-top: 30px;">
-                <div class="col-lg-4" style="text-align: right;">
-                    <label>Unidad:</label>
-                </div>
-                <div style="text-align:left" class="col-sm-4">
-                    <select class="form-control" id="UnidadSelect">
-                        <option selected value="value">Selecciona el Unidad</option>
-                        <option value="value">Norte</option>
-                        <option value="value">Sur</option>
-                        <option value="value">Centro</option>
-                    </select>
-                </div>
-            </div>
-            <div class="" style="display: flex; align-items: center; margin-top: 30px;">
-                <div class="col-lg-4" style="text-align: right;">
-                    <label>Tarifa de Renta Diaria:</label>
-                </div>
-                <div style="text-align:left" class="col-sm-4">
-                    <input class="form-control" type="text" name="name" value="" />
-                </div>
-            </div>
-            <div class="" style="display: flex; align-items: center; margin-top: 30px;">
-                <div class="col-lg-4" style="text-align: right;">
-                    <label>Fecha Inicio del Contrato:</label>
-                </div>
-                <div style="text-align:left" class="col-sm-4">
-                    <input class="form-control" type="date" name="name" value="" />
-                </div>
-            </div>
-            <div class="" style="display: flex; align-items: center; margin-top: 30px;">
-                <div class="col-lg-4" style="text-align: right;">
-                    <label>Tarifa de Renta Diaria:</label>
-                </div>
-                <div style="text-align:left" class="col-sm-4">
-                    <input class="form-control" style="width: 100%;" type="text" name="TarifaRentaDiaria" value="" />
-                </div>
-            </div>
-            <div class="" style="display: flex; align-items: center; margin-top: 30px;">
-                <div class="col-lg-4" style="text-align: right;">
-                    <label>Distancia de Zona Local:</label>
-                </div>
-                <div style="text-align:left" class="col-sm-4">
-                    <label><input class="form-control" style="width: 85%;" type="text" name="DistanciaZonaLocal" value="" />Km</label>
-                </div>
-            </div>
-            <div class="" style="display: flex; align-items: center; margin-top: 30px;">
-                <div class="col-lg-4" style="text-align: right;">
-                    <label>Horas de Jornada laboral:</label>
-                </div>
-                <div style="text-align:left" class="col-sm-4">
-                    <label><input class="form-control" style="width: 90%;" type="number" name="DistanciaZonaLocal" value="" />hrs</label>
-                </div>
-            </div>
-            <div class="" style="display: flex; align-items: center; margin-top: 30px;">
-                <div class="col-lg-4" style="text-align: right;">
-                    <label>Tarifa de hr Extra:</label>
-                </div>
-                <div style="text-align:left" class="col-sm-4">
-                    <label><input class="form-control" style="width: 90%;" type="number" name="DistanciaZonaLocal" value="" />hrs</label>
-                </div>
-            </div>
-            <div class="" style="display: flex; align-items: center; margin-top: 30px;">
-                <div class="col-lg-4" style="text-align: right;">
-                    <label>Tarifa Entrega Local:</label>
-                </div>
-                <div style="text-align:left" class="col-sm-4">
-                    <label><input class="form-control" style="width: 100%;" type="number" name="DistanciaZonaLocal" value="" />hrs</label>
-                </div>
-            </div>
-            <div class="" style="display: flex; align-items: center; margin-top: 30px;">
-                <div class="col-lg-4" style="text-align: right;">
-                    <label>Tarifa Vuelta Local:</label>
-                </div>
-                <div style="text-align:left" class="col-sm-4">
-                    <label><input class="form-control" style="width: 100%;" type="number" name="DistanciaZonaLocal" value="" />hrs</label>
-                </div>
-            </div>
-            <div class="" style="display: flex; align-items: center; margin-top: 30px;">
-                <div class="col-lg-4" style="text-align: right;">
-                    <label>Tarifa de Reparto:</label>
-                </div>
-                <div style="text-align:left" class="col-sm-4">
-                    <label><input class="form-control" style="width: 100%;" type="number" name="DistanciaZonaLocal" value="" />hrs</label>
-                </div>
-            </div>
-            <div class="" style="display: flex; align-items: center; margin-top: 30px;">
-                <div class="col-lg-4" style="text-align: right;">
-                    <label>Incluye Maniobras en la renta:</label>
-                </div>
-                <div style="text-align:left" class="col-sm-4">
-                    <label><input type="radio" name="ManiobrasRenta" value="" />Si</label>
-                    <label><input type="radio" name="ManiobrasRenta" value="" />No</label>
-                    <input class="btn btn-success" type="button" name="" value="Agregar a Grid" />
-                    <input class="btn btn-danger" type="button" name="" value="Quitar del Grid" />
-                </div>
-            </div>
+            </select>
+            <br />
+        </div>
+        <div class="col-sm-3">
+            <p>Fletero:</p>
+            <select class="form-control" aria-label="Selecciona el Fletero" id="FleteroSelect">
+                <option value="0" selected>Selecciona</option>
 
-            <div class="row" style="margin-top: 50px;">
-                <table class="table table-dark table-striped">
-                    <thead>
-                        <tr>
-                            <th scope="col">Unidad</th>
-                            <th scope="col">Tarifas de Renta Diaria</th>
-                            <th scope="col">Distancia de Zona Local</th>
-                            <th scope="col">Horas de Jornada Laboral</th>
-                            <th scope="col">Tarifa de hr Extra</th>
-                            <th scope="col">Tarifa de Entrega Total</th>
-                            <th scope="col">Tarifa de Vuelta Total</th>
-                            <th scope="col">Tarifa de Reparto</th>
-                            <th scope="col">Maniobra</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <th scope="row">1</th>
-                            <td>Mark</td>
-                            <td>Otto</td>
-                            <td>Otto</td>
-                            <td>Otto</td>
-                            <td>Otto</td>
-                            <td>Otto</td>
-                            <td>Otto</td>
-                            <td>Otto</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">2</th>
-                            <td>Jacob</td>
-                            <td>Thornton</td>
-                            <td>Thornton</td>
-                            <td>Thornton</td>
-                            <td>Thornton</td>
-                            <td>Thornton</td>
-                            <td>Thornton</td>
-                            <td>Thornton</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">3</th>
-                            <td>Larry the Bird</td>
-                            <td>Larry the Bird</td>
-                            <td>Larry the Bird</td>
-                            <td>Larry the Bird</td>
-                            <td>Larry the Bird</td>
-                            <td>Larry the Bird</td>
-                            <td>Larry the Bird</td>
-                            <td>Larry the Bird</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-
-            <div class="col-lg-12" style="margin-top:50px;">
-                <input type="submit" class="btn btn-success" style="margin-right:3px;" value="Guardar" />
-                <input type="button" class="btn btn-danger" value="Cancelar" />
-            </div>
-
-        </form>
+            </select>
+            <br />
+        </div>
+        <div class="col-sm-3">
+            <p>Estatus:</p>
+            <select class="form-control" aria-label="Selecciona el Estatus" id="EstatusSelect">
+                <option value="0" selected>Selecciona</option>
+                <option value="1">Activo</option>
+                <option value="1">Inactivo</option>
+            </select>
+            <br />
+        </div>
+        <div class="col-md-3" style="margin-top:30px;">
+            <button type="button" class="btn btn-primary" style="margin-right:25px;">Buscar</button>
+            <button type="button" class="btn btn-primary">Limpiar Filtros</button>
+        </div>
     </div>
 </div>
+
+<div class="row" style="margin-top:25px;">
+    <div class="col-lg-12">
+        <div class="col-sm-6">
+            <button type="button" style="margin-right:15px;" class="btn btn-success" onclick="AddContrato()">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus" viewBox="0 0 16 16" style="vertical-align:middle;">
+                    <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z" />
+                </svg>
+                Agregar
+            </button>
+            <button type="button" style="margin-right:15px;" class="btn btn-primary">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-eye-fill" viewBox="0 0 16 16" style="vertical-align:middle;">
+                    <path d="M10.5 8a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0z" />
+                    <path d="M0 8s3-5.5 8-5.5S16 8 16 8s-3 5.5-8 5.5S0 8 0 8zm8 3.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7z" />
+                </svg>
+                ver Detalles
+            </button>
+            <button type="button" class="btn btn-danger">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-file-x-fill" viewBox="0 0 16 16" style="vertical-align:middle;">
+                    <path d="M12 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2zM6.854 6.146 8 7.293l1.146-1.147a.5.5 0 1 1 .708.708L8.707 8l1.147 1.146a.5.5 0 0 1-.708.708L8 8.707 6.854 9.854a.5.5 0 0 1-.708-.708L7.293 8 6.146 6.854a.5.5 0 1 1 .708-.708z" />
+                </svg>
+                Deshabilitar
+            </button>
+        </div>
+    </div>
+</div>
+
+<div class="row" style="margin-top:35px;">
+    <div class="col-lg-12">
+        @{ Html.RenderPartial("ContratosGrid", Model);}
+    </div>
+</div>
+
+<script>
+    function AddContrato() {
+        url = '@Url.Content("~/Administracion/Contrato/Agregar")';
+        document.location.href = url;
+    }
+</script>
